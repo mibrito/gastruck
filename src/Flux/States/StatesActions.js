@@ -23,8 +23,25 @@ class StateActions {
 		}.bind(this));
 	}
 
+	loadOne(id){
+		this.dispatch();
+		return api.get({
+			endpoint: [STATES.GETBYID,id].join('/')
+		}).then( state => {
+			this.actions.updateOne(state);
+			return state;
+		}.bind(this)).catch( error => {
+			this.actions.requestFailed(error);
+			return error;
+		}.bind(this));
+	}
+
 	update(states){
 		this.dispatch(states);
+	}
+
+	updateOne(state){
+		this.dispatch(state);
 	}
 
 	/**

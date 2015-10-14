@@ -1,3 +1,37 @@
+@green-truck: #00c1a2;
+@blue-truck: #317db2;
+
+@gray: #666;
+
 body{
 	background: white;
+	color: @gray;
+}
+
+a {
+	color: @green-truck;
+	&:hover, &:active {
+		color: @blue-truck;
+		text-decoration: none;
+	}
+}
+
+.logo {
+	h1 {
+		margin-bottom: 0;
+	}
+	.logo-truck {
+		color: @green-truck;
+	}
+	footer.crawl-dates {
+		font-size: 1.2rem;
+		text-align: left;
+		font-weight: bold;
+	}
+}
+
+.station {
+	.about {
+		font-size: 2rem;
+	}
 }

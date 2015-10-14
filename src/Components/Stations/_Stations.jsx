@@ -1,28 +1,29 @@
+
 import React from 'react';
 
 import {Row} from 'react-bootstrap';
 
-import MainStore from '../Flux/Main/MainStore';
-import MainActions from '../Flux/Main/MainActions';
+import StationsStore from '../../Flux/Stations/StationsStore';
+import StationsActions from '../../Flux/Stations/StationsActions';
 
 class Stations extends React.Component {
 	constructor(props){
 		super(props);
 
-		this.state = MainStore.getState();
+		this.state = StationsStore.getState();
 		this._onStoreChange = this._onStoreChange.bind(this);
 	}
 
 	componentWillMount() {
-		MainActions.load();
+		StationsActions.load();
 	}
 
 	componentDidMount() {
-		MainStore.listen(this._onStoreChange);
+		StationsStore.listen(this._onStoreChange);
 	}
 
 	componentWillUnmount() {
-		MainStore.unlisten(this._onStoreChange);
+		StationsStore.unlisten(this._onStoreChange);
 	}
 
 	_onStoreChange(state){

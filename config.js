@@ -2,14 +2,21 @@ export const APPNAME = 'GasTruck';
 export const BASE_URL = 'http://' + window.location.hostname + ':3000/';
 
 export const STATES = {
-	ROOT: 'states'
+	LIST: 'states',
+	GETBYID: ['states', 'id'].join('/')
 };
 
 export const CITIES = {
-	ROOT: 'cities'
+	LIST: 'cities',
+	GETBYID: ['cities', 'id'].join('/')
 };
 
 export const STATIONS = {
-	ROOT: 'stations',
-	ONE: ['stations', 'one'].join('/')
+	LIST: 'stations',
+	GETBYID: ['stations', 'id'].join('/')
+};
+
+export const CRAWL = {
+	DATES: ['crawl', 'dates'].join('/'),
+	GETBYID: ['crawl', 'id'].join('/')
 };

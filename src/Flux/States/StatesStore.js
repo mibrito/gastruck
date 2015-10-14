@@ -5,7 +5,7 @@ import StatesActions from './StatesActions';
 
 var clean = {
 	errorMessage: null,
-	states: []
+	states: {}
 };
 
 class StatesStore {
@@ -15,17 +15,22 @@ class StatesStore {
 		this.bindListeners({
 			clean: StatesActions.LOAD,
 			update: StatesActions.UPDATE,
+			updateOne: StatesActions.UPDATE_ONE,
 			requestFailed: StatesActions.REQUEST_FAILED,
 		});
 	}
 
 	clean(){
-		this.historyRating = clean.historyRating;
-		this.errorMessage = clean.errorMessage;
+		_.assign(this, _.clone(clean));
 	}
 
 	update(states){
-		this.states = _.indexBy(states, 'selEstado');
+		this.states = _.indexBy(states, '_id');
+		this.errorMessage = clean.errorMessage;
+	}
+
+	updateOne(state){
+		this.states[state._id] = state;
 		this.errorMessage = clean.errorMessage;
 	}
 

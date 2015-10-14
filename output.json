@@ -1,0 +1,3935 @@
+[
+  {
+    "name": "Acre",
+    "cities": [
+      {
+        "name": "Cruzeiro do Sul",
+        "statistics": [
+          {
+            "type": "Gasolina",
+            "consumerPrice": [
+              {
+                "averagePrice": 4.070,
+                "standardDeviation": 0.029,
+                "minPrice": 4.010,
+                "maxPrice": 4.100,
+                "averageMargin": 0.678
+              }
+            ],
+            "distributionPrice": [
+              {
+                "averagePrice": 3.392,
+                "standardDeviation": 0.000,
+                "minPrice": 3.392,
+                "maxPrice": 3.392
+              }
+            ]
+          },
+          {
+            "type": "Etanol",
+            "consumerPrice": [
+              {
+                "averagePrice": 3.400,
+                "standardDeviation": 0.000,
+                "minPrice": 3.400,
+                "maxPrice": 3.400,
+                "averageMargin": null
+              }
+            ],
+            "distributionPrice": [
+              {
+                "averagePrice": null,
+                "standardDeviation": null,
+                "minPrice": null,
+                "maxPrice": null
+              }
+            ]
+          },
+          {
+            "type": "Diesel",
+            "consumerPrice": [
+              {
+                "averagePrice": 3.564,
+                "standardDeviation": 0.074,
+                "minPrice": 3.420,
+                "maxPrice": 3.640,
+                "averageMargin": 0.454
+              }
+            ],
+            "distributionPrice": [
+              {
+                "averagePrice": 3.110,
+                "standardDeviation": 0.000,
+                "minPrice": 3.110,
+                "maxPrice": 3.110
+              }
+            ]
+          },
+          {
+            "type": "Diesel S10",
+            "consumerPrice": [
+              {
+                "averagePrice": 3.603,
+                "standardDeviation": 0.062,
+                "minPrice": 3.550,
+                "maxPrice": 3.700,
+                "averageMargin": null
+              }
+            ],
+            "distributionPrice": [
+              {
+                "averagePrice": null,
+                "standardDeviation": null,
+                "minPrice": null,
+                "maxPrice": null
+              }
+            ]
+          },
+          {
+            "type": "GLP",
+            "consumerPrice": [
+              {
+                "averagePrice": 68.25,
+                "standardDeviation": 2.87,
+                "minPrice": 65.00,
+                "maxPrice": 72.00,
+                "averageMargin": null
+              }
+            ],
+            "distributionPrice": [
+              {
+                "averagePrice": null,
+                "standardDeviation": null,
+                "minPrice": null,
+                "maxPrice": null
+              }
+            ]
+          }
+        ],
+        "stations": [
+          {
+            "name": "Auto Posto Igarape Preto Ltda - Me",
+            "address": "Estrada Aeroporto, Sn Km 10",
+            "area": "Zona Rural",
+            "flag": "PETROBRAS DISTRIBUIDORA S.A.",
+            "prices": [
+              {
+                "type": "Gasolina",
+                "sellPrice": 4.010,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-21"
+              },
+              {
+                "type": "Diesel",
+                "sellPrice": 3.420,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-21"
+              },
+              {
+                "type": "Diesel S10",
+                "sellPrice": 3.550,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-21"
+              },
+              {
+                "type": "GLP",
+                "sellPrice": 68.00,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "22/09/2015",
+                "date": ""
+              }
+            ]
+          },
+          {
+            "name": "Lubras Distribuidora Ltda",
+            "address": "Avenida Coronel Mancio Lima,, 2800",
+            "area": "Copacabana",
+            "flag": "IPIRANGA",
+            "prices": [
+              {
+                "type": "Gasolina",
+                "sellPrice": 4.050,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-21"
+              },
+              {
+                "type": "Diesel",
+                "sellPrice": 3.500,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-21"
+              },
+              {
+                "type": "Diesel S10",
+                "sellPrice": 3.550,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-21"
+              }
+            ]
+          },
+          {
+            "name": "C. A. B Medeiros - Me.",
+            "address": "Avenida 25 de Agosto, S/n",
+            "area": "Aeroporto Velho",
+            "flag": "ATEM S",
+            "prices": [
+              {
+                "type": "Gasolina",
+                "sellPrice": 4.050,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-21"
+              },
+              {
+                "type": "Diesel",
+                "sellPrice": 3.550,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-21"
+              }
+            ]
+          },
+          {
+            "name": "S & G Petroleo Ltda",
+            "address": "Avenida Getulio Vargas, 22",
+            "area": "Centro",
+            "flag": "PETROBRAS DISTRIBUIDORA S.A.",
+            "prices": [
+              {
+                "type": "Gasolina",
+                "sellPrice": 4.060,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-21"
+              },
+              {
+                "type": "Diesel",
+                "sellPrice": 3.530,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-21"
+              },
+              {
+                "type": "Diesel S10",
+                "sellPrice": 3.580,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-21"
+              }
+            ]
+          },
+          {
+            "name": "L & S Comércio Varejista de Combustíveis Ltda",
+            "address": "Avenida Coronel Mancio Lima, 90",
+            "area": "Centro",
+            "flag": "PETROBRAS DISTRIBUIDORA S.A.",
+            "prices": [
+              {
+                "type": "Gasolina",
+                "sellPrice": 4.060,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-21"
+              },
+              {
+                "type": "Diesel",
+                "sellPrice": 3.530,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-21"
+              },
+              {
+                "type": "Diesel S10",
+                "sellPrice": 3.580,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-21"
+              }
+            ]
+          },
+          {
+            "name": "L & S Comércio Varejista de Combustíveis Ltda",
+            "address": "Rua Tarauaca, 400",
+            "area": "Cohab",
+            "flag": "PETROBRAS DISTRIBUIDORA S.A.",
+            "prices": [
+              {
+                "type": "Gasolina",
+                "sellPrice": 4.080,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-21"
+              },
+              {
+                "type": "Diesel",
+                "sellPrice": 3.630,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-21"
+              },
+              {
+                "type": "Diesel S10",
+                "sellPrice": 3.660,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-21"
+              }
+            ]
+          },
+          {
+            "name": "M Nascimento da Silva",
+            "address": "Pto Margem Esquerda do Rio Jurua, S/n Flutuante",
+            "area": "Centro",
+            "flag": "BRANCA",
+            "prices": [
+              {
+                "type": "Gasolina",
+                "sellPrice": 4.090,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-21"
+              },
+              {
+                "type": "Diesel",
+                "sellPrice": 3.560,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-21"
+              },
+              {
+                "type": "GLP",
+                "sellPrice": 68.00,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "22/09/2015",
+                "date": ""
+              }
+            ]
+          },
+          {
+            "name": "Cardinal e Oliveira Ltda",
+            "address": "Avenida Boulevard Thaumaturgo, 1031",
+            "area": "Centro",
+            "flag": "PETROBRAS DISTRIBUIDORA S.A.",
+            "prices": [
+              {
+                "type": "Gasolina",
+                "sellPrice": 4.100,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-21"
+              },
+              {
+                "type": "Etanol",
+                "sellPrice": 3.400,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-21"
+              },
+              {
+                "type": "Diesel",
+                "sellPrice": 3.640,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-21"
+              }
+            ]
+          },
+          {
+            "name": "Cardinal e Oliveira Ltda",
+            "address": "Avenida Vinte e Cinco de Agosto, 1350",
+            "area": "Vinte e Cinco de Agosto",
+            "flag": "PETROBRAS DISTRIBUIDORA S.A.",
+            "prices": [
+              {
+                "type": "Gasolina",
+                "sellPrice": 4.100,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-21"
+              },
+              {
+                "type": "Etanol",
+                "sellPrice": 3.400,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-21"
+              },
+              {
+                "type": "Diesel",
+                "sellPrice": 3.640,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-21"
+              }
+            ]
+          },
+          {
+            "name": "Cardinal e Oliveira Ltda",
+            "address": "Avenida Lauro Muller, 943",
+            "area": "João Alves",
+            "flag": "BRANCA",
+            "prices": [
+              {
+                "type": "Gasolina",
+                "sellPrice": 4.100,
+                "buyPrice": 3.392,
+                "saleMode": "FOB",
+                "provider": "PETROBRAS DISTRIBUIDORA S.A.",
+                "date": "2015-09-21"
+              },
+              {
+                "type": "Diesel",
+                "sellPrice": 3.640,
+                "buyPrice": 3.110,
+                "saleMode": "FOB",
+                "provider": "PETROBRAS DISTRIBUIDORA S.A.",
+                "date": "2015-09-21"
+              },
+              {
+                "type": "Diesel S10",
+                "sellPrice": 3.700,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-21"
+              }
+            ]
+          },
+          {
+            "name": "L. S. G. Gaspar",
+            "address": "Rua Solimões, 0719 Esq. C/ Rua Canamaris",
+            "area": "Artur Maia",
+            "flag": "-",
+            "prices": [
+              {
+                "type": "GLP",
+                "sellPrice": 65.00,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "22/09/2015",
+                "date": ""
+              }
+            ]
+          },
+          {
+            "name": "F & C Combustivel Ltda Me",
+            "address": "Rodovia Gleba Santa Luzia, 40 Br 364 Km 40",
+            "area": "Centro",
+            "flag": "-",
+            "prices": [
+              {
+                "type": "GLP",
+                "sellPrice": 72.00,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "22/09/2015",
+                "date": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Rio Branco",
+        "statistics": [
+          {
+            "type": "Gasolina",
+            "consumerPrice": [
+              {
+                "averagePrice": 3.735,
+                "standardDeviation": 0.042,
+                "minPrice": 3.640,
+                "maxPrice": 3.785,
+                "averageMargin": 0.573
+              }
+            ],
+            "distributionPrice": [
+              {
+                "averagePrice": 3.163,
+                "standardDeviation": 0.027,
+                "minPrice": 3.093,
+                "maxPrice": 3.200
+              }
+            ]
+          },
+          {
+            "type": "Etanol",
+            "consumerPrice": [
+              {
+                "averagePrice": 2.998,
+                "standardDeviation": 0.040,
+                "minPrice": 2.900,
+                "maxPrice": 3.040,
+                "averageMargin": 0.734
+              }
+            ],
+            "distributionPrice": [
+              {
+                "averagePrice": 2.264,
+                "standardDeviation": 0.192,
+                "minPrice": 1.936,
+                "maxPrice": 2.537
+              }
+            ]
+          },
+          {
+            "type": "Diesel",
+            "consumerPrice": [
+              {
+                "averagePrice": 3.286,
+                "standardDeviation": 0.025,
+                "minPrice": 3.190,
+                "maxPrice": 3.310,
+                "averageMargin": 0.441
+              }
+            ],
+            "distributionPrice": [
+              {
+                "averagePrice": 2.846,
+                "standardDeviation": 0.056,
+                "minPrice": 2.774,
+                "maxPrice": 2.930
+              }
+            ]
+          },
+          {
+            "type": "Diesel S10",
+            "consumerPrice": [
+              {
+                "averagePrice": 3.388,
+                "standardDeviation": 0.030,
+                "minPrice": 3.290,
+                "maxPrice": 3.450,
+                "averageMargin": 0.455
+              }
+            ],
+            "distributionPrice": [
+              {
+                "averagePrice": 2.933,
+                "standardDeviation": 0.072,
+                "minPrice": 2.846,
+                "maxPrice": 3.018
+              }
+            ]
+          },
+          {
+            "type": "GLP",
+            "consumerPrice": [
+              {
+                "averagePrice": 56.27,
+                "standardDeviation": 2.34,
+                "minPrice": 51.00,
+                "maxPrice": 63.00,
+                "averageMargin": 7.18
+              }
+            ],
+            "distributionPrice": [
+              {
+                "averagePrice": 49.09,
+                "standardDeviation": 0.21,
+                "minPrice": 48.12,
+                "maxPrice": 49.13
+              }
+            ]
+          }
+        ],
+        "stations": [
+          {
+            "name": "W & A Comércio de Combustíveis Ltda.",
+            "address": "Rua Marechal Deodoro da Fonseca, 1040",
+            "area": "Bosque",
+            "flag": "BRANCA",
+            "prices": [
+              {
+                "type": "Gasolina",
+                "sellPrice": 3.640,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-24"
+              },
+              {
+                "type": "Etanol",
+                "sellPrice": 2.980,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-24"
+              },
+              {
+                "type": "Diesel",
+                "sellPrice": 3.290,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-24"
+              },
+              {
+                "type": "Diesel S10",
+                "sellPrice": 3.390,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-24"
+              }
+            ]
+          },
+          {
+            "name": "Auto Posto Parati Ltda",
+            "address": "Rua Isaura Parente, 434",
+            "area": "Isaura Parente",
+            "flag": "BRANCA",
+            "prices": [
+              {
+                "type": "Gasolina",
+                "sellPrice": 3.650,
+                "buyPrice": 3.137,
+                "saleMode": "CIF",
+                "provider": "DPPI",
+                "date": "2015-09-24"
+              },
+              {
+                "type": "Etanol",
+                "sellPrice": 2.900,
+                "buyPrice": 1.957,
+                "saleMode": "CIF",
+                "provider": "DPPI",
+                "date": "2015-09-24"
+              },
+              {
+                "type": "Diesel",
+                "sellPrice": 3.190,
+                "buyPrice": 2.819,
+                "saleMode": "CIF",
+                "provider": "DPPI",
+                "date": "2015-09-24"
+              },
+              {
+                "type": "Diesel S10",
+                "sellPrice": 3.290,
+                "buyPrice": 2.880,
+                "saleMode": "CIF",
+                "provider": "DPPI",
+                "date": "2015-09-24"
+              }
+            ]
+          },
+          {
+            "name": "Norte Comércio de Derivados de Petróleo Ltda.",
+            "address": "Rua Rio de Janeiro, 1215 Zona Urbana",
+            "area": "Ivete Vargas",
+            "flag": "IPIRANGA",
+            "prices": [
+              {
+                "type": "Gasolina",
+                "sellPrice": 3.650,
+                "buyPrice": 3.093,
+                "saleMode": "FOB",
+                "provider": "-",
+                "date": "2015-09-24"
+              },
+              {
+                "type": "Etanol",
+                "sellPrice": 2.980,
+                "buyPrice": 2.336,
+                "saleMode": "FOB",
+                "provider": "-",
+                "date": "2015-09-24"
+              },
+              {
+                "type": "Diesel",
+                "sellPrice": 3.290,
+                "buyPrice": 2.774,
+                "saleMode": "FOB",
+                "provider": "-",
+                "date": "2015-09-24"
+              },
+              {
+                "type": "Diesel S10",
+                "sellPrice": 3.390,
+                "buyPrice": 2.847,
+                "saleMode": "FOB",
+                "provider": "-",
+                "date": "2015-09-24"
+              },
+              {
+                "type": "GLP",
+                "sellPrice": 55.00,
+                "buyPrice": 49.13,
+                "saleMode": "CIF",
+                "provider": "23/09/2015",
+                "date": ""
+              }
+            ]
+          },
+          {
+            "name": "Auto Posto Ale V Ltda.",
+            "address": "Avenida Nações Unidas, 2123",
+            "area": "Estação Experimental",
+            "flag": "PETROBRAS DISTRIBUIDORA S.A.",
+            "prices": [
+              {
+                "type": "Gasolina",
+                "sellPrice": 3.690,
+                "buyPrice": 3.163,
+                "saleMode": "CIF",
+                "provider": "-",
+                "date": "2015-09-24"
+              },
+              {
+                "type": "Etanol",
+                "sellPrice": 3.040,
+                "buyPrice": 2.360,
+                "saleMode": "CIF",
+                "provider": "-",
+                "date": "2015-09-24"
+              },
+              {
+                "type": "Diesel",
+                "sellPrice": 3.300,
+                "buyPrice": 2.911,
+                "saleMode": "CIF",
+                "provider": "-",
+                "date": "2015-09-24"
+              },
+              {
+                "type": "Diesel S10",
+                "sellPrice": 3.400,
+                "buyPrice": 2.999,
+                "saleMode": "CIF",
+                "provider": "-",
+                "date": "2015-09-24"
+              },
+              {
+                "type": "GLP",
+                "sellPrice": 58.00,
+                "buyPrice": 49.13,
+                "saleMode": "CIF",
+                "provider": "23/09/2015",
+                "date": ""
+              }
+            ]
+          },
+          {
+            "name": "D.b. de Souza",
+            "address": "Avenida Ceará, 2767 Loja 5",
+            "area": "Abrahão Alab",
+            "flag": "EQUADOR",
+            "prices": [
+              {
+                "type": "Gasolina",
+                "sellPrice": 3.710,
+                "buyPrice": 3.200,
+                "saleMode": "FOB",
+                "provider": "-",
+                "date": "2015-09-24"
+              },
+              {
+                "type": "Etanol",
+                "sellPrice": 2.930,
+                "buyPrice": 2.364,
+                "saleMode": "FOB",
+                "provider": "-",
+                "date": "2015-09-24"
+              },
+              {
+                "type": "Diesel",
+                "sellPrice": 3.250,
+                "buyPrice": 2.930,
+                "saleMode": "FOB",
+                "provider": "-",
+                "date": "2015-09-24"
+              },
+              {
+                "type": "Diesel S10",
+                "sellPrice": 3.350,
+                "buyPrice": 3.000,
+                "saleMode": "FOB",
+                "provider": "-",
+                "date": "2015-09-24"
+              }
+            ]
+          },
+          {
+            "name": "Auto Posto Junior Ltda",
+            "address": "Avenida Getulio Vargas, 3149",
+            "area": "Vila Ivonete",
+            "flag": "PETROBRAS DISTRIBUIDORA S.A.",
+            "prices": [
+              {
+                "type": "Gasolina",
+                "sellPrice": 3.740,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-24"
+              },
+              {
+                "type": "Etanol",
+                "sellPrice": 3.030,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-24"
+              },
+              {
+                "type": "Diesel",
+                "sellPrice": 3.290,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-24"
+              },
+              {
+                "type": "Diesel S10",
+                "sellPrice": 3.390,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-24"
+              }
+            ]
+          },
+          {
+            "name": "Auto Posto J C Ltda - Epp",
+            "address": "Rua Isaura Parente, 671",
+            "area": "Bosque",
+            "flag": "PETROBRAS DISTRIBUIDORA S.A.",
+            "prices": [
+              {
+                "type": "Gasolina",
+                "sellPrice": 3.740,
+                "buyPrice": 3.177,
+                "saleMode": "CIF",
+                "provider": "-",
+                "date": "2015-09-21"
+              },
+              {
+                "type": "Etanol",
+                "sellPrice": 2.990,
+                "buyPrice": 2.365,
+                "saleMode": "CIF",
+                "provider": "-",
+                "date": "2015-09-21"
+              },
+              {
+                "type": "Diesel",
+                "sellPrice": 3.290,
+                "buyPrice": 2.922,
+                "saleMode": "FOB",
+                "provider": "-",
+                "date": "2015-09-21"
+              },
+              {
+                "type": "Diesel S10",
+                "sellPrice": 3.390,
+                "buyPrice": 3.016,
+                "saleMode": "CIF",
+                "provider": "-",
+                "date": "2015-09-21"
+              },
+              {
+                "type": "GLP",
+                "sellPrice": 56.00,
+                "buyPrice": 49.13,
+                "saleMode": "CIF",
+                "provider": "23/09/2015",
+                "date": ""
+              }
+            ]
+          },
+          {
+            "name": "Auto Posto Santo Antonio Ltda",
+            "address": "R Izaura Parente, 3265",
+            "area": "Estacao Experimental",
+            "flag": "SABBA",
+            "prices": [
+              {
+                "type": "Gasolina",
+                "sellPrice": 3.750,
+                "buyPrice": 3.157,
+                "saleMode": "CIF",
+                "provider": "-",
+                "date": "2015-09-24"
+              },
+              {
+                "type": "Diesel",
+                "sellPrice": 3.290,
+                "buyPrice": 2.821,
+                "saleMode": "CIF",
+                "provider": "-",
+                "date": "2015-09-24"
+              },
+              {
+                "type": "GLP",
+                "sellPrice": 58.50,
+                "buyPrice": 49.13,
+                "saleMode": "CIF",
+                "provider": "23/09/2015",
+                "date": ""
+              }
+            ]
+          },
+          {
+            "name": "Auto Posto Trevo Ltda",
+            "address": "Estrada Apolonio Sales, S/n",
+            "area": "Vila Ivonete",
+            "flag": "SABBA",
+            "prices": [
+              {
+                "type": "Gasolina",
+                "sellPrice": 3.750,
+                "buyPrice": 3.160,
+                "saleMode": "FOB",
+                "provider": "-",
+                "date": "2015-09-24"
+              },
+              {
+                "type": "Etanol",
+                "sellPrice": 3.040,
+                "buyPrice": 2.200,
+                "saleMode": "FOB",
+                "provider": "-",
+                "date": "2015-09-24"
+              },
+              {
+                "type": "Diesel",
+                "sellPrice": 3.300,
+                "buyPrice": 2.845,
+                "saleMode": "FOB",
+                "provider": "-",
+                "date": "2015-09-24"
+              },
+              {
+                "type": "Diesel S10",
+                "sellPrice": 3.400,
+                "buyPrice": 2.940,
+                "saleMode": "FOB",
+                "provider": "-",
+                "date": "2015-09-24"
+              },
+              {
+                "type": "GLP",
+                "sellPrice": 54.00,
+                "buyPrice": 49.13,
+                "saleMode": "CIF",
+                "provider": "23/09/2015",
+                "date": ""
+              }
+            ]
+          },
+          {
+            "name": "M. D. M. Comércio de Combustíveis Ltda",
+            "address": "Rua Isaac Benchimol, 153",
+            "area": "Distrito Industrial",
+            "flag": "IPIRANGA",
+            "prices": [
+              {
+                "type": "Gasolina",
+                "sellPrice": 3.750,
+                "buyPrice": 3.183,
+                "saleMode": "FOB",
+                "provider": "-",
+                "date": "2015-09-24"
+              },
+              {
+                "type": "Diesel",
+                "sellPrice": 3.290,
+                "buyPrice": 2.819,
+                "saleMode": "FOB",
+                "provider": "-",
+                "date": "2015-09-24"
+              },
+              {
+                "type": "Diesel S10",
+                "sellPrice": 3.390,
+                "buyPrice": 2.880,
+                "saleMode": "FOB",
+                "provider": "-",
+                "date": "2015-09-24"
+              },
+              {
+                "type": "GLP",
+                "sellPrice": 60.00,
+                "buyPrice": 49.13,
+                "saleMode": "CIF",
+                "provider": "23/09/2015",
+                "date": ""
+              }
+            ]
+          },
+          {
+            "name": "Auto Posto Distrito Ltda",
+            "address": "Rua 3, S/n Zona \"a\", Setor 4, Lote 8",
+            "area": "Distrito Industrial",
+            "flag": "PETROBRAS DISTRIBUIDORA S.A.",
+            "prices": [
+              {
+                "type": "Gasolina",
+                "sellPrice": 3.750,
+                "buyPrice": 3.151,
+                "saleMode": "CIF",
+                "provider": "-",
+                "date": "2015-09-24"
+              },
+              {
+                "type": "Etanol",
+                "sellPrice": 2.990,
+                "buyPrice": 2.362,
+                "saleMode": "CIF",
+                "provider": "-",
+                "date": "2015-09-24"
+              },
+              {
+                "type": "Diesel",
+                "sellPrice": 3.290,
+                "buyPrice": 2.785,
+                "saleMode": "FOB",
+                "provider": "-",
+                "date": "2015-09-24"
+              },
+              {
+                "type": "Diesel S10",
+                "sellPrice": 3.390,
+                "buyPrice": 2.874,
+                "saleMode": "FOB",
+                "provider": "-",
+                "date": "2015-09-24"
+              }
+            ]
+          },
+          {
+            "name": "Posto Triângulo Ltda.",
+            "address": "Rua Boulevard Augusto Monteiro, 1268 0",
+            "area": "Triângulo",
+            "flag": "PETROBRAS DISTRIBUIDORA S.A.",
+            "prices": [
+              {
+                "type": "Gasolina",
+                "sellPrice": 3.750,
+                "buyPrice": 3.161,
+                "saleMode": "CIF",
+                "provider": "-",
+                "date": "2015-09-24"
+              },
+              {
+                "type": "Etanol",
+                "sellPrice": 3.020,
+                "buyPrice": 2.537,
+                "saleMode": "CIF",
+                "provider": "-",
+                "date": "2015-09-24"
+              },
+              {
+                "type": "Diesel",
+                "sellPrice": 3.300,
+                "buyPrice": 2.912,
+                "saleMode": "CIF",
+                "provider": "-",
+                "date": "2015-09-24"
+              },
+              {
+                "type": "Diesel S10",
+                "sellPrice": 3.400,
+                "buyPrice": 3.018,
+                "saleMode": "CIF",
+                "provider": "-",
+                "date": "2015-09-24"
+              }
+            ]
+          },
+          {
+            "name": "Auto Posto Isaurão Ltda.",
+            "address": "Rua Isaura Parente, 1412",
+            "area": "Estação Experimental",
+            "flag": "PETROBRAS DISTRIBUIDORA S.A.",
+            "prices": [
+              {
+                "type": "Gasolina",
+                "sellPrice": 3.750,
+                "buyPrice": 3.180,
+                "saleMode": "CIF",
+                "provider": "-",
+                "date": "2015-09-24"
+              },
+              {
+                "type": "Etanol",
+                "sellPrice": 2.990,
+                "buyPrice": 2.369,
+                "saleMode": "CIF",
+                "provider": "-",
+                "date": "2015-09-24"
+              },
+              {
+                "type": "Diesel",
+                "sellPrice": 3.290,
+                "buyPrice": 2.799,
+                "saleMode": "FOB",
+                "provider": "-",
+                "date": "2015-09-24"
+              },
+              {
+                "type": "Diesel S10",
+                "sellPrice": 3.390,
+                "buyPrice": 2.898,
+                "saleMode": "FOB",
+                "provider": "-",
+                "date": "2015-09-24"
+              }
+            ]
+          },
+          {
+            "name": "Auto Posto Aeroporto Ltda",
+            "address": "Rodovia Ac 40, S/n Km 02",
+            "area": "Triângulo 2º Distrito",
+            "flag": "SABBA",
+            "prices": [
+              {
+                "type": "Gasolina",
+                "sellPrice": 3.750,
+                "buyPrice": 3.144,
+                "saleMode": "CIF",
+                "provider": "-",
+                "date": "2015-09-24"
+              },
+              {
+                "type": "Diesel",
+                "sellPrice": 3.310,
+                "buyPrice": 2.835,
+                "saleMode": "CIF",
+                "provider": "-",
+                "date": "2015-09-24"
+              },
+              {
+                "type": "Diesel S10",
+                "sellPrice": 3.450,
+                "buyPrice": 2.846,
+                "saleMode": "CIF",
+                "provider": "-",
+                "date": "2015-09-24"
+              }
+            ]
+          },
+          {
+            "name": "Posto Bonzão Ltda",
+            "address": "Rua Dom Bosco, 257 0",
+            "area": "Bosque",
+            "flag": "PETROBRAS DISTRIBUIDORA S.A.",
+            "prices": [
+              {
+                "type": "Gasolina",
+                "sellPrice": 3.750,
+                "buyPrice": 3.188,
+                "saleMode": "CIF",
+                "provider": "-",
+                "date": "2015-09-24"
+              },
+              {
+                "type": "Diesel",
+                "sellPrice": 3.290,
+                "buyPrice": 2.907,
+                "saleMode": "CIF",
+                "provider": "-",
+                "date": "2015-09-24"
+              }
+            ]
+          },
+          {
+            "name": "Norte Comércio de Derivados de Petróleo Ltda.",
+            "address": "Estrada do Calafate, 3900",
+            "area": "Calafate",
+            "flag": "IPIRANGA",
+            "prices": [
+              {
+                "type": "Gasolina",
+                "sellPrice": 3.760,
+                "buyPrice": 3.141,
+                "saleMode": "FOB",
+                "provider": "-",
+                "date": "2015-09-22"
+              },
+              {
+                "type": "Etanol",
+                "sellPrice": 3.030,
+                "buyPrice": 1.936,
+                "saleMode": "FOB",
+                "provider": "-",
+                "date": "2015-09-22"
+              },
+              {
+                "type": "Diesel",
+                "sellPrice": 3.290,
+                "buyPrice": 2.774,
+                "saleMode": "FOB",
+                "provider": "-",
+                "date": "2015-09-22"
+              },
+              {
+                "type": "Diesel S10",
+                "sellPrice": 3.390,
+                "buyPrice": 2.847,
+                "saleMode": "FOB",
+                "provider": "-",
+                "date": "2015-09-22"
+              }
+            ]
+          },
+          {
+            "name": "Posto Floresta e Agropecuária Ltda",
+            "address": "Estrada Sao Francisco, 1558",
+            "area": "Sao Francisco",
+            "flag": "PETROBRAS DISTRIBUIDORA S.A.",
+            "prices": [
+              {
+                "type": "Gasolina",
+                "sellPrice": 3.770,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-23"
+              },
+              {
+                "type": "Etanol",
+                "sellPrice": 2.990,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-23"
+              },
+              {
+                "type": "Diesel",
+                "sellPrice": 3.290,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-23"
+              }
+            ]
+          },
+          {
+            "name": "Auto Posto Amapá Ltda.",
+            "address": "Rodovia Ac 40, Via Chico Mendes, 3570 Km 04",
+            "area": "Corrente",
+            "flag": "PETROBRAS DISTRIBUIDORA S.A.",
+            "prices": [
+              {
+                "type": "Gasolina",
+                "sellPrice": 3.770,
+                "buyPrice": 3.198,
+                "saleMode": "CIF",
+                "provider": "-",
+                "date": "2015-09-24"
+              },
+              {
+                "type": "Etanol",
+                "sellPrice": 3.040,
+                "buyPrice": 2.021,
+                "saleMode": "FOB",
+                "provider": "-",
+                "date": "2015-09-24"
+              },
+              {
+                "type": "Diesel",
+                "sellPrice": 3.300,
+                "buyPrice": 2.794,
+                "saleMode": "FOB",
+                "provider": "-",
+                "date": "2015-09-24"
+              },
+              {
+                "type": "Diesel S10",
+                "sellPrice": 3.400,
+                "buyPrice": 3.014,
+                "saleMode": "CIF",
+                "provider": "-",
+                "date": "2015-09-24"
+              },
+              {
+                "type": "GLP",
+                "sellPrice": 54.00,
+                "buyPrice": 48.12,
+                "saleMode": "CIF",
+                "provider": "23/09/2015",
+                "date": ""
+              }
+            ]
+          },
+          {
+            "name": "Comdepe Comércio de Derivados de Petróleo Ltda",
+            "address": "Estrada Jarbas Passarinho, 115",
+            "area": "Placas",
+            "flag": "PETROBRAS DISTRIBUIDORA S.A.",
+            "prices": [
+              {
+                "type": "Gasolina",
+                "sellPrice": 3.770,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-24"
+              },
+              {
+                "type": "Etanol",
+                "sellPrice": 2.990,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-24"
+              },
+              {
+                "type": "Diesel",
+                "sellPrice": 3.290,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-24"
+              },
+              {
+                "type": "Diesel S10",
+                "sellPrice": 3.390,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-24"
+              }
+            ]
+          },
+          {
+            "name": "Codepe Combustiveis Ltda.",
+            "address": "Loteamento Portal da Amazônia, S/n Quadra 101 Lts 1,2,3,4,5 e 33",
+            "area": "Calafate",
+            "flag": "PETROBRAS DISTRIBUIDORA S.A.",
+            "prices": [
+              {
+                "type": "Gasolina",
+                "sellPrice": 3.770,
+                "buyPrice": 3.173,
+                "saleMode": "CIF",
+                "provider": "-",
+                "date": "2015-09-24"
+              },
+              {
+                "type": "Etanol",
+                "sellPrice": 3.040,
+                "buyPrice": 2.360,
+                "saleMode": "CIF",
+                "provider": "-",
+                "date": "2015-09-24"
+              },
+              {
+                "type": "Diesel",
+                "sellPrice": 3.290,
+                "buyPrice": 2.883,
+                "saleMode": "CIF",
+                "provider": "-",
+                "date": "2015-09-24"
+              },
+              {
+                "type": "Diesel S10",
+                "sellPrice": 3.390,
+                "buyPrice": 3.001,
+                "saleMode": "CIF",
+                "provider": "-",
+                "date": "2015-09-24"
+              }
+            ]
+          },
+          {
+            "name": "Posto Village Ltda.",
+            "address": "Rua Antonio da Rocha Viana, S/n Conj. Village W. Marciel Qd. 02 Lotes 01 A 04",
+            "area": "Vila Ivonete",
+            "flag": "BRANCA",
+            "prices": [
+              {
+                "type": "Gasolina",
+                "sellPrice": 3.785,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-24"
+              },
+              {
+                "type": "Etanol",
+                "sellPrice": 2.980,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-24"
+              },
+              {
+                "type": "Diesel",
+                "sellPrice": 3.290,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-24"
+              },
+              {
+                "type": "Diesel S10",
+                "sellPrice": 3.390,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-24"
+              },
+              {
+                "type": "GLP",
+                "sellPrice": 60.00,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "23/09/2015",
+                "date": ""
+              }
+            ]
+          },
+          {
+            "name": "M. do Nascimento de Sousa Me.",
+            "address": "Estrada Juarez Tavora, 717",
+            "area": "Tancredo Neves",
+            "flag": "FOGAS",
+            "prices": [
+              {
+                "type": "GLP",
+                "sellPrice": 51.00,
+                "buyPrice": 49.13,
+                "saleMode": "CIF",
+                "provider": "23/09/2015",
+                "date": ""
+              }
+            ]
+          },
+          {
+            "name": "F Rodrigues de Souza",
+            "address": "Rua Adalcides Galo, 429",
+            "area": "Placido de Castro",
+            "flag": "-",
+            "prices": [
+              {
+                "type": "GLP",
+                "sellPrice": 53.00,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "23/09/2015",
+                "date": ""
+              }
+            ]
+          },
+          {
+            "name": "Posto Floresta e Agropecuária Ltda",
+            "address": "Estrada da Floresta, 684 0",
+            "area": "Floresta",
+            "flag": "-",
+            "prices": [
+              {
+                "type": "GLP",
+                "sellPrice": 53.00,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "23/09/2015",
+                "date": ""
+              }
+            ]
+          },
+          {
+            "name": "Edilson Alves Barbosa",
+            "address": "Conjunto Lba Rua Senador Guiomard, 412",
+            "area": "Esperança",
+            "flag": "FOGAS",
+            "prices": [
+              {
+                "type": "GLP",
+                "sellPrice": 55.00,
+                "buyPrice": 49.13,
+                "saleMode": "CIF",
+                "provider": "23/09/2015",
+                "date": ""
+              }
+            ]
+          },
+          {
+            "name": "Francisco Alcantara Teles 57542511220",
+            "address": "Rua Flor de Maio, 590",
+            "area": "Chico Mendes",
+            "flag": "-",
+            "prices": [
+              {
+                "type": "GLP",
+                "sellPrice": 55.00,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "23/09/2015",
+                "date": ""
+              }
+            ]
+          },
+          {
+            "name": "João de S. do Nascimento (me)",
+            "address": "Travessa Tancredo Neves, 44",
+            "area": "Bahia Velha",
+            "flag": "FOGAS",
+            "prices": [
+              {
+                "type": "GLP",
+                "sellPrice": 55.00,
+                "buyPrice": 49.13,
+                "saleMode": "CIF",
+                "provider": "23/09/2015",
+                "date": ""
+              }
+            ]
+          },
+          {
+            "name": "Ednaldo de Oliveira - Bicicletaria e Mercearia",
+            "address": "Estrada do Calafate, 616 Rua Cruzeiro do Sul",
+            "area": "Novo Calafate",
+            "flag": "FOGAS",
+            "prices": [
+              {
+                "type": "GLP",
+                "sellPrice": 55.00,
+                "buyPrice": 49.13,
+                "saleMode": "CIF",
+                "provider": "23/09/2015",
+                "date": ""
+              }
+            ]
+          },
+          {
+            "name": "F O de Sousa Me",
+            "address": "Estrada da Sobral, 2763",
+            "area": "Sobral",
+            "flag": "FOGAS",
+            "prices": [
+              {
+                "type": "GLP",
+                "sellPrice": 55.00,
+                "buyPrice": 49.13,
+                "saleMode": "CIF",
+                "provider": "23/09/2015",
+                "date": ""
+              }
+            ]
+          },
+          {
+            "name": "A M de Oliveira",
+            "address": "Avenida Sete de Setembro, 1263",
+            "area": "Nova Esperanca",
+            "flag": "-",
+            "prices": [
+              {
+                "type": "GLP",
+                "sellPrice": 55.00,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "23/09/2015",
+                "date": ""
+              }
+            ]
+          },
+          {
+            "name": "Aldemar Holanda A Filho",
+            "address": "Estrada Jarbas Passarinho, 500",
+            "area": "Placas",
+            "flag": "FOGAS",
+            "prices": [
+              {
+                "type": "GLP",
+                "sellPrice": 55.00,
+                "buyPrice": 49.13,
+                "saleMode": "CIF",
+                "provider": "23/09/2015",
+                "date": ""
+              }
+            ]
+          },
+          {
+            "name": "E Maria Cardoso Silva",
+            "address": "Rua Sergipe, 309 Conj. Wald. Maciel",
+            "area": "Calafate",
+            "flag": "FOGAS",
+            "prices": [
+              {
+                "type": "GLP",
+                "sellPrice": 55.00,
+                "buyPrice": 49.13,
+                "saleMode": "CIF",
+                "provider": "23/09/2015",
+                "date": ""
+              }
+            ]
+          },
+          {
+            "name": "A. A. C. Rocha - Me",
+            "address": "Rua 20 de Março Q:13 C:03, 03 Loteamento Altemira",
+            "area": "Esperanca",
+            "flag": "FOGAS",
+            "prices": [
+              {
+                "type": "GLP",
+                "sellPrice": 55.00,
+                "buyPrice": 49.13,
+                "saleMode": "CIF",
+                "provider": "23/09/2015",
+                "date": ""
+              }
+            ]
+          },
+          {
+            "name": "J. Nobre Ferreira",
+            "address": "Rua 07 de Setembro, 300",
+            "area": "Jardim Eldorado",
+            "flag": "-",
+            "prices": [
+              {
+                "type": "GLP",
+                "sellPrice": 55.00,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "23/09/2015",
+                "date": ""
+              }
+            ]
+          },
+          {
+            "name": "Lucileide O. Silva - Me",
+            "address": "Tv Coelho, 570",
+            "area": "Recanto dos Buritis",
+            "flag": "FOGAS",
+            "prices": [
+              {
+                "type": "GLP",
+                "sellPrice": 55.00,
+                "buyPrice": 49.13,
+                "saleMode": "CIF",
+                "provider": "23/09/2015",
+                "date": ""
+              }
+            ]
+          },
+          {
+            "name": "Mercantil Andressa Ltda.",
+            "address": "Avenida Epaminondas Jacome, 1108 A",
+            "area": "Cadeia Velha",
+            "flag": "-",
+            "prices": [
+              {
+                "type": "GLP",
+                "sellPrice": 55.00,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "23/09/2015",
+                "date": ""
+              }
+            ]
+          },
+          {
+            "name": "Brito e Brito Ltda",
+            "address": "Estrada da Floresta, 424",
+            "area": "Floresta",
+            "flag": "FOGAS",
+            "prices": [
+              {
+                "type": "GLP",
+                "sellPrice": 55.00,
+                "buyPrice": 49.13,
+                "saleMode": "CIF",
+                "provider": "23/09/2015",
+                "date": ""
+              }
+            ]
+          },
+          {
+            "name": "Antonio Carnauba de Aragão Importação e Exportação - Me",
+            "address": "Rua Eldorado, 134",
+            "area": "Jorge Lavocat",
+            "flag": "FOGAS",
+            "prices": [
+              {
+                "type": "GLP",
+                "sellPrice": 56.00,
+                "buyPrice": 49.13,
+                "saleMode": "CIF",
+                "provider": "23/09/2015",
+                "date": ""
+              }
+            ]
+          },
+          {
+            "name": "Panificadora & Mercadinho Cesta Basica Ltda Me",
+            "address": "Rua Hidalgo Lima, 40",
+            "area": "Seis de Agosto",
+            "flag": "-",
+            "prices": [
+              {
+                "type": "GLP",
+                "sellPrice": 56.00,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "23/09/2015",
+                "date": ""
+              }
+            ]
+          },
+          {
+            "name": "J Luiz de Souza",
+            "address": "Rua do Divisor, 682",
+            "area": "Jardim Eldorado",
+            "flag": "-",
+            "prices": [
+              {
+                "type": "GLP",
+                "sellPrice": 56.00,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "23/09/2015",
+                "date": ""
+              }
+            ]
+          },
+          {
+            "name": "V. Guimaraes Ferreira - Me.",
+            "address": "Estrada do Calafate, 3948",
+            "area": "Calafate",
+            "flag": "FOGAS",
+            "prices": [
+              {
+                "type": "GLP",
+                "sellPrice": 56.00,
+                "buyPrice": 49.13,
+                "saleMode": "CIF",
+                "provider": "23/09/2015",
+                "date": ""
+              }
+            ]
+          },
+          {
+            "name": "Alison S Lebre",
+            "address": "Rua Belem, 958 A",
+            "area": "Nova Estacao",
+            "flag": "FOGAS",
+            "prices": [
+              {
+                "type": "GLP",
+                "sellPrice": 57.00,
+                "buyPrice": 49.13,
+                "saleMode": "CIF",
+                "provider": "23/09/2015",
+                "date": ""
+              }
+            ]
+          },
+          {
+            "name": "Idenildo T. da Silva - Me",
+            "address": "R Uirapuru, 183",
+            "area": "Cidade Nova",
+            "flag": "-",
+            "prices": [
+              {
+                "type": "GLP",
+                "sellPrice": 57.00,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "23/09/2015",
+                "date": ""
+              }
+            ]
+          },
+          {
+            "name": "M. Barbosa Braga - Me.",
+            "address": "Rua Valdomiro Lopes, 212",
+            "area": "Vila Ivonete",
+            "flag": "FOGAS",
+            "prices": [
+              {
+                "type": "GLP",
+                "sellPrice": 57.00,
+                "buyPrice": 49.13,
+                "saleMode": "CIF",
+                "provider": "23/09/2015",
+                "date": ""
+              }
+            ]
+          },
+          {
+            "name": "M. J. Araújo Freire - Me",
+            "address": "Rua 19 de Novembro, 351",
+            "area": "Belo Jardim",
+            "flag": "-",
+            "prices": [
+              {
+                "type": "GLP",
+                "sellPrice": 57.00,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "23/09/2015",
+                "date": ""
+              }
+            ]
+          },
+          {
+            "name": "T.pedro Maria - Me",
+            "address": "Rua Caxias, 209",
+            "area": "Quinze",
+            "flag": "-",
+            "prices": [
+              {
+                "type": "GLP",
+                "sellPrice": 57.00,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "23/09/2015",
+                "date": ""
+              }
+            ]
+          },
+          {
+            "name": "V L Lopes",
+            "address": "Rua Principal, 89",
+            "area": "Loteamento Farhat",
+            "flag": "FOGAS",
+            "prices": [
+              {
+                "type": "GLP",
+                "sellPrice": 58.00,
+                "buyPrice": 49.13,
+                "saleMode": "CIF",
+                "provider": "23/09/2015",
+                "date": ""
+              }
+            ]
+          },
+          {
+            "name": "D.a. Lima",
+            "address": "Avenida Ceara, 248",
+            "area": "Baixada da Habitasa",
+            "flag": "-",
+            "prices": [
+              {
+                "type": "GLP",
+                "sellPrice": 58.00,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "21/09/2015",
+                "date": ""
+              }
+            ]
+          },
+          {
+            "name": "Auto Posto Canindé Ltda.",
+            "address": "Rodovia Ac -40, 3206 Km - 07",
+            "area": "Zona Rural - Vila Acre",
+            "flag": "-",
+            "prices": [
+              {
+                "type": "GLP",
+                "sellPrice": 59.00,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "23/09/2015",
+                "date": ""
+              }
+            ]
+          },
+          {
+            "name": "R N M da Costa - Me",
+            "address": "Av Epaminondas Jacome, 3333",
+            "area": "Base",
+            "flag": "-",
+            "prices": [
+              {
+                "type": "GLP",
+                "sellPrice": 60.00,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "23/09/2015",
+                "date": ""
+              }
+            ]
+          },
+          {
+            "name": "M D M do Vale",
+            "address": "Rua Manoel Cezário, 315",
+            "area": "Capoeira",
+            "flag": "-",
+            "prices": [
+              {
+                "type": "GLP",
+                "sellPrice": 60.00,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "23/09/2015",
+                "date": ""
+              }
+            ]
+          },
+          {
+            "name": "B. L. Aguiar",
+            "address": "Travessa Amapa, 35",
+            "area": "Cerâmica",
+            "flag": "FOGAS",
+            "prices": [
+              {
+                "type": "GLP",
+                "sellPrice": 63.00,
+                "buyPrice": 49.13,
+                "saleMode": "CIF",
+                "provider": "23/09/2015",
+                "date": ""
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "dates": {
+      "from": "2015-09-20",
+      "to": "2015-09-26"
+    }
+  },
+  {
+    "name": "Alagoas",
+    "cities": [
+      {
+        "name": "Arapiraca",
+        "statistics": [
+          {
+            "type": "Gasolina",
+            "consumerPrice": [
+              {
+                "averagePrice": 3.379,
+                "standardDeviation": 0.058,
+                "minPrice": 3.289,
+                "maxPrice": 3.490,
+                "averageMargin": 0.557
+              }
+            ],
+            "distributionPrice": [
+              {
+                "averagePrice": 2.822,
+                "standardDeviation": 0.059,
+                "minPrice": 2.780,
+                "maxPrice": 2.863
+              }
+            ]
+          },
+          {
+            "type": "Etanol",
+            "consumerPrice": [
+              {
+                "averagePrice": 2.616,
+                "standardDeviation": 0.124,
+                "minPrice": 2.400,
+                "maxPrice": 2.799,
+                "averageMargin": 0.325
+              }
+            ],
+            "distributionPrice": [
+              {
+                "averagePrice": 2.291,
+                "standardDeviation": 0.000,
+                "minPrice": 2.291,
+                "maxPrice": 2.291
+              }
+            ]
+          },
+          {
+            "type": "Diesel",
+            "consumerPrice": [
+              {
+                "averagePrice": 2.783,
+                "standardDeviation": 0.060,
+                "minPrice": 2.680,
+                "maxPrice": 2.849,
+                "averageMargin": 0.277
+              }
+            ],
+            "distributionPrice": [
+              {
+                "averagePrice": 2.507,
+                "standardDeviation": 0.042,
+                "minPrice": 2.477,
+                "maxPrice": 2.536
+              }
+            ]
+          },
+          {
+            "type": "Diesel S10",
+            "consumerPrice": [
+              {
+                "averagePrice": 2.888,
+                "standardDeviation": 0.059,
+                "minPrice": 2.760,
+                "maxPrice": 2.949,
+                "averageMargin": 0.293
+              }
+            ],
+            "distributionPrice": [
+              {
+                "averagePrice": 2.595,
+                "standardDeviation": 0.049,
+                "minPrice": 2.560,
+                "maxPrice": 2.630
+              }
+            ]
+          },
+          {
+            "type": "GLP",
+            "consumerPrice": [
+              {
+                "averagePrice": 46.00,
+                "standardDeviation": 2.24,
+                "minPrice": 45.00,
+                "maxPrice": 50.00,
+                "averageMargin": null
+              }
+            ],
+            "distributionPrice": [
+              {
+                "averagePrice": null,
+                "standardDeviation": null,
+                "minPrice": null,
+                "maxPrice": null
+              }
+            ]
+          }
+        ],
+        "stations": [
+          {
+            "name": "Neusvaldo Alves Barbosa & Cia Ltda.",
+            "address": "Rodovia Al 220, 3790",
+            "area": "Planalto",
+            "flag": "PETROX DISTRIBUIDORA",
+            "prices": [
+              {
+                "type": "Gasolina",
+                "sellPrice": 3.289,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-22"
+              },
+              {
+                "type": "Etanol",
+                "sellPrice": 2.479,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-22"
+              },
+              {
+                "type": "Diesel",
+                "sellPrice": 2.760,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-22"
+              }
+            ]
+          },
+          {
+            "name": "Auto Posto Massaranduba Ltda.",
+            "address": "Rodovia Al 220, 4698",
+            "area": "Planalto",
+            "flag": "BRANCA",
+            "prices": [
+              {
+                "type": "Gasolina",
+                "sellPrice": 3.290,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-22"
+              },
+              {
+                "type": "Etanol",
+                "sellPrice": 2.490,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-22"
+              },
+              {
+                "type": "Diesel",
+                "sellPrice": 2.680,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-22"
+              },
+              {
+                "type": "Diesel S10",
+                "sellPrice": 2.760,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-22"
+              }
+            ]
+          },
+          {
+            "name": "Posto Vavel Ltda",
+            "address": "Rodovia Al 102, 1054 Km 71",
+            "area": "Canafístula",
+            "flag": "PETROBRAS DISTRIBUIDORA S.A.",
+            "prices": [
+              {
+                "type": "Gasolina",
+                "sellPrice": 3.350,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-22"
+              },
+              {
+                "type": "Etanol",
+                "sellPrice": 2.580,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-22"
+              },
+              {
+                "type": "Diesel",
+                "sellPrice": 2.840,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-22"
+              },
+              {
+                "type": "Diesel S10",
+                "sellPrice": 2.940,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-22"
+              }
+            ]
+          },
+          {
+            "name": "Auto Posto São Francisco Ltda.",
+            "address": "Rua Sao Francisco, 274",
+            "area": "Centro",
+            "flag": "BRANCA",
+            "prices": [
+              {
+                "type": "Gasolina",
+                "sellPrice": 3.350,
+                "buyPrice": 2.780,
+                "saleMode": "CIF",
+                "provider": "PETROBRAS DISTRIBUIDORA S.A.",
+                "date": "2015-09-22"
+              },
+              {
+                "type": "Diesel",
+                "sellPrice": 2.820,
+                "buyPrice": 2.477,
+                "saleMode": "CIF",
+                "provider": "PETROBRAS DISTRIBUIDORA S.A.",
+                "date": "2015-09-22"
+              },
+              {
+                "type": "Diesel S10",
+                "sellPrice": 2.900,
+                "buyPrice": 2.560,
+                "saleMode": "CIF",
+                "provider": "PETROBRAS DISTRIBUIDORA S.A.",
+                "date": "2015-09-22"
+              }
+            ]
+          },
+          {
+            "name": "Auto Posto M M Garrote Ltda.",
+            "address": "Rodovia Al 220, 5848 Km 96",
+            "area": "Planalto",
+            "flag": "BRANCA",
+            "prices": [
+              {
+                "type": "Gasolina",
+                "sellPrice": 3.350,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-22"
+              },
+              {
+                "type": "Etanol",
+                "sellPrice": 2.650,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-22"
+              },
+              {
+                "type": "Diesel",
+                "sellPrice": 2.709,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-22"
+              },
+              {
+                "type": "Diesel S10",
+                "sellPrice": 2.809,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-22"
+              }
+            ]
+          },
+          {
+            "name": "J. R. Soares & Souza Ltda Me",
+            "address": "Rua Coronel Vicente Ramos, 838",
+            "area": "Olho D¿agua dos Cazuzinhos",
+            "flag": "BRANCA",
+            "prices": [
+              {
+                "type": "Gasolina",
+                "sellPrice": 3.370,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-22"
+              },
+              {
+                "type": "Etanol",
+                "sellPrice": 2.400,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-22"
+              },
+              {
+                "type": "Diesel",
+                "sellPrice": 2.750,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-22"
+              }
+            ]
+          },
+          {
+            "name": "Posto Arapiraca Ltda",
+            "address": "Rua Expedicionarios Brasileiros, 252",
+            "area": "Centro",
+            "flag": "PETROBRAS DISTRIBUIDORA S.A.",
+            "prices": [
+              {
+                "type": "Gasolina",
+                "sellPrice": 3.380,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-22"
+              },
+              {
+                "type": "Etanol",
+                "sellPrice": 2.639,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-22"
+              },
+              {
+                "type": "Diesel",
+                "sellPrice": 2.820,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-22"
+              },
+              {
+                "type": "Diesel S10",
+                "sellPrice": 2.900,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-22"
+              }
+            ]
+          },
+          {
+            "name": "Cirio Antonio de Souza Cia Ltda",
+            "address": "Rua Expedicionarios Brasileiros, 1061",
+            "area": "Eldorado",
+            "flag": "PETROBRAS DISTRIBUIDORA S.A.",
+            "prices": [
+              {
+                "type": "Gasolina",
+                "sellPrice": 3.389,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-22"
+              },
+              {
+                "type": "Etanol",
+                "sellPrice": 2.599,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-22"
+              },
+              {
+                "type": "Diesel",
+                "sellPrice": 2.729,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-22"
+              }
+            ]
+          },
+          {
+            "name": "Distribuidora de Veículos Confiança Ltda",
+            "address": "Rua 15 de Novembro, 451",
+            "area": "Centro",
+            "flag": "RAIZEN",
+            "prices": [
+              {
+                "type": "Gasolina",
+                "sellPrice": 3.390,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-22"
+              },
+              {
+                "type": "Etanol",
+                "sellPrice": 2.750,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-22"
+              },
+              {
+                "type": "Diesel S10",
+                "sellPrice": 2.890,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-22"
+              }
+            ]
+          },
+          {
+            "name": "Posto Atlantic Confianca Ltda",
+            "address": "Rua 15 de Novembro, 470",
+            "area": "Centro",
+            "flag": "BRANCA",
+            "prices": [
+              {
+                "type": "Gasolina",
+                "sellPrice": 3.390,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-22"
+              },
+              {
+                "type": "Etanol",
+                "sellPrice": 2.750,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-22"
+              },
+              {
+                "type": "Diesel S10",
+                "sellPrice": 2.899,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-22"
+              }
+            ]
+          },
+          {
+            "name": "Posto Arapiraca Ltda",
+            "address": "Rodovia Al 220, 105 Km 68",
+            "area": "Canafistula",
+            "flag": "PETROBRAS DISTRIBUIDORA S.A.",
+            "prices": [
+              {
+                "type": "Gasolina",
+                "sellPrice": 3.440,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-22"
+              },
+              {
+                "type": "Etanol",
+                "sellPrice": 2.640,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-22"
+              },
+              {
+                "type": "Diesel",
+                "sellPrice": 2.810,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-22"
+              },
+              {
+                "type": "Diesel S10",
+                "sellPrice": 2.930,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-22"
+              }
+            ]
+          },
+          {
+            "name": "Rodo Center Auto Posto Ltda",
+            "address": "Rodovia Al 220, Sn Km 06",
+            "area": "Jardim Esperanca",
+            "flag": "PETROBRAS DISTRIBUIDORA S.A.",
+            "prices": [
+              {
+                "type": "Gasolina",
+                "sellPrice": 3.449,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-22"
+              },
+              {
+                "type": "Diesel",
+                "sellPrice": 2.849,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-22"
+              },
+              {
+                "type": "Diesel S10",
+                "sellPrice": 2.899,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-22"
+              }
+            ]
+          },
+          {
+            "name": "Comercial de Combustíveis e Lubrificantes Vital Ltda.",
+            "address": "Rodovia Al 220, S/n.º Km 06",
+            "area": "Planalto",
+            "flag": "PETROBRAS DISTRIBUIDORA S.A.",
+            "prices": [
+              {
+                "type": "Gasolina",
+                "sellPrice": 3.490,
+                "buyPrice": 2.863,
+                "saleMode": "CIF",
+                "provider": "-",
+                "date": "2015-09-22"
+              },
+              {
+                "type": "Etanol",
+                "sellPrice": 2.799,
+                "buyPrice": 2.291,
+                "saleMode": "CIF",
+                "provider": "-",
+                "date": "2015-09-22"
+              },
+              {
+                "type": "Diesel",
+                "sellPrice": 2.849,
+                "buyPrice": 2.536,
+                "saleMode": "CIF",
+                "provider": "-",
+                "date": "2015-09-22"
+              },
+              {
+                "type": "Diesel S10",
+                "sellPrice": 2.949,
+                "buyPrice": 2.630,
+                "saleMode": "CIF",
+                "provider": "-",
+                "date": "2015-09-22"
+              }
+            ]
+          },
+          {
+            "name": "Sostenis da Silva Gois 34881310410",
+            "address": "Rua Maria da Gloria dos Santos Ribeiro, 51",
+            "area": "Cavaco",
+            "flag": "-",
+            "prices": [
+              {
+                "type": "GLP",
+                "sellPrice": 45.00,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "21/09/2015",
+                "date": ""
+              }
+            ]
+          },
+          {
+            "name": "Marcelo Silva de Melo - Me",
+            "address": "Rua Andre Leao, 260 A",
+            "area": "Brasilia",
+            "flag": "-",
+            "prices": [
+              {
+                "type": "GLP",
+                "sellPrice": 45.00,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "21/09/2015",
+                "date": ""
+              }
+            ]
+          },
+          {
+            "name": "José Aparecido Cavalcante 70030049415",
+            "address": "Rua Joao Batista da Silva, 59",
+            "area": "Santa Edwiges",
+            "flag": "-",
+            "prices": [
+              {
+                "type": "GLP",
+                "sellPrice": 45.00,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "21/09/2015",
+                "date": ""
+              }
+            ]
+          },
+          {
+            "name": "Distribuidora de Gas Vital Ltda",
+            "address": "Avenida Deputado Ceci Cunha, 501",
+            "area": "Novo Horizonte",
+            "flag": "-",
+            "prices": [
+              {
+                "type": "GLP",
+                "sellPrice": 45.00,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "21/09/2015",
+                "date": ""
+              }
+            ]
+          },
+          {
+            "name": "Agreste Gás Distribuição e Transporte Ltda.",
+            "address": "Avenida Vereador João Saturnino de Almeida, 570",
+            "area": "Verdes Campos",
+            "flag": "-",
+            "prices": [
+              {
+                "type": "GLP",
+                "sellPrice": 50.00,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "21/09/2015",
+                "date": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Maceio",
+        "statistics": [
+          {
+            "type": "Gasolina",
+            "consumerPrice": [
+              {
+                "averagePrice": 3.349,
+                "standardDeviation": 0.096,
+                "minPrice": 2.979,
+                "maxPrice": 3.399,
+                "averageMargin": 0.461
+              }
+            ],
+            "distributionPrice": [
+              {
+                "averagePrice": 2.889,
+                "standardDeviation": 0.057,
+                "minPrice": 2.800,
+                "maxPrice": 2.949
+              }
+            ]
+          },
+          {
+            "type": "Etanol",
+            "consumerPrice": [
+              {
+                "averagePrice": 2.630,
+                "standardDeviation": 0.098,
+                "minPrice": 2.479,
+                "maxPrice": 2.879,
+                "averageMargin": 0.303
+              }
+            ],
+            "distributionPrice": [
+              {
+                "averagePrice": 2.327,
+                "standardDeviation": 0.071,
+                "minPrice": 2.203,
+                "maxPrice": 2.395
+              }
+            ]
+          },
+          {
+            "type": "GNV",
+            "consumerPrice": [
+              {
+                "averagePrice": 2.292,
+                "standardDeviation": 0.005,
+                "minPrice": 2.290,
+                "maxPrice": 2.299,
+                "averageMargin": null
+              }
+            ],
+            "distributionPrice": [
+              {
+                "averagePrice": null,
+                "standardDeviation": null,
+                "minPrice": null,
+                "maxPrice": null
+              }
+            ]
+          },
+          {
+            "type": "Diesel",
+            "consumerPrice": [
+              {
+                "averagePrice": 2.859,
+                "standardDeviation": 0.067,
+                "minPrice": 2.790,
+                "maxPrice": 2.949,
+                "averageMargin": 0.363
+              }
+            ],
+            "distributionPrice": [
+              {
+                "averagePrice": 2.496,
+                "standardDeviation": 0.032,
+                "minPrice": 2.473,
+                "maxPrice": 2.519
+              }
+            ]
+          },
+          {
+            "type": "Diesel S10",
+            "consumerPrice": [
+              {
+                "averagePrice": 2.926,
+                "standardDeviation": 0.075,
+                "minPrice": 2.790,
+                "maxPrice": 2.999,
+                "averageMargin": 0.275
+              }
+            ],
+            "distributionPrice": [
+              {
+                "averagePrice": 2.651,
+                "standardDeviation": 0.015,
+                "minPrice": 2.640,
+                "maxPrice": 2.661
+              }
+            ]
+          },
+          {
+            "type": "GLP",
+            "consumerPrice": [
+              {
+                "averagePrice": 55.00,
+                "standardDeviation": 0.00,
+                "minPrice": 55.00,
+                "maxPrice": 55.00,
+                "averageMargin": null
+              }
+            ],
+            "distributionPrice": [
+              {
+                "averagePrice": null,
+                "standardDeviation": null,
+                "minPrice": null,
+                "maxPrice": null
+              }
+            ]
+          }
+        ],
+        "stations": [
+          {
+            "name": "Companhia Brasileira de Distribuição",
+            "address": "Avenida Comendador Gustavo Paiva, 3393",
+            "area": "Mangabeiras",
+            "flag": "BRANCA",
+            "prices": [
+              {
+                "type": "Gasolina",
+                "sellPrice": 2.979,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-21"
+              },
+              {
+                "type": "Etanol",
+                "sellPrice": 2.479,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-21"
+              }
+            ]
+          },
+          {
+            "name": "Auto Posto Romeiro Ltda",
+            "address": "Rua Constancia G. Monteiro, 720 0",
+            "area": "Poço",
+            "flag": "TEMAPE",
+            "prices": [
+              {
+                "type": "Gasolina",
+                "sellPrice": 3.359,
+                "buyPrice": 2.948,
+                "saleMode": "CIF",
+                "provider": "-",
+                "date": "2015-09-21"
+              },
+              {
+                "type": "Etanol",
+                "sellPrice": 2.599,
+                "buyPrice": 2.395,
+                "saleMode": "CIF",
+                "provider": "-",
+                "date": "2015-09-21"
+              },
+              {
+                "type": "Diesel S10",
+                "sellPrice": 2.897,
+                "buyPrice": 2.661,
+                "saleMode": "CIF",
+                "provider": "-",
+                "date": "2015-09-21"
+              }
+            ]
+          },
+          {
+            "name": "Auto Posto Top Ltda.",
+            "address": "Avenida Generalluiz de Franca Albuquerque, 22560",
+            "area": "Ipioca",
+            "flag": "PETROBRAS DISTRIBUIDORA S.A.",
+            "prices": [
+              {
+                "type": "Gasolina",
+                "sellPrice": 3.360,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-21"
+              },
+              {
+                "type": "Etanol",
+                "sellPrice": 2.590,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-21"
+              },
+              {
+                "type": "Diesel S10",
+                "sellPrice": 2.790,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-21"
+              }
+            ]
+          },
+          {
+            "name": "J. A. Bulhões Comércio Representações e Serviços Ltda.",
+            "address": "Rua Professor José da Silveira Camerino, 540 (antiga R. Belo)",
+            "area": "Farol",
+            "flag": "PETROBRAS DISTRIBUIDORA S.A.",
+            "prices": [
+              {
+                "type": "Gasolina",
+                "sellPrice": 3.360,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-21"
+              },
+              {
+                "type": "Etanol",
+                "sellPrice": 2.590,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-21"
+              },
+              {
+                "type": "Diesel",
+                "sellPrice": 2.790,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-21"
+              },
+              {
+                "type": "Diesel S10",
+                "sellPrice": 2.970,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-21"
+              }
+            ]
+          },
+          {
+            "name": "Marques e Cavalcante Combustiveis Ltda.",
+            "address": "Rua Basileu Meira Barbosa, 361",
+            "area": "Pinheiro",
+            "flag": "PETROBRAS DISTRIBUIDORA S.A.",
+            "prices": [
+              {
+                "type": "Gasolina",
+                "sellPrice": 3.364,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-21"
+              },
+              {
+                "type": "Etanol",
+                "sellPrice": 2.563,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-21"
+              },
+              {
+                "type": "Diesel",
+                "sellPrice": 2.796,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-21"
+              },
+              {
+                "type": "Diesel S10",
+                "sellPrice": 2.954,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-21"
+              }
+            ]
+          },
+          {
+            "name": "Auto Posto Farol Ltda.",
+            "address": "Avenida Fernandes Lima, 2501",
+            "area": "Pinheiro",
+            "flag": "RAIZEN",
+            "prices": [
+              {
+                "type": "Gasolina",
+                "sellPrice": 3.370,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-21"
+              },
+              {
+                "type": "Etanol",
+                "sellPrice": 2.590,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-21"
+              }
+            ]
+          },
+          {
+            "name": "Maxi Posto V Ltda",
+            "address": "Avenida Fernandes Lima, 1579",
+            "area": "Farol",
+            "flag": "RAIZEN",
+            "prices": [
+              {
+                "type": "Gasolina",
+                "sellPrice": 3.370,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-21"
+              },
+              {
+                "type": "Etanol",
+                "sellPrice": 2.539,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-21"
+              },
+              {
+                "type": "GNV",
+                "sellPrice": 2.290,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-21"
+              }
+            ]
+          },
+          {
+            "name": "Auto Posto Amelia Rosa Ltda",
+            "address": "Avenida Dr Antonio Gomes de Barros, 476 Ao Lado da Presentaria",
+            "area": "Jatiuca",
+            "flag": "PETROBRAS DISTRIBUIDORA S.A.",
+            "prices": [
+              {
+                "type": "Gasolina",
+                "sellPrice": 3.370,
+                "buyPrice": 2.800,
+                "saleMode": "CIF",
+                "provider": "-",
+                "date": "2015-09-21"
+              },
+              {
+                "type": "Etanol",
+                "sellPrice": 2.599,
+                "buyPrice": 2.320,
+                "saleMode": "CIF",
+                "provider": "-",
+                "date": "2015-09-21"
+              },
+              {
+                "type": "Diesel",
+                "sellPrice": 2.869,
+                "buyPrice": 2.519,
+                "saleMode": "CIF",
+                "provider": "-",
+                "date": "2015-09-21"
+              }
+            ]
+          },
+          {
+            "name": "Auto Posto Via Mare Ltda.",
+            "address": "Rua Joaquim Marques Luz, 944",
+            "area": "Jatiuca",
+            "flag": "PETROBRAS DISTRIBUIDORA S.A.",
+            "prices": [
+              {
+                "type": "Gasolina",
+                "sellPrice": 3.370,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-21"
+              },
+              {
+                "type": "Etanol",
+                "sellPrice": 2.740,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-21"
+              },
+              {
+                "type": "Diesel S10",
+                "sellPrice": 2.880,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-21"
+              }
+            ]
+          },
+          {
+            "name": "3madson Com de Combustivel e Produtos Alimenticios Ltda",
+            "address": "Rua Professor Jose da Silveira Camerino, 950",
+            "area": "Farol",
+            "flag": "BRANCA",
+            "prices": [
+              {
+                "type": "Gasolina",
+                "sellPrice": 3.370,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-21"
+              },
+              {
+                "type": "Etanol",
+                "sellPrice": 2.599,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-21"
+              },
+              {
+                "type": "GNV",
+                "sellPrice": 2.290,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-21"
+              }
+            ]
+          },
+          {
+            "name": "Auto Posto Gama Ltda",
+            "address": "Avenida Fernandes Lima, 533",
+            "area": "Farol",
+            "flag": "IPIRANGA",
+            "prices": [
+              {
+                "type": "Gasolina",
+                "sellPrice": 3.375,
+                "buyPrice": 2.888,
+                "saleMode": "CIF",
+                "provider": "-",
+                "date": "2015-09-21"
+              },
+              {
+                "type": "Etanol",
+                "sellPrice": 2.599,
+                "buyPrice": 2.297,
+                "saleMode": "CIF",
+                "provider": "-",
+                "date": "2015-09-21"
+              }
+            ]
+          },
+          {
+            "name": "Auto Posto R2 Ltda.",
+            "address": "Avenida Julio Marques Luz, 152",
+            "area": "Jatiúca",
+            "flag": "IPIRANGA",
+            "prices": [
+              {
+                "type": "Gasolina",
+                "sellPrice": 3.378,
+                "buyPrice": 2.949,
+                "saleMode": "CIF",
+                "provider": "-",
+                "date": "2015-09-21"
+              },
+              {
+                "type": "Etanol",
+                "sellPrice": 2.649,
+                "buyPrice": 2.372,
+                "saleMode": "CIF",
+                "provider": "-",
+                "date": "2015-09-21"
+              }
+            ]
+          },
+          {
+            "name": "Auto Posto Millenium Ltda",
+            "address": "Avenida Julio Marques Luz, 655",
+            "area": "Jatiúca",
+            "flag": "RAIZEN",
+            "prices": [
+              {
+                "type": "Gasolina",
+                "sellPrice": 3.379,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-21"
+              },
+              {
+                "type": "Etanol",
+                "sellPrice": 2.599,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-21"
+              },
+              {
+                "type": "GNV",
+                "sellPrice": 2.299,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-21"
+              }
+            ]
+          },
+          {
+            "name": "Auto Posto Shopping Ltda",
+            "address": "Avenida des Valente de Lima, 02",
+            "area": "Mangabeiras",
+            "flag": "RAIZEN",
+            "prices": [
+              {
+                "type": "Gasolina",
+                "sellPrice": 3.379,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-21"
+              },
+              {
+                "type": "Etanol",
+                "sellPrice": 2.599,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-21"
+              }
+            ]
+          },
+          {
+            "name": "Cdg Combustívesi Ltda",
+            "address": "Avenida Alvaro Otacilio, 4187 Qd. 02 Lote 10 e 11",
+            "area": "Jatiúca",
+            "flag": "IPIRANGA",
+            "prices": [
+              {
+                "type": "Gasolina",
+                "sellPrice": 3.379,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-21"
+              },
+              {
+                "type": "Etanol",
+                "sellPrice": 2.798,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-21"
+              },
+              {
+                "type": "GNV",
+                "sellPrice": 2.290,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-21"
+              },
+              {
+                "type": "Diesel",
+                "sellPrice": 2.890,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-21"
+              },
+              {
+                "type": "Diesel S10",
+                "sellPrice": 2.990,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-21"
+              }
+            ]
+          },
+          {
+            "name": "Serviços Automotivos Ponta Verde Ltda",
+            "address": "Avenida Alvaro Otacilio, 3293",
+            "area": "Ponta Verde",
+            "flag": "RAIZEN",
+            "prices": [
+              {
+                "type": "Gasolina",
+                "sellPrice": 3.379,
+                "buyPrice": 2.895,
+                "saleMode": "CIF",
+                "provider": "-",
+                "date": "2015-09-21"
+              },
+              {
+                "type": "Etanol",
+                "sellPrice": 2.699,
+                "buyPrice": 2.373,
+                "saleMode": "CIF",
+                "provider": "-",
+                "date": "2015-09-21"
+              }
+            ]
+          },
+          {
+            "name": "São Braz Comercio de Combustíveis Ltda",
+            "address": "Avenida Fernandes Lima, 195 0",
+            "area": "Farol",
+            "flag": "PETROBRAS DISTRIBUIDORA S.A.",
+            "prices": [
+              {
+                "type": "Gasolina",
+                "sellPrice": 3.399,
+                "buyPrice": 2.852,
+                "saleMode": "CIF",
+                "provider": "-",
+                "date": "2015-09-21"
+              },
+              {
+                "type": "Etanol",
+                "sellPrice": 2.879,
+                "buyPrice": 2.203,
+                "saleMode": "CIF",
+                "provider": "-",
+                "date": "2015-09-21"
+              },
+              {
+                "type": "Diesel",
+                "sellPrice": 2.949,
+                "buyPrice": 2.473,
+                "saleMode": "CIF",
+                "provider": "-",
+                "date": "2015-09-21"
+              },
+              {
+                "type": "Diesel S10",
+                "sellPrice": 2.999,
+                "buyPrice": 2.640,
+                "saleMode": "CIF",
+                "provider": "-",
+                "date": "2015-09-21"
+              }
+            ]
+          },
+          {
+            "name": "J Ferreira de Macedo Me",
+            "address": "Rua Cleto Marque Luz, 850",
+            "area": "Levada",
+            "flag": "-",
+            "prices": [
+              {
+                "type": "GLP",
+                "sellPrice": 55.00,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "22/09/2015",
+                "date": ""
+              }
+            ]
+          },
+          {
+            "name": "Genivaldo Correia da Silva",
+            "address": "Avenida Gal Alacir Werner, 21",
+            "area": "Ponta Grossa",
+            "flag": "-",
+            "prices": [
+              {
+                "type": "GLP",
+                "sellPrice": 55.00,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "22/09/2015",
+                "date": ""
+              }
+            ]
+          },
+          {
+            "name": "Nelson da Silva 52763110487",
+            "address": "Rua Diegues Junior, 358",
+            "area": "Poco",
+            "flag": "-",
+            "prices": [
+              {
+                "type": "GLP",
+                "sellPrice": 55.00,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "22/09/2015",
+                "date": ""
+              }
+            ]
+          },
+          {
+            "name": "Amigão Comércio Ltda -me",
+            "address": "Rua Abelardo Pugliese, 130",
+            "area": "Jatiuca",
+            "flag": "-",
+            "prices": [
+              {
+                "type": "GLP",
+                "sellPrice": 55.00,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "22/09/2015",
+                "date": ""
+              }
+            ]
+          },
+          {
+            "name": "F. de A. de M. Rodrigues",
+            "address": "Rua Domingos Lordsleen, 384",
+            "area": "Ponta da Terra",
+            "flag": "-",
+            "prices": [
+              {
+                "type": "GLP",
+                "sellPrice": 55.00,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "22/09/2015",
+                "date": ""
+              }
+            ]
+          },
+          {
+            "name": "Alex de A Farias Bebidas",
+            "address": "Rua Angelo Martins, 4",
+            "area": "Jatiuca",
+            "flag": "-",
+            "prices": [
+              {
+                "type": "GLP",
+                "sellPrice": 55.00,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "22/09/2015",
+                "date": ""
+              }
+            ]
+          },
+          {
+            "name": "Margarida Nascimento Torreiro de Carvalho Me.",
+            "address": "Avenida Brasil, 227 Fundos",
+            "area": "Poco",
+            "flag": "-",
+            "prices": [
+              {
+                "type": "GLP",
+                "sellPrice": 55.00,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "22/09/2015",
+                "date": ""
+              }
+            ]
+          },
+          {
+            "name": "Walter A da Silva Junior - Me",
+            "address": "Avenida Pio Xii, 526a",
+            "area": "Jatiuca",
+            "flag": "-",
+            "prices": [
+              {
+                "type": "GLP",
+                "sellPrice": 55.00,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "22/09/2015",
+                "date": ""
+              }
+            ]
+          },
+          {
+            "name": "Chamagas - Gás e Água Ltda. - Me.",
+            "address": "Rua Doutor Zeferino Rodrigues, 908 C",
+            "area": "Poco",
+            "flag": "-",
+            "prices": [
+              {
+                "type": "GLP",
+                "sellPrice": 55.00,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "22/09/2015",
+                "date": ""
+              }
+            ]
+          },
+          {
+            "name": "São Francisco Comércio de Gás Glp Ltda Me",
+            "address": "Rua São Francisco de Assis, 142",
+            "area": "Jatiuca",
+            "flag": "-",
+            "prices": [
+              {
+                "type": "GLP",
+                "sellPrice": 55.00,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "22/09/2015",
+                "date": ""
+              }
+            ]
+          },
+          {
+            "name": "A. C. dos Santos Silva Gás",
+            "address": "Rua Santa Fernanda, 47",
+            "area": "Jatiuca",
+            "flag": "-",
+            "prices": [
+              {
+                "type": "GLP",
+                "sellPrice": 55.00,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "22/09/2015",
+                "date": ""
+              }
+            ]
+          },
+          {
+            "name": "J Crisostomos da Silva Mercadinho - Me",
+            "address": "Rua Santa Luzia, 212",
+            "area": "Pescaria",
+            "flag": "-",
+            "prices": [
+              {
+                "type": "GLP",
+                "sellPrice": 55.00,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "22/09/2015",
+                "date": ""
+              }
+            ]
+          },
+          {
+            "name": "Aluisio dos Santos",
+            "address": "Rua Santa Quiteria, 90",
+            "area": "Ponta da Terra",
+            "flag": "-",
+            "prices": [
+              {
+                "type": "GLP",
+                "sellPrice": 55.00,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "22/09/2015",
+                "date": ""
+              }
+            ]
+          },
+          {
+            "name": "Raquel Silva de Lima 02689164469",
+            "address": "Rua Cristovao Colombo, 55",
+            "area": "Jaragua",
+            "flag": "-",
+            "prices": [
+              {
+                "type": "GLP",
+                "sellPrice": 55.00,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "22/09/2015",
+                "date": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Palmeira dos Indios",
+        "statistics": [
+          {
+            "type": "Gasolina",
+            "consumerPrice": [
+              {
+                "averagePrice": 3.340,
+                "standardDeviation": 0.024,
+                "minPrice": 3.290,
+                "maxPrice": 3.350,
+                "averageMargin": 0.466
+              }
+            ],
+            "distributionPrice": [
+              {
+                "averagePrice": 2.873,
+                "standardDeviation": 0.058,
+                "minPrice": 2.807,
+                "maxPrice": 2.914
+              }
+            ]
+          },
+          {
+            "type": "Etanol",
+            "consumerPrice": [
+              {
+                "averagePrice": 2.659,
+                "standardDeviation": 0.119,
+                "minPrice": 2.490,
+                "maxPrice": 2.776,
+                "averageMargin": 0.274
+              }
+            ],
+            "distributionPrice": [
+              {
+                "averagePrice": 2.385,
+                "standardDeviation": 0.062,
+                "minPrice": 2.341,
+                "maxPrice": 2.429
+              }
+            ]
+          },
+          {
+            "type": "Diesel",
+            "consumerPrice": [
+              {
+                "averagePrice": 2.771,
+                "standardDeviation": 0.038,
+                "minPrice": 2.690,
+                "maxPrice": 2.799,
+                "averageMargin": 0.194
+              }
+            ],
+            "distributionPrice": [
+              {
+                "averagePrice": 2.577,
+                "standardDeviation": 0.017,
+                "minPrice": 2.559,
+                "maxPrice": 2.591
+              }
+            ]
+          },
+          {
+            "type": "Diesel S10",
+            "consumerPrice": [
+              {
+                "averagePrice": 2.899,
+                "standardDeviation": 0.013,
+                "minPrice": 2.880,
+                "maxPrice": 2.920,
+                "averageMargin": 0.221
+              }
+            ],
+            "distributionPrice": [
+              {
+                "averagePrice": 2.678,
+                "standardDeviation": 0.027,
+                "minPrice": 2.660,
+                "maxPrice": 2.709
+              }
+            ]
+          },
+          {
+            "type": "GLP",
+            "consumerPrice": [
+              {
+                "averagePrice": 55.00,
+                "standardDeviation": 0.00,
+                "minPrice": 55.00,
+                "maxPrice": 55.00,
+                "averageMargin": null
+              }
+            ],
+            "distributionPrice": [
+              {
+                "averagePrice": null,
+                "standardDeviation": null,
+                "minPrice": null,
+                "maxPrice": null
+              }
+            ]
+          }
+        ],
+        "stations": [
+          {
+            "name": "Paulo Tomé de Oliveira",
+            "address": "Avenida Rotary, 490",
+            "area": "Palmeira de Fora",
+            "flag": "BRANCA",
+            "prices": [
+              {
+                "type": "Gasolina",
+                "sellPrice": 3.290,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-21"
+              },
+              {
+                "type": "Etanol",
+                "sellPrice": 2.490,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-21"
+              },
+              {
+                "type": "Diesel",
+                "sellPrice": 2.690,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-21"
+              }
+            ]
+          },
+          {
+            "name": "Severino S. Lopes & Cia. Ltda.",
+            "address": "Avenida Muniz Falcao, 218",
+            "area": "São Francisco",
+            "flag": "BRANCA",
+            "prices": [
+              {
+                "type": "Gasolina",
+                "sellPrice": 3.349,
+                "buyPrice": 2.807,
+                "saleMode": "CIF",
+                "provider": "PETROBRAS DISTRIBUIDORA S.A.",
+                "date": "2015-09-21"
+              },
+              {
+                "type": "Etanol",
+                "sellPrice": 2.699,
+                "buyPrice": 2.429,
+                "saleMode": "CIF",
+                "provider": "PETROBRAS DISTRIBUIDORA S.A.",
+                "date": "2015-09-21"
+              },
+              {
+                "type": "Diesel",
+                "sellPrice": 2.799,
+                "buyPrice": 2.591,
+                "saleMode": "CIF",
+                "provider": "PETROBRAS DISTRIBUIDORA S.A.",
+                "date": "2015-09-21"
+              },
+              {
+                "type": "Diesel S10",
+                "sellPrice": 2.899,
+                "buyPrice": 2.666,
+                "saleMode": "CIF",
+                "provider": "PETROBRAS DISTRIBUIDORA S.A.",
+                "date": "2015-09-21"
+              }
+            ]
+          },
+          {
+            "name": "Severino S. Lopes & Cia. Ltda.",
+            "address": "Avenida Muniz Falcão, 1640 Lotes 08 e 09, Lot. Gastão Leão Rego",
+            "area": "José Maia Costa",
+            "flag": "BRANCA",
+            "prices": [
+              {
+                "type": "Gasolina",
+                "sellPrice": 3.349,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-21"
+              },
+              {
+                "type": "Etanol",
+                "sellPrice": 2.699,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-21"
+              },
+              {
+                "type": "Diesel",
+                "sellPrice": 2.799,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-21"
+              },
+              {
+                "type": "Diesel S10",
+                "sellPrice": 2.899,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-21"
+              }
+            ]
+          },
+          {
+            "name": "Jose Tavares & Cia Ltda",
+            "address": "Avenida Vieira de Brito, 460",
+            "area": "São Cristóvão",
+            "flag": "IPIRANGA",
+            "prices": [
+              {
+                "type": "Gasolina",
+                "sellPrice": 3.350,
+                "buyPrice": 2.914,
+                "saleMode": "CIF",
+                "provider": "-",
+                "date": "2015-09-21"
+              },
+              {
+                "type": "Etanol",
+                "sellPrice": 2.740,
+                "buyPrice": 2.341,
+                "saleMode": "CIF",
+                "provider": "-",
+                "date": "2015-09-21"
+              },
+              {
+                "type": "Diesel",
+                "sellPrice": 2.780,
+                "buyPrice": 2.559,
+                "saleMode": "CIF",
+                "provider": "-",
+                "date": "2015-09-21"
+              },
+              {
+                "type": "Diesel S10",
+                "sellPrice": 2.920,
+                "buyPrice": 2.709,
+                "saleMode": "CIF",
+                "provider": "-",
+                "date": "2015-09-21"
+              }
+            ]
+          },
+          {
+            "name": "A.b Lessa Neto & Cia Ltda",
+            "address": "Avenida Vieira de Brito, 1888",
+            "area": "Vila Maria",
+            "flag": "PETROBRAS DISTRIBUIDORA S.A.",
+            "prices": [
+              {
+                "type": "Gasolina",
+                "sellPrice": 3.350,
+                "buyPrice": 2.900,
+                "saleMode": "CIF",
+                "provider": "-",
+                "date": "2015-09-21"
+              },
+              {
+                "type": "Etanol",
+                "sellPrice": 2.720,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-21"
+              },
+              {
+                "type": "Diesel",
+                "sellPrice": 2.740,
+                "buyPrice": 2.580,
+                "saleMode": "CIF",
+                "provider": "-",
+                "date": "2015-09-21"
+              },
+              {
+                "type": "Diesel S10",
+                "sellPrice": 2.900,
+                "buyPrice": 2.660,
+                "saleMode": "CIF",
+                "provider": "-",
+                "date": "2015-09-21"
+              }
+            ]
+          },
+          {
+            "name": "J. R. Soares & Souza Ltda Me",
+            "address": "Avenida Vieira de Brito, 680",
+            "area": "São Cristóvão",
+            "flag": "BRANCA",
+            "prices": [
+              {
+                "type": "Gasolina",
+                "sellPrice": 3.350,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-21"
+              },
+              {
+                "type": "Etanol",
+                "sellPrice": 2.490,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-21"
+              },
+              {
+                "type": "Diesel",
+                "sellPrice": 2.790,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-21"
+              }
+            ]
+          },
+          {
+            "name": "Balbino & Cia Ltda",
+            "address": "Avenida Governador Muniz Falcao, 1001",
+            "area": "Sao Francisco",
+            "flag": "RAIZEN",
+            "prices": [
+              {
+                "type": "Etanol",
+                "sellPrice": 2.776,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-21"
+              },
+              {
+                "type": "Diesel",
+                "sellPrice": 2.798,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-21"
+              },
+              {
+                "type": "Diesel S10",
+                "sellPrice": 2.898,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-21"
+              }
+            ]
+          },
+          {
+            "name": "Amorim & Correia Ltda",
+            "address": "Rua Pedro Barbosa, S/n",
+            "area": "Centro",
+            "flag": "BRANCA",
+            "prices": [
+              {
+                "type": "Diesel",
+                "sellPrice": 2.770,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-21"
+              },
+              {
+                "type": "Diesel S10",
+                "sellPrice": 2.880,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "-",
+                "date": "2015-09-21"
+              }
+            ]
+          },
+          {
+            "name": "Com. e Rep. Bom Jesus Ltda.",
+            "address": "Av. Rotary, 2070",
+            "area": "Palmeira de Fora",
+            "flag": "-",
+            "prices": [
+              {
+                "type": "GLP",
+                "sellPrice": 55.00,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "21/09/2015",
+                "date": ""
+              }
+            ]
+          },
+          {
+            "name": "H S Comércio Ltda.",
+            "address": "Travessa Getulio Vargas, 111",
+            "area": "São Cristóvão",
+            "flag": "-",
+            "prices": [
+              {
+                "type": "GLP",
+                "sellPrice": 55.00,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "21/09/2015",
+                "date": ""
+              }
+            ]
+          },
+          {
+            "name": "Galindogas Revendedora de Gas Ltda",
+            "address": "Rua Deputado Jota Duarte, 150",
+            "area": "São Cristóvão",
+            "flag": "-",
+            "prices": [
+              {
+                "type": "GLP",
+                "sellPrice": 55.00,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "21/09/2015",
+                "date": ""
+              }
+            ]
+          },
+          {
+            "name": "Capa Gás e Transportes Ltda",
+            "address": "Rua Manoel Rodrigues de Queiroz, 184",
+            "area": "Sao Cristovao",
+            "flag": "-",
+            "prices": [
+              {
+                "type": "GLP",
+                "sellPrice": 55.00,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "21/09/2015",
+                "date": ""
+              }
+            ]
+          },
+          {
+            "name": "J.t. da Silva & Cia Ltda",
+            "address": "Avenida Vieira de Brito, 923",
+            "area": "São Cristovão",
+            "flag": "-",
+            "prices": [
+              {
+                "type": "GLP",
+                "sellPrice": 55.00,
+                "buyPrice": null,
+                "saleMode": "-",
+                "provider": "21/09/2015",
+                "date": ""
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "dates": {
+      "from": "2015-09-20",
+      "to": "2015-09-26"
+    }
+  }
+]

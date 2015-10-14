@@ -14,38 +14,34 @@ class StationsActions {
 		this.dispatch();
 		return api.get({
 			endpoint: STATIONS.LIST
-		}).then( states => {
-			this.actions.update(states);
-			return states;
+		}).then( stations => {
+			this.actions.update(stations);
+			return stations;
 		}.bind(this)).catch( error => {
 			this.actions.requestFailed(error);
 			return error;
 		}.bind(this));
 	}
 
-	/**
-	 * [load load ]
-	 * @return {[type]} [description]
-	 */
-	loadByName(name){
+	loadOne(id){
 		this.dispatch();
 		return api.get({
-			endpoint: STATIONS.ONE+'/'+name
-		}).then( states => {
-			this.actions.update(states);
-			return states;
+			endpoint: [STATIONS.GETBYID,id].join('/')
+		}).then( station => {
+			this.actions.updateOne(station);
+			return station;
 		}.bind(this)).catch( error => {
 			this.actions.requestFailed(error);
 			return error;
 		}.bind(this));
 	}
 
-	update(states){
-		this.dispatch(states);
+	update(stations){
+		this.dispatch(stations);
 	}
 
-	updateOne(states){
-		this.dispatch(states);
+	updateOne(station){
+		this.dispatch(station);
 	}
 
 	/**

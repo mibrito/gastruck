@@ -5,12 +5,12 @@ import StationsActions from './StationsActions';
 
 var clean = {
 	errorMessage: null,
-	stations: []
+	stations: {}
 };
 
 class StationsStore {
 	constructor(){
-		_.assign(this, clean);
+		_.assign(this, _.clone(clean));
 
 		this.bindListeners({
 			clean: StationsActions.LOAD,
@@ -21,8 +21,7 @@ class StationsStore {
 	}
 
 	clean(){
-		this.historyRating = clean.historyRating;
-		this.errorMessage = clean.errorMessage;
+		_.assign(this, _.clone(clean));
 	}
 
 	update(stations){
@@ -30,8 +29,8 @@ class StationsStore {
 		this.errorMessage = clean.errorMessage;
 	}
 
-	update(station){
-		this.stations[stations._id] = station;
+	updateOne(station){
+		this.stations[station._id] = station;
 		this.errorMessage = clean.errorMessage;
 	}
 

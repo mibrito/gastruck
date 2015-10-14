@@ -5,7 +5,7 @@ import CitiesActions from './CitiesActions';
 
 var clean = {
 	errorMessage: null,
-	states: []
+	cities: {}
 };
 
 class CitiesStore {
@@ -14,18 +14,28 @@ class CitiesStore {
 
 		this.bindListeners({
 			clean: CitiesActions.LOAD,
+			cleanOne: CitiesActions.LOAD_ONE,
 			update: CitiesActions.UPDATE,
+			updateOne: CitiesActions.UPDATE_ONE,
 			requestFailed: CitiesActions.REQUEST_FAILED,
 		});
 	}
 
 	clean(){
-		this.historyRating = clean.historyRating;
+		_.assign(this, _.clone(clean));
+	}
+
+	cleanOne(){
+		_.assign(this, clean);
+	}
+
+	update(cities){
+		this.cities = _.indexBy(cities, '_id');
 		this.errorMessage = clean.errorMessage;
 	}
 
-	update(states){
-		this.states = _.indexBy(states, 'selEstado');
+	updateOne(city){
+		this.cities[city._id] = city;
 		this.errorMessage = clean.errorMessage;
 	}
 

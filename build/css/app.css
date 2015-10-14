@@ -1,3 +1,26 @@
 body {
   background: white;
+  color: #666;
+}
+a {
+  color: #00c1a2;
+}
+a:hover,
+a:active {
+  color: #317db2;
+  text-decoration: none;
+}
+.logo h1 {
+  margin-bottom: 0;
+}
+.logo .logo-truck {
+  color: #00c1a2;
+}
+.logo footer.crawl-dates {
+  font-size: 1.2rem;
+  text-align: left;
+  font-weight: bold;
+}
+.station .about {
+  font-size: 2rem;
 }

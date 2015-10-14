@@ -2,15 +2,36 @@
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
-  value: true
+	value: true
 });
 var APPNAME = 'GasTruck';
 exports.APPNAME = APPNAME;
 var BASE_URL = 'http://' + window.location.hostname + ':3000/';
 
 exports.BASE_URL = BASE_URL;
-var READINGS = '';
-exports.READINGS = READINGS;
+var STATES = {
+	LIST: 'states',
+	GETBYID: ['states', 'id'].join('/')
+};
+
+exports.STATES = STATES;
+var CITIES = {
+	LIST: 'cities',
+	GETBYID: ['cities', 'id'].join('/')
+};
+
+exports.CITIES = CITIES;
+var STATIONS = {
+	LIST: 'stations',
+	GETBYID: ['stations', 'id'].join('/')
+};
+
+exports.STATIONS = STATIONS;
+var CRAWL = {
+	DATES: ['crawl', 'dates'].join('/'),
+	GETBYID: ['crawl', 'id'].join('/')
+};
+exports.CRAWL = CRAWL;
 
 },{}],2:[function(require,module,exports){
 'use strict';
@@ -54579,38 +54600,210 @@ function _inherits(subClass, superClass) {
 	}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
 }
 
+var _lodash = require('lodash');
+
+var _lodash2 = _interopRequireDefault(_lodash);
+
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+// components
+
+var _reactRouter = require('react-router');
+
 var _reactBootstrap = require('react-bootstrap');
 
-var MainComponent = (function (_React$Component) {
-	_inherits(MainComponent, _React$Component);
+// flux
 
-	function MainComponent(props) {
-		_classCallCheck(this, MainComponent);
+var _FluxCitiesCitiesStore = require('../../Flux/Cities/CitiesStore');
 
-		_get(Object.getPrototypeOf(MainComponent.prototype), 'constructor', this).call(this, props);
+var _FluxCitiesCitiesStore2 = _interopRequireDefault(_FluxCitiesCitiesStore);
+
+var _FluxCitiesCitiesActions = require('../../Flux/Cities/CitiesActions');
+
+var _FluxCitiesCitiesActions2 = _interopRequireDefault(_FluxCitiesCitiesActions);
+
+var Cities = (function (_React$Component) {
+	_inherits(Cities, _React$Component);
+
+	function Cities(props) {
+		_classCallCheck(this, Cities);
+
+		_get(Object.getPrototypeOf(Cities.prototype), 'constructor', this).call(this, props);
+		this.displayName = 'Cities';
+
+		this.state = _FluxCitiesCitiesStore2['default'].getState();
+		this._onStoreChange = this._onStoreChange.bind(this);
 	}
 
-	_createClass(MainComponent, [{
+	_createClass(Cities, [{
+		key: 'componentWillMount',
+		value: function componentWillMount() {
+			_FluxCitiesCitiesActions2['default'].load();
+		}
+	}, {
+		key: 'componentDidMount',
+		value: function componentDidMount() {
+			_FluxCitiesCitiesStore2['default'].listen(this._onStoreChange);
+		}
+	}, {
+		key: 'componentWillUnmount',
+		value: function componentWillUnmount() {
+			_FluxCitiesCitiesStore2['default'].unlisten(this._onStoreChange);
+		}
+	}, {
+		key: '_onStoreChange',
+		value: function _onStoreChange(state) {
+
+			this.setState(state);
+		}
+	}, {
 		key: 'render',
 		value: function render() {
-			return _react2['default'].createElement('div', { className: 'container-fluid app-body' }, _react2['default'].createElement(_reactBootstrap.Row, { className: 'body' }, this.props.children));
+			return _react2['default'].createElement('div', { className: 'states' }, _react2['default'].createElement('h1', null, 'Cities'), _react2['default'].createElement(_reactBootstrap.Col, null, _lodash2['default'].map(this.state.states, function (state, key) {
+				return _react2['default'].createElement('div', { key: key }, _react2['default'].createElement(_reactRouter.Link, { to: '/cities/' + state._id }, state.name));
+			})));
 		}
 	}]);
 
-	return MainComponent;
+	return Cities;
 })(_react2['default'].Component);
 
-MainComponent.displayName = 'MainComponent';
-
-exports['default'] = MainComponent;
+exports['default'] = Cities;
 module.exports = exports['default'];
-/* this is the important part */
 
-},{"react":476,"react-bootstrap":181}],479:[function(require,module,exports){
+},{"../../Flux/Cities/CitiesActions":485,"../../Flux/Cities/CitiesStore":486,"lodash":47,"react":476,"react-bootstrap":181,"react-router":295}],479:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+	value: true
+});
+
+var _createClass = (function () {
+	function defineProperties(target, props) {
+		for (var i = 0; i < props.length; i++) {
+			var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ('value' in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
+		}
+	}return function (Constructor, protoProps, staticProps) {
+		if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
+	};
+})();
+
+var _get = function get(_x, _x2, _x3) {
+	var _again = true;_function: while (_again) {
+		var object = _x,
+		    property = _x2,
+		    receiver = _x3;desc = parent = getter = undefined;_again = false;if (object === null) object = Function.prototype;var desc = Object.getOwnPropertyDescriptor(object, property);if (desc === undefined) {
+			var parent = Object.getPrototypeOf(object);if (parent === null) {
+				return undefined;
+			} else {
+				_x = parent;_x2 = property;_x3 = receiver;_again = true;continue _function;
+			}
+		} else if ('value' in desc) {
+			return desc.value;
+		} else {
+			var getter = desc.get;if (getter === undefined) {
+				return undefined;
+			}return getter.call(receiver);
+		}
+	}
+};
+
+function _interopRequireDefault(obj) {
+	return obj && obj.__esModule ? obj : { 'default': obj };
+}
+
+function _classCallCheck(instance, Constructor) {
+	if (!(instance instanceof Constructor)) {
+		throw new TypeError('Cannot call a class as a function');
+	}
+}
+
+function _inherits(subClass, superClass) {
+	if (typeof superClass !== 'function' && superClass !== null) {
+		throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass);
+	}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+}
+
+var _lodash = require('lodash');
+
+var _lodash2 = _interopRequireDefault(_lodash);
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+// components
+
+var _reactRouter = require('react-router');
+
+var _reactBootstrap = require('react-bootstrap');
+
+// flux
+
+var _FluxCitiesCitiesStore = require('../../Flux/Cities/CitiesStore');
+
+var _FluxCitiesCitiesStore2 = _interopRequireDefault(_FluxCitiesCitiesStore);
+
+var _FluxCitiesCitiesActions = require('../../Flux/Cities/CitiesActions');
+
+var _FluxCitiesCitiesActions2 = _interopRequireDefault(_FluxCitiesCitiesActions);
+
+var Cities = (function (_React$Component) {
+	_inherits(Cities, _React$Component);
+
+	function Cities(props) {
+		_classCallCheck(this, Cities);
+
+		_get(Object.getPrototypeOf(Cities.prototype), 'constructor', this).call(this, props);
+		this.displayName = 'CitiesDetails';
+
+		this.state = _FluxCitiesCitiesStore2['default'].getState();
+		this._onStoreChange = this._onStoreChange.bind(this);
+	}
+
+	_createClass(Cities, [{
+		key: 'componentWillMount',
+		value: function componentWillMount() {
+			_FluxCitiesCitiesActions2['default'].loadOne(this.props.params.city);
+		}
+	}, {
+		key: 'componentDidMount',
+		value: function componentDidMount() {
+			_FluxCitiesCitiesStore2['default'].listen(this._onStoreChange);
+		}
+	}, {
+		key: 'componentWillUnmount',
+		value: function componentWillUnmount() {
+			_FluxCitiesCitiesStore2['default'].unlisten(this._onStoreChange);
+		}
+	}, {
+		key: '_onStoreChange',
+		value: function _onStoreChange(state) {
+			console.log(state);
+			this.setState(state);
+		}
+	}, {
+		key: 'render',
+		value: function render() {
+			var city = this.state.cities[this.props.params.city] || {};
+			var pathname = this.props.location.pathname;
+			return _react2['default'].createElement('div', { className: 'Cities' }, _react2['default'].createElement(_reactBootstrap.Col, { xs: 12, md: 12, className: 'sub-header' }, _react2['default'].createElement('h2', null, city.name || '')), _react2['default'].createElement(_reactBootstrap.Col, { xs: 12, md: 6 }, _react2['default'].createElement('h3', null, 'Statistics'), city.statistics && _lodash2['default'].map(city.statistics, function (statistic, key) {
+				return _react2['default'].createElement('div', { key: key }, _react2['default'].createElement(_reactBootstrap.Col, { md: 12 }, _react2['default'].createElement('h4', null, statistic.fuelType)), _react2['default'].createElement(_reactBootstrap.Col, { md: 5 }, _react2['default'].createElement('b', null, 'Consumer Price'), _react2['default'].createElement('p', null, 'Average Margin: ', statistic.consumerPrice[0].averageMargin), _react2['default'].createElement('p', null, 'Average Price: ', statistic.consumerPrice[0].averagePrice), _react2['default'].createElement('p', null, 'Max Price: ', statistic.consumerPrice[0].maxPrice), _react2['default'].createElement('p', null, 'Min Price: ', statistic.consumerPrice[0].minPrice)), _react2['default'].createElement(_reactBootstrap.Col, { md: 5 }, _react2['default'].createElement('b', null, 'Distribution Price'), _react2['default'].createElement('p', null, 'Average Margin: ', statistic.distributionPrice[0].averagePrice), _react2['default'].createElement('p', null, 'Standard Deviation: ', statistic.distributionPrice[0].standardDeviation), _react2['default'].createElement('p', null, 'Max Price: ', statistic.distributionPrice[0].maxPrice), _react2['default'].createElement('p', null, 'Min Price: ', statistic.distributionPrice[0].minPrice)));
+			})), _react2['default'].createElement(_reactBootstrap.Col, { xs: 12, md: 6 }, _react2['default'].createElement('h3', null, 'Stations'), city.stations && _lodash2['default'].map(city.stations, function (station, key) {
+				return _react2['default'].createElement('div', { key: key }, _react2['default'].createElement(_reactRouter.Link, { to: pathname + '/' + station._id }, station.name));
+			})));
+		}
+	}]);
+
+	return Cities;
+})(_react2['default'].Component);
+
+exports['default'] = Cities;
+module.exports = exports['default'];
+
+},{"../../Flux/Cities/CitiesActions":485,"../../Flux/Cities/CitiesStore":486,"lodash":47,"react":476,"react-bootstrap":181,"react-router":295}],480:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -54669,40 +54862,544 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactBootstrap = require('react-bootstrap');
 
-var _FluxMainMainStore = require('../Flux/Main/MainStore');
+// flux
 
-var _FluxMainMainStore2 = _interopRequireDefault(_FluxMainMainStore);
+var _FluxCrawlInfoCrawlInfoStore = require('../Flux/CrawlInfo/CrawlInfoStore');
 
-var _FluxMainMainActions = require('../Flux/Main/MainActions');
+var _FluxCrawlInfoCrawlInfoStore2 = _interopRequireDefault(_FluxCrawlInfoCrawlInfoStore);
 
-var _FluxMainMainActions2 = _interopRequireDefault(_FluxMainMainActions);
+var _FluxCrawlInfoCrawlInfoActions = require('../Flux/CrawlInfo/CrawlInfoActions');
 
-var Teste = (function (_React$Component) {
-	_inherits(Teste, _React$Component);
+var _FluxCrawlInfoCrawlInfoActions2 = _interopRequireDefault(_FluxCrawlInfoCrawlInfoActions);
 
-	function Teste(props) {
-		_classCallCheck(this, Teste);
+// lib
 
-		_get(Object.getPrototypeOf(Teste.prototype), 'constructor', this).call(this, props);
+var _LibFormatDate = require('../Lib/formatDate');
 
-		this.state = _FluxMainMainStore2['default'].getState();
+var _LibFormatDate2 = _interopRequireDefault(_LibFormatDate);
+
+var MainComponent = (function (_React$Component) {
+	_inherits(MainComponent, _React$Component);
+
+	function MainComponent(props) {
+		_classCallCheck(this, MainComponent);
+
+		_get(Object.getPrototypeOf(MainComponent.prototype), 'constructor', this).call(this, props);
+		this.displayName = 'MainComponent';
+
+		this.state = _FluxCrawlInfoCrawlInfoStore2['default'].getState();
 		this._onStoreChange = this._onStoreChange.bind(this);
 	}
 
-	_createClass(Teste, [{
+	_createClass(MainComponent, [{
 		key: 'componentWillMount',
 		value: function componentWillMount() {
-			_FluxMainMainActions2['default'].load();
+			_FluxCrawlInfoCrawlInfoActions2['default'].loadDates();
 		}
 	}, {
 		key: 'componentDidMount',
 		value: function componentDidMount() {
-			_FluxMainMainStore2['default'].listen(this._onStoreChange);
+			_FluxCrawlInfoCrawlInfoStore2['default'].listen(this._onStoreChange);
 		}
 	}, {
 		key: 'componentWillUnmount',
 		value: function componentWillUnmount() {
-			_FluxMainMainStore2['default'].unlisten(this._onStoreChange);
+			_FluxCrawlInfoCrawlInfoStore2['default'].unlisten(this._onStoreChange);
+		}
+	}, {
+		key: '_onStoreChange',
+		value: function _onStoreChange(state) {
+			this.setState(state);
+		}
+	}, {
+		key: 'render',
+		value: function render() {
+			return _react2['default'].createElement('div', { className: 'container-fluid app-body' }, _react2['default'].createElement(_reactBootstrap.Col, { md: 12, className: 'logo' }, _react2['default'].createElement('h1', null, _react2['default'].createElement('span', { className: 'logo-gas' }, 'Gas'), _react2['default'].createElement('span', { className: 'logo-truck' }, 'Truck')), _react2['default'].createElement('footer', { className: 'crawl-dates' }, 'From ', (0, _LibFormatDate2['default'])(this.state.dates.from, '/'), ' To ', (0, _LibFormatDate2['default'])(this.state.dates.to, '/'))), _react2['default'].createElement(_reactBootstrap.Col, { md: 12, className: 'body' }, this.props.children), _react2['default'].createElement(_reactBootstrap.Col, { md: 12 }));
+		}
+	}]);
+
+	return MainComponent;
+})(_react2['default'].Component);
+
+MainComponent.displayName = 'MainComponent';
+
+exports['default'] = MainComponent;
+module.exports = exports['default'];
+/* this is the important part for react-router */
+
+},{"../Flux/CrawlInfo/CrawlInfoActions":487,"../Flux/CrawlInfo/CrawlInfoStore":488,"../Lib/formatDate":495,"react":476,"react-bootstrap":181}],481:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+	value: true
+});
+
+var _createClass = (function () {
+	function defineProperties(target, props) {
+		for (var i = 0; i < props.length; i++) {
+			var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ('value' in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
+		}
+	}return function (Constructor, protoProps, staticProps) {
+		if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
+	};
+})();
+
+var _get = function get(_x, _x2, _x3) {
+	var _again = true;_function: while (_again) {
+		var object = _x,
+		    property = _x2,
+		    receiver = _x3;desc = parent = getter = undefined;_again = false;if (object === null) object = Function.prototype;var desc = Object.getOwnPropertyDescriptor(object, property);if (desc === undefined) {
+			var parent = Object.getPrototypeOf(object);if (parent === null) {
+				return undefined;
+			} else {
+				_x = parent;_x2 = property;_x3 = receiver;_again = true;continue _function;
+			}
+		} else if ('value' in desc) {
+			return desc.value;
+		} else {
+			var getter = desc.get;if (getter === undefined) {
+				return undefined;
+			}return getter.call(receiver);
+		}
+	}
+};
+
+function _interopRequireDefault(obj) {
+	return obj && obj.__esModule ? obj : { 'default': obj };
+}
+
+function _classCallCheck(instance, Constructor) {
+	if (!(instance instanceof Constructor)) {
+		throw new TypeError('Cannot call a class as a function');
+	}
+}
+
+function _inherits(subClass, superClass) {
+	if (typeof superClass !== 'function' && superClass !== null) {
+		throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass);
+	}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+}
+
+var _lodash = require('lodash');
+
+var _lodash2 = _interopRequireDefault(_lodash);
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+// components
+
+var _reactRouter = require('react-router');
+
+var _reactBootstrap = require('react-bootstrap');
+
+// flux
+
+var _FluxStatesStatesStore = require('../../Flux/States/StatesStore');
+
+var _FluxStatesStatesStore2 = _interopRequireDefault(_FluxStatesStatesStore);
+
+var _FluxStatesStatesActions = require('../../Flux/States/StatesActions');
+
+var _FluxStatesStatesActions2 = _interopRequireDefault(_FluxStatesStatesActions);
+
+var States = (function (_React$Component) {
+	_inherits(States, _React$Component);
+
+	function States(props) {
+		_classCallCheck(this, States);
+
+		_get(Object.getPrototypeOf(States.prototype), 'constructor', this).call(this, props);
+		this.displayName = 'States';
+
+		this.state = _FluxStatesStatesStore2['default'].getState();
+		this._onStoreChange = this._onStoreChange.bind(this);
+	}
+
+	_createClass(States, [{
+		key: 'componentWillMount',
+		value: function componentWillMount() {
+			_FluxStatesStatesActions2['default'].loadOne(this.props.params.state);
+		}
+	}, {
+		key: 'componentDidMount',
+		value: function componentDidMount() {
+			_FluxStatesStatesStore2['default'].listen(this._onStoreChange);
+		}
+	}, {
+		key: 'componentWillUnmount',
+		value: function componentWillUnmount() {
+			_FluxStatesStatesStore2['default'].unlisten(this._onStoreChange);
+		}
+	}, {
+		key: '_onStoreChange',
+		value: function _onStoreChange(state) {
+			this.setState(state);
+		}
+	}, {
+		key: 'render',
+		value: function render() {
+			var state = this.state.states[this.props.params.state] || {};
+			var pathname = this.props.location.pathname;
+			return _react2['default'].createElement('div', { className: 'states' }, _react2['default'].createElement('h1', null, 'Cities of ', state.name || ''), _react2['default'].createElement(_reactBootstrap.Col, null, state.cities && _lodash2['default'].map(state.cities, function (city, key) {
+				return _react2['default'].createElement('div', { key: key }, _react2['default'].createElement(_reactRouter.Link, { to: pathname + '/' + city._id }, city.name));
+			})));
+		}
+	}]);
+
+	return States;
+})(_react2['default'].Component);
+
+exports['default'] = States;
+module.exports = exports['default'];
+
+},{"../../Flux/States/StatesActions":489,"../../Flux/States/StatesStore":490,"lodash":47,"react":476,"react-bootstrap":181,"react-router":295}],482:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+	value: true
+});
+
+var _createClass = (function () {
+	function defineProperties(target, props) {
+		for (var i = 0; i < props.length; i++) {
+			var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ('value' in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
+		}
+	}return function (Constructor, protoProps, staticProps) {
+		if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
+	};
+})();
+
+var _get = function get(_x, _x2, _x3) {
+	var _again = true;_function: while (_again) {
+		var object = _x,
+		    property = _x2,
+		    receiver = _x3;desc = parent = getter = undefined;_again = false;if (object === null) object = Function.prototype;var desc = Object.getOwnPropertyDescriptor(object, property);if (desc === undefined) {
+			var parent = Object.getPrototypeOf(object);if (parent === null) {
+				return undefined;
+			} else {
+				_x = parent;_x2 = property;_x3 = receiver;_again = true;continue _function;
+			}
+		} else if ('value' in desc) {
+			return desc.value;
+		} else {
+			var getter = desc.get;if (getter === undefined) {
+				return undefined;
+			}return getter.call(receiver);
+		}
+	}
+};
+
+function _interopRequireDefault(obj) {
+	return obj && obj.__esModule ? obj : { 'default': obj };
+}
+
+function _classCallCheck(instance, Constructor) {
+	if (!(instance instanceof Constructor)) {
+		throw new TypeError('Cannot call a class as a function');
+	}
+}
+
+function _inherits(subClass, superClass) {
+	if (typeof superClass !== 'function' && superClass !== null) {
+		throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass);
+	}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+}
+
+var _lodash = require('lodash');
+
+var _lodash2 = _interopRequireDefault(_lodash);
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+// components
+
+var _reactRouter = require('react-router');
+
+var _reactBootstrap = require('react-bootstrap');
+
+// flux
+
+var _FluxStatesStatesStore = require('../../Flux/States/StatesStore');
+
+var _FluxStatesStatesStore2 = _interopRequireDefault(_FluxStatesStatesStore);
+
+var _FluxStatesStatesActions = require('../../Flux/States/StatesActions');
+
+var _FluxStatesStatesActions2 = _interopRequireDefault(_FluxStatesStatesActions);
+
+var States = (function (_React$Component) {
+	_inherits(States, _React$Component);
+
+	function States(props) {
+		_classCallCheck(this, States);
+
+		_get(Object.getPrototypeOf(States.prototype), 'constructor', this).call(this, props);
+		this.displayName = 'States';
+
+		this.state = _FluxStatesStatesStore2['default'].getState();
+		this._onStoreChange = this._onStoreChange.bind(this);
+	}
+
+	_createClass(States, [{
+		key: 'componentWillMount',
+		value: function componentWillMount() {
+			_FluxStatesStatesActions2['default'].load();
+		}
+	}, {
+		key: 'componentDidMount',
+		value: function componentDidMount() {
+			_FluxStatesStatesStore2['default'].listen(this._onStoreChange);
+		}
+	}, {
+		key: 'componentWillUnmount',
+		value: function componentWillUnmount() {
+			_FluxStatesStatesStore2['default'].unlisten(this._onStoreChange);
+		}
+	}, {
+		key: '_onStoreChange',
+		value: function _onStoreChange(state) {
+			this.setState(state);
+		}
+	}, {
+		key: 'render',
+		value: function render() {
+			return _react2['default'].createElement('div', { className: 'states' }, _react2['default'].createElement(_reactBootstrap.Col, { md: 12, className: 'sub-header' }, _react2['default'].createElement('h2', null, 'States')), _react2['default'].createElement(_reactBootstrap.Col, { md: 12, className: 'list-states' }, _lodash2['default'].map(this.state.states, function (state, key) {
+				return _react2['default'].createElement('div', { key: key }, _react2['default'].createElement(_reactRouter.Link, { to: '/' + state._id }, state.name));
+			})));
+		}
+	}]);
+
+	return States;
+})(_react2['default'].Component);
+
+exports['default'] = States;
+module.exports = exports['default'];
+/* this is the important part for react-router */
+
+},{"../../Flux/States/StatesActions":489,"../../Flux/States/StatesStore":490,"lodash":47,"react":476,"react-bootstrap":181,"react-router":295}],483:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+	value: true
+});
+
+var _createClass = (function () {
+	function defineProperties(target, props) {
+		for (var i = 0; i < props.length; i++) {
+			var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ('value' in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
+		}
+	}return function (Constructor, protoProps, staticProps) {
+		if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
+	};
+})();
+
+var _get = function get(_x, _x2, _x3) {
+	var _again = true;_function: while (_again) {
+		var object = _x,
+		    property = _x2,
+		    receiver = _x3;desc = parent = getter = undefined;_again = false;if (object === null) object = Function.prototype;var desc = Object.getOwnPropertyDescriptor(object, property);if (desc === undefined) {
+			var parent = Object.getPrototypeOf(object);if (parent === null) {
+				return undefined;
+			} else {
+				_x = parent;_x2 = property;_x3 = receiver;_again = true;continue _function;
+			}
+		} else if ('value' in desc) {
+			return desc.value;
+		} else {
+			var getter = desc.get;if (getter === undefined) {
+				return undefined;
+			}return getter.call(receiver);
+		}
+	}
+};
+
+function _interopRequireDefault(obj) {
+	return obj && obj.__esModule ? obj : { 'default': obj };
+}
+
+function _classCallCheck(instance, Constructor) {
+	if (!(instance instanceof Constructor)) {
+		throw new TypeError('Cannot call a class as a function');
+	}
+}
+
+function _inherits(subClass, superClass) {
+	if (typeof superClass !== 'function' && superClass !== null) {
+		throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass);
+	}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+}
+
+var _lodash = require('lodash');
+
+var _lodash2 = _interopRequireDefault(_lodash);
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+// components
+
+var _reactRouter = require('react-router');
+
+var _reactBootstrap = require('react-bootstrap');
+
+// flux
+
+var _FluxStationsStationsStore = require('../../Flux/Stations/StationsStore');
+
+var _FluxStationsStationsStore2 = _interopRequireDefault(_FluxStationsStationsStore);
+
+var _FluxStationsStationsActions = require('../../Flux/Stations/StationsActions');
+
+var _FluxStationsStationsActions2 = _interopRequireDefault(_FluxStationsStationsActions);
+
+var Stations = (function (_React$Component) {
+	_inherits(Stations, _React$Component);
+
+	function Stations(props) {
+		_classCallCheck(this, Stations);
+
+		_get(Object.getPrototypeOf(Stations.prototype), 'constructor', this).call(this, props);
+		this.displayName = 'StationsDetails';
+
+		this.state = _FluxStationsStationsStore2['default'].getState();
+		this._onStoreChange = this._onStoreChange.bind(this);
+	}
+
+	_createClass(Stations, [{
+		key: 'componentWillMount',
+		value: function componentWillMount() {
+			_FluxStationsStationsActions2['default'].loadOne(this.props.params.station);
+		}
+	}, {
+		key: 'componentDidMount',
+		value: function componentDidMount() {
+			_FluxStationsStationsStore2['default'].listen(this._onStoreChange);
+		}
+	}, {
+		key: 'componentWillUnmount',
+		value: function componentWillUnmount() {
+			_FluxStationsStationsStore2['default'].unlisten(this._onStoreChange);
+		}
+	}, {
+		key: '_onStoreChange',
+		value: function _onStoreChange(state) {
+			console.log(state);
+			this.setState(state);
+		}
+	}, {
+		key: 'render',
+		value: function render() {
+			var station = this.state.stations[this.props.params.station] || {};
+			return _react2['default'].createElement('div', { className: 'station' }, _react2['default'].createElement(_reactBootstrap.Col, { className: 'sub-header' }, _react2['default'].createElement('h2', null, 'Prices of ', station.name || '')), _react2['default'].createElement(_reactBootstrap.Col, { className: 'about' }, 'Address: ', station.address, ',', station.area), _react2['default'].createElement(_reactBootstrap.Col, { className: 'prices' }, station.prices && _lodash2['default'].map(station.prices, function (price, key) {
+				return _react2['default'].createElement('div', { key: key }, _react2['default'].createElement('b', null, price.fuelType), _react2['default'].createElement('p', null, 'Buy Price: ', price.buyPrice), _react2['default'].createElement('p', null, 'Sell Price: ', price.sellPrice), _react2['default'].createElement('p', null, 'Sale Mode: ', price.saleMode), _react2['default'].createElement('p', null, 'Provider: ', price.provider), _react2['default'].createElement('p', null, 'Date: ', price.date));
+			})));
+		}
+	}]);
+
+	return Stations;
+})(_react2['default'].Component);
+
+exports['default'] = Stations;
+module.exports = exports['default'];
+
+},{"../../Flux/Stations/StationsActions":491,"../../Flux/Stations/StationsStore":492,"lodash":47,"react":476,"react-bootstrap":181,"react-router":295}],484:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+	value: true
+});
+
+var _createClass = (function () {
+	function defineProperties(target, props) {
+		for (var i = 0; i < props.length; i++) {
+			var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ('value' in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
+		}
+	}return function (Constructor, protoProps, staticProps) {
+		if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
+	};
+})();
+
+var _get = function get(_x, _x2, _x3) {
+	var _again = true;_function: while (_again) {
+		var object = _x,
+		    property = _x2,
+		    receiver = _x3;desc = parent = getter = undefined;_again = false;if (object === null) object = Function.prototype;var desc = Object.getOwnPropertyDescriptor(object, property);if (desc === undefined) {
+			var parent = Object.getPrototypeOf(object);if (parent === null) {
+				return undefined;
+			} else {
+				_x = parent;_x2 = property;_x3 = receiver;_again = true;continue _function;
+			}
+		} else if ('value' in desc) {
+			return desc.value;
+		} else {
+			var getter = desc.get;if (getter === undefined) {
+				return undefined;
+			}return getter.call(receiver);
+		}
+	}
+};
+
+function _interopRequireDefault(obj) {
+	return obj && obj.__esModule ? obj : { 'default': obj };
+}
+
+function _classCallCheck(instance, Constructor) {
+	if (!(instance instanceof Constructor)) {
+		throw new TypeError('Cannot call a class as a function');
+	}
+}
+
+function _inherits(subClass, superClass) {
+	if (typeof superClass !== 'function' && superClass !== null) {
+		throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass);
+	}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+}
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactBootstrap = require('react-bootstrap');
+
+var _FluxStationsStationsStore = require('../../Flux/Stations/StationsStore');
+
+var _FluxStationsStationsStore2 = _interopRequireDefault(_FluxStationsStationsStore);
+
+var _FluxStationsStationsActions = require('../../Flux/Stations/StationsActions');
+
+var _FluxStationsStationsActions2 = _interopRequireDefault(_FluxStationsStationsActions);
+
+var Stations = (function (_React$Component) {
+	_inherits(Stations, _React$Component);
+
+	function Stations(props) {
+		_classCallCheck(this, Stations);
+
+		_get(Object.getPrototypeOf(Stations.prototype), 'constructor', this).call(this, props);
+
+		this.state = _FluxStationsStationsStore2['default'].getState();
+		this._onStoreChange = this._onStoreChange.bind(this);
+	}
+
+	_createClass(Stations, [{
+		key: 'componentWillMount',
+		value: function componentWillMount() {
+			_FluxStationsStationsActions2['default'].load();
+		}
+	}, {
+		key: 'componentDidMount',
+		value: function componentDidMount() {
+			_FluxStationsStationsStore2['default'].listen(this._onStoreChange);
+		}
+	}, {
+		key: 'componentWillUnmount',
+		value: function componentWillUnmount() {
+			_FluxStationsStationsStore2['default'].unlisten(this._onStoreChange);
 		}
 	}, {
 		key: '_onStoreChange',
@@ -54716,15 +55413,15 @@ var Teste = (function (_React$Component) {
 		}
 	}]);
 
-	return Teste;
+	return Stations;
 })(_react2['default'].Component);
 
-Teste.displayName = 'Teste';
+Stations.displayName = 'Stations';
 
-exports['default'] = Teste;
+exports['default'] = Stations;
 module.exports = exports['default'];
 
-},{"../Flux/Main/MainActions":480,"../Flux/Main/MainStore":481,"react":476,"react-bootstrap":181}],480:[function(require,module,exports){
+},{"../../Flux/Stations/StationsActions":491,"../../Flux/Stations/StationsStore":492,"react":476,"react-bootstrap":181}],485:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -54763,12 +55460,12 @@ var _LibAPIRequest2 = _interopRequireDefault(_LibAPIRequest);
 
 var api = new _LibAPIRequest2['default'](_config.BASE_URL);
 
-var MainActions = (function () {
-	function MainActions() {
-		_classCallCheck(this, MainActions);
+var CitiesActions = (function () {
+	function CitiesActions() {
+		_classCallCheck(this, CitiesActions);
 	}
 
-	_createClass(MainActions, [{
+	_createClass(CitiesActions, [{
 		key: 'load',
 
 		/**
@@ -54780,19 +55477,40 @@ var MainActions = (function () {
 
 			this.dispatch();
 			return api.get({
-				endpoint: _config.READINGS
-			}).then((function (states) {
-				_this.actions.update(states);
-				return states;
+				endpoint: _config.CITIES.LIST
+			}).then((function (cities) {
+				_this.actions.update(cities);
+				return cities;
 			}).bind(this))['catch']((function (error) {
 				_this.actions.requestFailed(error);
 				return error;
 			}).bind(this));
 		}
 	}, {
+		key: 'loadOne',
+		value: function loadOne(id) {
+			var _this2 = this;
+
+			this.dispatch();
+			return api.get({
+				endpoint: [_config.CITIES.GETBYID, id].join('/')
+			}).then((function (city) {
+				_this2.actions.updateOne(city);
+				return city;
+			}).bind(this))['catch']((function (error) {
+				_this2.actions.requestFailed(error);
+				return error;
+			}).bind(this));
+		}
+	}, {
 		key: 'update',
-		value: function update(states) {
-			this.dispatch(states);
+		value: function update(cities) {
+			this.dispatch(cities);
+		}
+	}, {
+		key: 'updateOne',
+		value: function updateOne(city) {
+			this.dispatch(city);
 		}
 
 		/**
@@ -54807,13 +55525,13 @@ var MainActions = (function () {
 		}
 	}]);
 
-	return MainActions;
+	return CitiesActions;
 })();
 
-exports['default'] = _alt2['default'].createActions(MainActions);
+exports['default'] = _alt2['default'].createActions(CitiesActions);
 module.exports = exports['default'];
 
-},{"../../../config":1,"../../Lib/APIRequest":483,"../alt":482}],481:[function(require,module,exports){
+},{"../../../config":1,"../../Lib/APIRequest":494,"../alt":493}],486:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -54848,38 +55566,50 @@ var _alt = require('../alt');
 
 var _alt2 = _interopRequireDefault(_alt);
 
-var _MainActions = require('./MainActions');
+var _CitiesActions = require('./CitiesActions');
 
-var _MainActions2 = _interopRequireDefault(_MainActions);
+var _CitiesActions2 = _interopRequireDefault(_CitiesActions);
 
 var _clean = {
 	errorMessage: null,
-	states: []
+	cities: {}
 };
 
-var MainStore = (function () {
-	function MainStore() {
-		_classCallCheck(this, MainStore);
+var CitiesStore = (function () {
+	function CitiesStore() {
+		_classCallCheck(this, CitiesStore);
 
 		_lodash2['default'].assign(this, _clean);
 
 		this.bindListeners({
-			clean: _MainActions2['default'].LOAD,
-			update: _MainActions2['default'].UPDATE,
-			requestFailed: _MainActions2['default'].REQUEST_FAILED
+			clean: _CitiesActions2['default'].LOAD,
+			cleanOne: _CitiesActions2['default'].LOAD_ONE,
+			update: _CitiesActions2['default'].UPDATE,
+			updateOne: _CitiesActions2['default'].UPDATE_ONE,
+			requestFailed: _CitiesActions2['default'].REQUEST_FAILED
 		});
 	}
 
-	_createClass(MainStore, [{
+	_createClass(CitiesStore, [{
 		key: 'clean',
 		value: function clean() {
-			this.historyRating = _clean.historyRating;
-			this.errorMessage = _clean.errorMessage;
+			_lodash2['default'].assign(this, _lodash2['default'].clone(_clean));
+		}
+	}, {
+		key: 'cleanOne',
+		value: function cleanOne() {
+			_lodash2['default'].assign(this, _clean);
 		}
 	}, {
 		key: 'update',
-		value: function update(states) {
-			this.states = _lodash2['default'].indexBy(states, 'selEstado');
+		value: function update(cities) {
+			this.cities = _lodash2['default'].indexBy(cities, '_id');
+			this.errorMessage = _clean.errorMessage;
+		}
+	}, {
+		key: 'updateOne',
+		value: function updateOne(city) {
+			this.cities[city._id] = city;
 			this.errorMessage = _clean.errorMessage;
 		}
 
@@ -54894,13 +55624,594 @@ var MainStore = (function () {
 		}
 	}]);
 
-	return MainStore;
+	return CitiesStore;
 })();
 
-exports['default'] = _alt2['default'].createStore(MainStore, 'MainStore');
+exports['default'] = _alt2['default'].createStore(CitiesStore, 'CitiesStore');
 module.exports = exports['default'];
 
-},{"../alt":482,"./MainActions":480,"lodash":47}],482:[function(require,module,exports){
+},{"../alt":493,"./CitiesActions":485,"lodash":47}],487:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+	value: true
+});
+
+var _createClass = (function () {
+	function defineProperties(target, props) {
+		for (var i = 0; i < props.length; i++) {
+			var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ('value' in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
+		}
+	}return function (Constructor, protoProps, staticProps) {
+		if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
+	};
+})();
+
+function _interopRequireDefault(obj) {
+	return obj && obj.__esModule ? obj : { 'default': obj };
+}
+
+function _classCallCheck(instance, Constructor) {
+	if (!(instance instanceof Constructor)) {
+		throw new TypeError('Cannot call a class as a function');
+	}
+}
+
+var _alt = require('../alt');
+
+var _alt2 = _interopRequireDefault(_alt);
+
+var _config = require('../../../config');
+
+var _LibAPIRequest = require('../../Lib/APIRequest');
+
+var _LibAPIRequest2 = _interopRequireDefault(_LibAPIRequest);
+
+var api = new _LibAPIRequest2['default'](_config.BASE_URL);
+
+var CrawlInfoActions = (function () {
+	function CrawlInfoActions() {
+		_classCallCheck(this, CrawlInfoActions);
+	}
+
+	_createClass(CrawlInfoActions, [{
+		key: 'loadDates',
+
+		/**
+   * [load load ]
+   * @return {[type]} [description]
+   */
+		value: function loadDates() {
+			var _this = this;
+
+			this.dispatch('dates');
+			return api.get({
+				endpoint: _config.CRAWL.DATES
+			}).then((function (dates) {
+				_this.actions.update({ dates: dates });
+				return dates;
+			}).bind(this))['catch']((function (error) {
+				_this.actions.requestFailed(error);
+				return error;
+			}).bind(this));
+		}
+	}, {
+		key: 'update',
+		value: function update(obj) {
+			this.dispatch(obj);
+		}
+
+		/**
+   * requestFailed: propagate error generated on requests
+   * @param  {Error}	error	Error rised by a request
+   * @return {void}
+   */
+	}, {
+		key: 'requestFailed',
+		value: function requestFailed(error) {
+			this.dispatch(error);
+		}
+	}]);
+
+	return CrawlInfoActions;
+})();
+
+exports['default'] = _alt2['default'].createActions(CrawlInfoActions);
+module.exports = exports['default'];
+
+},{"../../../config":1,"../../Lib/APIRequest":494,"../alt":493}],488:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+	value: true
+});
+
+var _createClass = (function () {
+	function defineProperties(target, props) {
+		for (var i = 0; i < props.length; i++) {
+			var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ('value' in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
+		}
+	}return function (Constructor, protoProps, staticProps) {
+		if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
+	};
+})();
+
+function _interopRequireDefault(obj) {
+	return obj && obj.__esModule ? obj : { 'default': obj };
+}
+
+function _classCallCheck(instance, Constructor) {
+	if (!(instance instanceof Constructor)) {
+		throw new TypeError('Cannot call a class as a function');
+	}
+}
+
+var _lodash = require('lodash');
+
+var _lodash2 = _interopRequireDefault(_lodash);
+
+var _alt = require('../alt');
+
+var _alt2 = _interopRequireDefault(_alt);
+
+var _CrawlInfoActions = require('./CrawlInfoActions');
+
+var _CrawlInfoActions2 = _interopRequireDefault(_CrawlInfoActions);
+
+var clean = {
+	errorMessage: null,
+	dates: {}
+};
+
+var CrawlInfoStore = (function () {
+	function CrawlInfoStore() {
+		_classCallCheck(this, CrawlInfoStore);
+
+		_lodash2['default'].assign(this, clean);
+
+		this.bindListeners({
+			cleanDates: _CrawlInfoActions2['default'].LOAD_DATES,
+			update: _CrawlInfoActions2['default'].UPDATE,
+			requestFailed: _CrawlInfoActions2['default'].REQUEST_FAILED
+		});
+	}
+
+	_createClass(CrawlInfoStore, [{
+		key: 'cleanDates',
+		value: function cleanDates(objName) {
+			this.dates = _lodash2['default'].clone(clean.dates);
+		}
+	}, {
+		key: 'update',
+		value: function update(obj) {
+			_lodash2['default'].merge(this, obj);
+			this.errorMessage = clean.errorMessage;
+		}
+
+		/**
+   * requestFailed: save status of errors
+   * @return {void}
+   */
+	}, {
+		key: 'requestFailed',
+		value: function requestFailed(errorMessage) {
+			this.errorMessage = errorMessage;
+		}
+	}]);
+
+	return CrawlInfoStore;
+})();
+
+exports['default'] = _alt2['default'].createStore(CrawlInfoStore, 'CrawlInfoStore');
+module.exports = exports['default'];
+
+},{"../alt":493,"./CrawlInfoActions":487,"lodash":47}],489:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+	value: true
+});
+
+var _createClass = (function () {
+	function defineProperties(target, props) {
+		for (var i = 0; i < props.length; i++) {
+			var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ('value' in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
+		}
+	}return function (Constructor, protoProps, staticProps) {
+		if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
+	};
+})();
+
+function _interopRequireDefault(obj) {
+	return obj && obj.__esModule ? obj : { 'default': obj };
+}
+
+function _classCallCheck(instance, Constructor) {
+	if (!(instance instanceof Constructor)) {
+		throw new TypeError('Cannot call a class as a function');
+	}
+}
+
+var _alt = require('../alt');
+
+var _alt2 = _interopRequireDefault(_alt);
+
+var _config = require('../../../config');
+
+var _LibAPIRequest = require('../../Lib/APIRequest');
+
+var _LibAPIRequest2 = _interopRequireDefault(_LibAPIRequest);
+
+var api = new _LibAPIRequest2['default'](_config.BASE_URL);
+
+var StateActions = (function () {
+	function StateActions() {
+		_classCallCheck(this, StateActions);
+	}
+
+	_createClass(StateActions, [{
+		key: 'load',
+
+		/**
+   * [load load ]
+   * @return {[type]} [description]
+   */
+		value: function load() {
+			var _this = this;
+
+			this.dispatch();
+			return api.get({
+				endpoint: _config.STATES.LIST
+			}).then((function (states) {
+				_this.actions.update(states);
+				return states;
+			}).bind(this))['catch']((function (error) {
+				_this.actions.requestFailed(error);
+				return error;
+			}).bind(this));
+		}
+	}, {
+		key: 'loadOne',
+		value: function loadOne(id) {
+			var _this2 = this;
+
+			this.dispatch();
+			return api.get({
+				endpoint: [_config.STATES.GETBYID, id].join('/')
+			}).then((function (state) {
+				_this2.actions.updateOne(state);
+				return state;
+			}).bind(this))['catch']((function (error) {
+				_this2.actions.requestFailed(error);
+				return error;
+			}).bind(this));
+		}
+	}, {
+		key: 'update',
+		value: function update(states) {
+			this.dispatch(states);
+		}
+	}, {
+		key: 'updateOne',
+		value: function updateOne(state) {
+			this.dispatch(state);
+		}
+
+		/**
+   * requestFailed: propagate error generated on requests
+   * @param  {Error}	error	Error rised by a request
+   * @return {void}
+   */
+	}, {
+		key: 'requestFailed',
+		value: function requestFailed(error) {
+			this.dispatch(error);
+		}
+	}]);
+
+	return StateActions;
+})();
+
+exports['default'] = _alt2['default'].createActions(StateActions);
+module.exports = exports['default'];
+
+},{"../../../config":1,"../../Lib/APIRequest":494,"../alt":493}],490:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+	value: true
+});
+
+var _createClass = (function () {
+	function defineProperties(target, props) {
+		for (var i = 0; i < props.length; i++) {
+			var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ('value' in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
+		}
+	}return function (Constructor, protoProps, staticProps) {
+		if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
+	};
+})();
+
+function _interopRequireDefault(obj) {
+	return obj && obj.__esModule ? obj : { 'default': obj };
+}
+
+function _classCallCheck(instance, Constructor) {
+	if (!(instance instanceof Constructor)) {
+		throw new TypeError('Cannot call a class as a function');
+	}
+}
+
+var _lodash = require('lodash');
+
+var _lodash2 = _interopRequireDefault(_lodash);
+
+var _alt = require('../alt');
+
+var _alt2 = _interopRequireDefault(_alt);
+
+var _StatesActions = require('./StatesActions');
+
+var _StatesActions2 = _interopRequireDefault(_StatesActions);
+
+var _clean = {
+	errorMessage: null,
+	states: {}
+};
+
+var StatesStore = (function () {
+	function StatesStore() {
+		_classCallCheck(this, StatesStore);
+
+		_lodash2['default'].assign(this, _clean);
+
+		this.bindListeners({
+			clean: _StatesActions2['default'].LOAD,
+			update: _StatesActions2['default'].UPDATE,
+			updateOne: _StatesActions2['default'].UPDATE_ONE,
+			requestFailed: _StatesActions2['default'].REQUEST_FAILED
+		});
+	}
+
+	_createClass(StatesStore, [{
+		key: 'clean',
+		value: function clean() {
+			_lodash2['default'].assign(this, _lodash2['default'].clone(_clean));
+		}
+	}, {
+		key: 'update',
+		value: function update(states) {
+			this.states = _lodash2['default'].indexBy(states, '_id');
+			this.errorMessage = _clean.errorMessage;
+		}
+	}, {
+		key: 'updateOne',
+		value: function updateOne(state) {
+			this.states[state._id] = state;
+			this.errorMessage = _clean.errorMessage;
+		}
+
+		/**
+   * requestFailed: save status of errors
+   * @return {void}
+   */
+	}, {
+		key: 'requestFailed',
+		value: function requestFailed(errorMessage) {
+			this.errorMessage = errorMessage;
+		}
+	}]);
+
+	return StatesStore;
+})();
+
+exports['default'] = _alt2['default'].createStore(StatesStore, 'StatesStore');
+module.exports = exports['default'];
+
+},{"../alt":493,"./StatesActions":489,"lodash":47}],491:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+	value: true
+});
+
+var _createClass = (function () {
+	function defineProperties(target, props) {
+		for (var i = 0; i < props.length; i++) {
+			var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ('value' in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
+		}
+	}return function (Constructor, protoProps, staticProps) {
+		if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
+	};
+})();
+
+function _interopRequireDefault(obj) {
+	return obj && obj.__esModule ? obj : { 'default': obj };
+}
+
+function _classCallCheck(instance, Constructor) {
+	if (!(instance instanceof Constructor)) {
+		throw new TypeError('Cannot call a class as a function');
+	}
+}
+
+var _alt = require('../alt');
+
+var _alt2 = _interopRequireDefault(_alt);
+
+var _config = require('../../../config');
+
+var _LibAPIRequest = require('../../Lib/APIRequest');
+
+var _LibAPIRequest2 = _interopRequireDefault(_LibAPIRequest);
+
+var api = new _LibAPIRequest2['default'](_config.BASE_URL);
+
+var StationsActions = (function () {
+	function StationsActions() {
+		_classCallCheck(this, StationsActions);
+	}
+
+	_createClass(StationsActions, [{
+		key: 'load',
+
+		/**
+   * [load load ]
+   * @return {[type]} [description]
+   */
+		value: function load() {
+			var _this = this;
+
+			this.dispatch();
+			return api.get({
+				endpoint: _config.STATIONS.LIST
+			}).then((function (stations) {
+				_this.actions.update(stations);
+				return stations;
+			}).bind(this))['catch']((function (error) {
+				_this.actions.requestFailed(error);
+				return error;
+			}).bind(this));
+		}
+	}, {
+		key: 'loadOne',
+		value: function loadOne(id) {
+			var _this2 = this;
+
+			this.dispatch();
+			return api.get({
+				endpoint: [_config.STATIONS.GETBYID, id].join('/')
+			}).then((function (station) {
+				_this2.actions.updateOne(station);
+				return station;
+			}).bind(this))['catch']((function (error) {
+				_this2.actions.requestFailed(error);
+				return error;
+			}).bind(this));
+		}
+	}, {
+		key: 'update',
+		value: function update(stations) {
+			this.dispatch(stations);
+		}
+	}, {
+		key: 'updateOne',
+		value: function updateOne(station) {
+			this.dispatch(station);
+		}
+
+		/**
+   * requestFailed: propagate error generated on requests
+   * @param  {Error}	error	Error rised by a request
+   * @return {void}
+   */
+	}, {
+		key: 'requestFailed',
+		value: function requestFailed(error) {
+			this.dispatch(error);
+		}
+	}]);
+
+	return StationsActions;
+})();
+
+exports['default'] = _alt2['default'].createActions(StationsActions);
+module.exports = exports['default'];
+
+},{"../../../config":1,"../../Lib/APIRequest":494,"../alt":493}],492:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+	value: true
+});
+
+var _createClass = (function () {
+	function defineProperties(target, props) {
+		for (var i = 0; i < props.length; i++) {
+			var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ('value' in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
+		}
+	}return function (Constructor, protoProps, staticProps) {
+		if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
+	};
+})();
+
+function _interopRequireDefault(obj) {
+	return obj && obj.__esModule ? obj : { 'default': obj };
+}
+
+function _classCallCheck(instance, Constructor) {
+	if (!(instance instanceof Constructor)) {
+		throw new TypeError('Cannot call a class as a function');
+	}
+}
+
+var _lodash = require('lodash');
+
+var _lodash2 = _interopRequireDefault(_lodash);
+
+var _alt = require('../alt');
+
+var _alt2 = _interopRequireDefault(_alt);
+
+var _StationsActions = require('./StationsActions');
+
+var _StationsActions2 = _interopRequireDefault(_StationsActions);
+
+var _clean = {
+	errorMessage: null,
+	stations: {}
+};
+
+var StationsStore = (function () {
+	function StationsStore() {
+		_classCallCheck(this, StationsStore);
+
+		_lodash2['default'].assign(this, _lodash2['default'].clone(_clean));
+
+		this.bindListeners({
+			clean: _StationsActions2['default'].LOAD,
+			update: _StationsActions2['default'].UPDATE,
+			updateOne: _StationsActions2['default'].UPDATE_ONE,
+			requestFailed: _StationsActions2['default'].REQUEST_FAILED
+		});
+	}
+
+	_createClass(StationsStore, [{
+		key: 'clean',
+		value: function clean() {
+			_lodash2['default'].assign(this, _lodash2['default'].clone(_clean));
+		}
+	}, {
+		key: 'update',
+		value: function update(stations) {
+			this.stations = _lodash2['default'].indexBy(stations, '_id');
+			this.errorMessage = _clean.errorMessage;
+		}
+	}, {
+		key: 'updateOne',
+		value: function updateOne(station) {
+			this.stations[station._id] = station;
+			this.errorMessage = _clean.errorMessage;
+		}
+
+		/**
+   * requestFailed: save status of errors
+   * @return {void}
+   */
+	}, {
+		key: 'requestFailed',
+		value: function requestFailed(errorMessage) {
+			this.errorMessage = errorMessage;
+		}
+	}]);
+
+	return StationsStore;
+})();
+
+exports['default'] = _alt2['default'].createStore(StationsStore, 'StationsStore');
+module.exports = exports['default'];
+
+},{"../alt":493,"./StationsActions":491,"lodash":47}],493:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -54920,7 +56231,7 @@ var alt = new _alt2['default']();
 exports['default'] = alt;
 module.exports = exports['default'];
 
-},{"alt":3}],483:[function(require,module,exports){
+},{"alt":3}],494:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -55013,7 +56324,30 @@ var APIRequest = (function () {
 exports['default'] = APIRequest;
 module.exports = exports['default'];
 
-},{"lodash":47,"reqwest":477}],484:[function(require,module,exports){
+},{"lodash":47,"reqwest":477}],495:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+	value: true
+});
+exports['default'] = formatDate;
+
+function formatDate(date, sep, type) {
+	var d = new Date(date || Date.now()),
+	    month = '' + (d.getMonth() + 1),
+	    day = '' + d.getDate(),
+	    year = d.getFullYear();
+
+	if (month.length < 2) month = '0' + month;
+	if (day.length < 2) day = '0' + day;
+
+	if (!type) return [month, day, year].join(sep);
+	if (type) return [year, day, month].join(sep);
+}
+
+module.exports = exports['default'];
+
+},{}],496:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) {
@@ -55042,7 +56376,7 @@ var history = (0, _history.createHashHistory)();
 
 _react2['default'].render(_react2['default'].createElement(_reactRouter2['default'], { history: history }, _routesJsx2['default']), document.body);
 
-},{"../config":1,"./routes.jsx":485,"history":29,"react":476,"react-router":295}],485:[function(require,module,exports){
+},{"../config":1,"./routes.jsx":497,"history":29,"react":476,"react-router":295}],497:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -55057,17 +56391,47 @@ var _ComponentsMainComponent = require('./Components/MainComponent');
 
 var _ComponentsMainComponent2 = _interopRequireDefault(_ComponentsMainComponent);
 
-var _ComponentsTeste = require('./Components/Teste');
+// states
 
-var _ComponentsTeste2 = _interopRequireDefault(_ComponentsTeste);
+var _ComponentsStatesStates = require('./Components/States/States');
+
+var _ComponentsStatesStates2 = _interopRequireDefault(_ComponentsStatesStates);
+
+var _ComponentsStatesDetails = require('./Components/States/Details');
+
+var _ComponentsStatesDetails2 = _interopRequireDefault(_ComponentsStatesDetails);
+
+// cities
+
+var _ComponentsCitiesCities = require('./Components/Cities/Cities');
+
+var _ComponentsCitiesCities2 = _interopRequireDefault(_ComponentsCitiesCities);
+
+var _ComponentsCitiesDetails = require('./Components/Cities/Details');
+
+var _ComponentsCitiesDetails2 = _interopRequireDefault(_ComponentsCitiesDetails);
+
+// stations
+
+var _ComponentsStationsStations = require('./Components/Stations/Stations');
+
+var _ComponentsStationsStations2 = _interopRequireDefault(_ComponentsStationsStations);
+
+var _ComponentsStationsDetails = require('./Components/Stations/Details');
+
+var _ComponentsStationsDetails2 = _interopRequireDefault(_ComponentsStationsDetails);
 
 var routes = {
 	component: _ComponentsMainComponent2['default'],
-	childRoutes: [{ path: '/', component: _ComponentsTeste2['default'] }]
+	childRoutes: [{ path: '/', component: _ComponentsStatesStates2['default'] }, { path: '/:state', component: _ComponentsStatesDetails2['default'] },
+	// { path: '/:state/:city', component: Cities },
+	{ path: '/:state/:city', component: _ComponentsCitiesDetails2['default'] },
+	// // { path: '/stations', component: Stations },
+	{ path: '/:state/:city/:station', component: _ComponentsStationsDetails2['default'] }]
 };
 
 exports['default'] = routes;
 module.exports = exports['default'];
 
-},{"./Components/MainComponent":478,"./Components/Teste":479}]},{},[484])
+},{"./Components/Cities/Cities":478,"./Components/Cities/Details":479,"./Components/MainComponent":480,"./Components/States/Details":481,"./Components/States/States":482,"./Components/Stations/Details":483,"./Components/Stations/Stations":484}]},{},[496])
 //# sourceMappingURL=build.js.map
