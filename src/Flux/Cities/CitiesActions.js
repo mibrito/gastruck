@@ -1,10 +1,10 @@
 import alt from '../alt';
-import {BASE_URL, READINGS} from '../../../config';
+import {BASE_URL, CITIES} from '../../../config';
 import APIRequest from '../../Lib/APIRequest';
 
 var api = new APIRequest(BASE_URL);
 
-class MainActions {
+class CitiesActions {
 	
 	/**
 	 * [load load ]
@@ -13,7 +13,7 @@ class MainActions {
 	load(){
 		this.dispatch();
 		return api.get({
-			endpoint: READINGS
+			endpoint: CITIES.LIST
 		}).then( states => {
 			this.actions.update(states);
 			return states;
@@ -37,4 +37,4 @@ class MainActions {
 	}
 }
 
-export default alt.createActions(MainActions);
+export default alt.createActions(CitiesActions);

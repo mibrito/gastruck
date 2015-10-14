@@ -1,21 +1,21 @@
 import _ from 'lodash';
 import alt from '../alt';
 
-import MainActions from './MainActions';
+import CitiesActions from './CitiesActions';
 
 var clean = {
 	errorMessage: null,
 	states: []
 };
 
-class MainStore {
+class CitiesStore {
 	constructor(){
 		_.assign(this, clean);
 
 		this.bindListeners({
-			clean: MainActions.LOAD,
-			update: MainActions.UPDATE,
-			requestFailed: MainActions.REQUEST_FAILED,
+			clean: CitiesActions.LOAD,
+			update: CitiesActions.UPDATE,
+			requestFailed: CitiesActions.REQUEST_FAILED,
 		});
 	}
 
@@ -38,4 +38,4 @@ class MainStore {
 	}
 }
 
-export default alt.createStore(MainStore, 'MainStore');
+export default alt.createStore(CitiesStore, 'CitiesStore');
