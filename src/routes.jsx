@@ -1,10 +1,10 @@
-import Index from './Components/Index';
-import States from './Components/States';
+import MainComponent from './Components/MainComponent';
+import Teste from './Components/Teste';
 
 var routes = {
-	component: Index,
+	component: MainComponent,
 	childRoutes: [
-		{ path: '/', component: States }
+		{ path: '/', component: Teste }
 	]
 };
 

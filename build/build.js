@@ -2,22 +2,15 @@
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
-	value: true
+  value: true
 });
 var APPNAME = 'GasTruck';
 exports.APPNAME = APPNAME;
 var BASE_URL = 'http://' + window.location.hostname + ':3000/';
 
 exports.BASE_URL = BASE_URL;
-var READINGS = {
-	PERDATE: ''
-};
-
+var READINGS = '';
 exports.READINGS = READINGS;
-var STATES = {
-	LIST: 'states'
-};
-exports.STATES = STATES;
 
 },{}],2:[function(require,module,exports){
 'use strict';
@@ -54592,28 +54585,28 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactBootstrap = require('react-bootstrap');
 
-var Index = (function (_React$Component) {
-	_inherits(Index, _React$Component);
+var MainComponent = (function (_React$Component) {
+	_inherits(MainComponent, _React$Component);
 
-	function Index(props) {
-		_classCallCheck(this, Index);
+	function MainComponent(props) {
+		_classCallCheck(this, MainComponent);
 
-		_get(Object.getPrototypeOf(Index.prototype), 'constructor', this).call(this, props);
+		_get(Object.getPrototypeOf(MainComponent.prototype), 'constructor', this).call(this, props);
 	}
 
-	_createClass(Index, [{
+	_createClass(MainComponent, [{
 		key: 'render',
 		value: function render() {
 			return _react2['default'].createElement('div', { className: 'container-fluid app-body' }, _react2['default'].createElement(_reactBootstrap.Row, { className: 'body' }, this.props.children));
 		}
 	}]);
 
-	return Index;
+	return MainComponent;
 })(_react2['default'].Component);
 
-Index.displayName = 'Index';
+MainComponent.displayName = 'MainComponent';
 
-exports['default'] = Index;
+exports['default'] = MainComponent;
 module.exports = exports['default'];
 /* this is the important part */
 
@@ -54676,40 +54669,40 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactBootstrap = require('react-bootstrap');
 
-var _FluxStatesStatesStore = require('../Flux/States/StatesStore');
+var _FluxMainMainStore = require('../Flux/Main/MainStore');
 
-var _FluxStatesStatesStore2 = _interopRequireDefault(_FluxStatesStatesStore);
+var _FluxMainMainStore2 = _interopRequireDefault(_FluxMainMainStore);
 
-var _FluxStatesStatesActions = require('../Flux/States/StatesActions');
+var _FluxMainMainActions = require('../Flux/Main/MainActions');
 
-var _FluxStatesStatesActions2 = _interopRequireDefault(_FluxStatesStatesActions);
+var _FluxMainMainActions2 = _interopRequireDefault(_FluxMainMainActions);
 
-var States = (function (_React$Component) {
-	_inherits(States, _React$Component);
+var Teste = (function (_React$Component) {
+	_inherits(Teste, _React$Component);
 
-	function States(props) {
-		_classCallCheck(this, States);
+	function Teste(props) {
+		_classCallCheck(this, Teste);
 
-		_get(Object.getPrototypeOf(States.prototype), 'constructor', this).call(this, props);
+		_get(Object.getPrototypeOf(Teste.prototype), 'constructor', this).call(this, props);
 
-		this.state = _FluxStatesStatesStore2['default'].getState();
+		this.state = _FluxMainMainStore2['default'].getState();
 		this._onStoreChange = this._onStoreChange.bind(this);
 	}
 
-	_createClass(States, [{
+	_createClass(Teste, [{
 		key: 'componentWillMount',
 		value: function componentWillMount() {
-			_FluxStatesStatesActions2['default'].load();
+			_FluxMainMainActions2['default'].load();
 		}
 	}, {
 		key: 'componentDidMount',
 		value: function componentDidMount() {
-			_FluxStatesStatesStore2['default'].listen(this._onStoreChange);
+			_FluxMainMainStore2['default'].listen(this._onStoreChange);
 		}
 	}, {
 		key: 'componentWillUnmount',
 		value: function componentWillUnmount() {
-			_FluxStatesStatesStore2['default'].unlisten(this._onStoreChange);
+			_FluxMainMainStore2['default'].unlisten(this._onStoreChange);
 		}
 	}, {
 		key: '_onStoreChange',
@@ -54719,19 +54712,19 @@ var States = (function (_React$Component) {
 	}, {
 		key: 'render',
 		value: function render() {
-			return _react2['default'].createElement('div', null, this.state.states);
+			return _react2['default'].createElement('div', null, this.state);
 		}
 	}]);
 
-	return States;
+	return Teste;
 })(_react2['default'].Component);
 
-States.displayName = 'States';
+Teste.displayName = 'Teste';
 
-exports['default'] = States;
+exports['default'] = Teste;
 module.exports = exports['default'];
 
-},{"../Flux/States/StatesActions":480,"../Flux/States/StatesStore":481,"react":476,"react-bootstrap":181}],480:[function(require,module,exports){
+},{"../Flux/Main/MainActions":480,"../Flux/Main/MainStore":481,"react":476,"react-bootstrap":181}],480:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -54770,12 +54763,12 @@ var _LibAPIRequest2 = _interopRequireDefault(_LibAPIRequest);
 
 var api = new _LibAPIRequest2['default'](_config.BASE_URL);
 
-var StateActions = (function () {
-	function StateActions() {
-		_classCallCheck(this, StateActions);
+var MainActions = (function () {
+	function MainActions() {
+		_classCallCheck(this, MainActions);
 	}
 
-	_createClass(StateActions, [{
+	_createClass(MainActions, [{
 		key: 'load',
 
 		/**
@@ -54787,7 +54780,7 @@ var StateActions = (function () {
 
 			this.dispatch();
 			return api.get({
-				endpoint: _config.READINGS.LIST
+				endpoint: _config.READINGS
 			}).then((function (states) {
 				_this.actions.update(states);
 				return states;
@@ -54814,10 +54807,10 @@ var StateActions = (function () {
 		}
 	}]);
 
-	return StateActions;
+	return MainActions;
 })();
 
-exports['default'] = _alt2['default'].createActions(StateActions);
+exports['default'] = _alt2['default'].createActions(MainActions);
 module.exports = exports['default'];
 
 },{"../../../config":1,"../../Lib/APIRequest":483,"../alt":482}],481:[function(require,module,exports){
@@ -54855,29 +54848,29 @@ var _alt = require('../alt');
 
 var _alt2 = _interopRequireDefault(_alt);
 
-var _StatesActions = require('./StatesActions');
+var _MainActions = require('./MainActions');
 
-var _StatesActions2 = _interopRequireDefault(_StatesActions);
+var _MainActions2 = _interopRequireDefault(_MainActions);
 
 var _clean = {
 	errorMessage: null,
 	states: []
 };
 
-var StatesStore = (function () {
-	function StatesStore() {
-		_classCallCheck(this, StatesStore);
+var MainStore = (function () {
+	function MainStore() {
+		_classCallCheck(this, MainStore);
 
 		_lodash2['default'].assign(this, _clean);
 
 		this.bindListeners({
-			clean: _StatesActions2['default'].LOAD,
-			update: _StatesActions2['default'].UPDATE,
-			requestFailed: _StatesActions2['default'].REQUEST_FAILED
+			clean: _MainActions2['default'].LOAD,
+			update: _MainActions2['default'].UPDATE,
+			requestFailed: _MainActions2['default'].REQUEST_FAILED
 		});
 	}
 
-	_createClass(StatesStore, [{
+	_createClass(MainStore, [{
 		key: 'clean',
 		value: function clean() {
 			this.historyRating = _clean.historyRating;
@@ -54901,13 +54894,13 @@ var StatesStore = (function () {
 		}
 	}]);
 
-	return StatesStore;
+	return MainStore;
 })();
 
-exports['default'] = _alt2['default'].createStore(StatesStore, 'StatesStore');
+exports['default'] = _alt2['default'].createStore(MainStore, 'MainStore');
 module.exports = exports['default'];
 
-},{"../alt":482,"./StatesActions":480,"lodash":47}],482:[function(require,module,exports){
+},{"../alt":482,"./MainActions":480,"lodash":47}],482:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -55060,21 +55053,21 @@ function _interopRequireDefault(obj) {
 	return obj && obj.__esModule ? obj : { 'default': obj };
 }
 
-var _ComponentsIndex = require('./Components/Index');
+var _ComponentsMainComponent = require('./Components/MainComponent');
 
-var _ComponentsIndex2 = _interopRequireDefault(_ComponentsIndex);
+var _ComponentsMainComponent2 = _interopRequireDefault(_ComponentsMainComponent);
 
-var _ComponentsStates = require('./Components/States');
+var _ComponentsTeste = require('./Components/Teste');
 
-var _ComponentsStates2 = _interopRequireDefault(_ComponentsStates);
+var _ComponentsTeste2 = _interopRequireDefault(_ComponentsTeste);
 
 var routes = {
-	component: _ComponentsIndex2['default'],
-	childRoutes: [{ path: '/', component: _ComponentsStates2['default'] }]
+	component: _ComponentsMainComponent2['default'],
+	childRoutes: [{ path: '/', component: _ComponentsTeste2['default'] }]
 };
 
 exports['default'] = routes;
 module.exports = exports['default'];
 
-},{"./Components/Index":478,"./Components/States":479}]},{},[484])
+},{"./Components/MainComponent":478,"./Components/Teste":479}]},{},[484])
 //# sourceMappingURL=build.js.map

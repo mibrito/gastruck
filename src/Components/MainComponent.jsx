@@ -4,7 +4,7 @@ import {Row} from 'react-bootstrap';
 
 
 
-class Index extends React.Component {
+class MainComponent extends React.Component {
 	constructor(props){
 		super(props);
 	}
@@ -21,6 +21,6 @@ class Index extends React.Component {
 	}
 }
 
-Index.displayName = 'Index';
+MainComponent.displayName = 'MainComponent';
 
-export default Index;
+export default MainComponent;
