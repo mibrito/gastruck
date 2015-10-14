@@ -1,0 +1,52 @@
+{
+  "name": "gastruckClient",
+  "version": "1.0.0",
+  "description": "VGI client for VGIFramework",
+  "main": "src/app.jsx",
+  "scripts": {
+    "lint": "eslint src"
+  },
+  "browserify": {
+    "transform": [
+      "babelify"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "greenwich.lbd.dcc.ufmg.br:/home/git/vgisimple/client.git"
+  },
+  "author": "Michele Brito Pinheiro",
+  "license": "MIT",
+  "dependencies": {
+    "alt": "^0.17.3",
+    "babelify": "^6.3.0",
+    "bootstrap": "^3.3.5",
+    "browser-sync": "^2.9.8",
+    "browserify": "^11.2.0",
+    "d3": "^3.5.6",
+    "exorcist": "^0.4.0",
+    "gulp": "^3.9.0",
+    "gulp-less": "^3.0.3",
+    "gulp-util": "^3.0.6",
+    "gulp-watch": "^4.3.5",
+    "history": "^1.11.1",
+    "jwt-decode": "^1.4.0",
+    "lodash": "^3.10.1",
+    "openlayers": "^3.9.0",
+    "react": "^0.13.3",
+    "react-bootstrap": "^0.25.2",
+    "react-mixin": "^3.0.0",
+    "react-rating": "0.0.16",
+    "react-remarkable": "^1.1.1",
+    "react-router": "^1.0.0-rc1",
+    "reqwest": "^2.0.4",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.4.0",
+    "xhr2": "^0.1.3"
+  },
+  "devDependencies": {
+    "babel-eslint": "^4.1.3",
+    "eslint": "^1.5.1",
+    "eslint-plugin-react": "^3.5.1"
+  }
+}
