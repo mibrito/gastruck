@@ -1,0 +1,30 @@
+@panelstatisticscard-unit: 1.1vmax;
+@duration: 1s;
+
+.panelstatisticscard {
+	.card {
+		.border-box;
+		.border-radius(4px);
+
+		border: 1px solid #eee;
+
+		float: left;
+		width: @panelstatisticscard-unit*30;
+		margin: @panelstatisticscard-unit;
+		padding: @panelstatisticscard-unit;
+
+		.header {
+			color: @green-truck;
+			border-bottom: 1px solid @green-truck;
+		}
+
+		.body {
+			padding-top: @panelstatisticscard-unit;
+			font-size: 1.1vmax;
+			b {
+				color: @green-truck;
+				font-size: 1.2vmax;
+			}
+		}
+	}
+}

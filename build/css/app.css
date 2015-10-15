@@ -1,3 +1,15 @@
+.border-box {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.vertical-text {
+  float: left;
+}
+.full-row {
+  width: 100%;
+  position: relative;
+  float: left;
+}
 body {
   background: white;
   color: #666;
@@ -47,9 +59,9 @@ a:active {
   margin: 1vmax;
   background-color: #00c1a2;
   color: white;
-  -webkit-transition: width 1s, height 1s;
-  /* Safari */
-  transition: width 1s, height 1s;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border: 1px solid #efefef;
 }
 .panelbox .panelbox-container .top {
   height: 8vmax;
@@ -66,19 +78,73 @@ a:active {
 .panelbox .panelbox-container:hover {
   background-color: #317db2;
 }
+.panelbox .panelbox-container.header {
+  background-color: #317db2;
+}
 .panelbox .panelbox-container.header .top {
   font-size: 2vmax;
   padding: 3vmax 0;
 }
-.panelbox .panelbox-container.header:hover {
-  background-color: #00c1a2;
+.panelstatisticscard .card {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border: 1px solid #eee;
+  float: left;
+  width: 33vmax;
+  margin: 1.1vmax;
+  padding: 1.1vmax;
 }
-.panelbox .panelbox-container:hover {
-  width: 22vmax;
-  height: 22vmax;
+.panelstatisticscard .card .header {
+  color: #00c1a2;
+  border-bottom: 1px solid #00c1a2;
 }
-.station .about {
+.panelstatisticscard .card .body {
+  padding-top: 1.1vmax;
+  font-size: 1.1vmax;
+}
+.panelstatisticscard .card .body b {
+  color: #00c1a2;
+  font-size: 1.2vmax;
+}
+.PricesCard .card {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border: 1px solid #eee;
+  float: left;
+  width: 33vmax;
+  margin: 1.1vmax;
+  padding: 1.1vmax;
+}
+.PricesCard .card .header {
+  color: #00c1a2;
+  border-bottom: 1px solid #00c1a2;
+}
+.PricesCard .card .body {
+  padding-top: 1.1vmax;
+  font-size: 1.1vmax;
+}
+.PricesCard .card .body b {
+  color: #00c1a2;
+  font-size: 1.2vmax;
+}
+.station .body {
+  width: 100%;
+  position: relative;
+  float: left;
+}
+.station .body .about {
   font-size: 2rem;
+}
+.station .footer {
+  width: 100%;
+  position: relative;
+  float: left;
 }
 .chart div {
   font: 10px sans-serif;

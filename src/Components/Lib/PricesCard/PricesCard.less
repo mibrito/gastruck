@@ -1,0 +1,29 @@
+@pricescard-unit: 1.1vmax;
+
+.PricesCard {
+	.card {
+		.border-box;
+		.border-radius(4px);
+
+		border: 1px solid #eee;
+
+		float: left;
+		width: @pricescard-unit*30;
+		margin: @pricescard-unit;
+		padding: @pricescard-unit;
+
+		.header {
+			color: @green-truck;
+			border-bottom: 1px solid @green-truck;
+		}
+
+		.body {
+			padding-top: @pricescard-unit;
+			font-size: 1.1vmax;
+			b {
+				color: @green-truck;
+				font-size: 1.2vmax;
+			}
+		}
+	}
+}

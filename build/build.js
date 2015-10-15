@@ -54614,9 +54614,148 @@ var _reactRouter = require('react-router');
 
 var _reactBootstrap = require('react-bootstrap');
 
-var _LibPanelBox = require('../Lib/PanelBox');
+var _LibPanelBoxPanelBox = require('../Lib/PanelBox/PanelBox');
 
-var _LibPanelBox2 = _interopRequireDefault(_LibPanelBox);
+var _LibPanelBoxPanelBox2 = _interopRequireDefault(_LibPanelBoxPanelBox);
+
+// flux
+
+var _FluxStatesStatesStore = require('../../Flux/States/StatesStore');
+
+var _FluxStatesStatesStore2 = _interopRequireDefault(_FluxStatesStatesStore);
+
+var _FluxStatesStatesActions = require('../../Flux/States/StatesActions');
+
+var _FluxStatesStatesActions2 = _interopRequireDefault(_FluxStatesStatesActions);
+
+var States = (function (_React$Component) {
+	_inherits(States, _React$Component);
+
+	function States(props) {
+		_classCallCheck(this, States);
+
+		_get(Object.getPrototypeOf(States.prototype), 'constructor', this).call(this, props);
+		this.displayName = 'States';
+
+		this.state = _FluxStatesStatesStore2['default'].getState();
+		this._onStoreChange = this._onStoreChange.bind(this);
+	}
+
+	_createClass(States, [{
+		key: 'componentWillMount',
+		value: function componentWillMount() {
+			_FluxStatesStatesActions2['default'].load();
+		}
+	}, {
+		key: 'componentDidMount',
+		value: function componentDidMount() {
+			_FluxStatesStatesStore2['default'].listen(this._onStoreChange);
+		}
+	}, {
+		key: 'componentWillUnmount',
+		value: function componentWillUnmount() {
+			_FluxStatesStatesStore2['default'].unlisten(this._onStoreChange);
+		}
+	}, {
+		key: '_onStoreChange',
+		value: function _onStoreChange(state) {
+			//console.log(state.states)
+			this.setState(state);
+		}
+	}, {
+		key: 'render',
+		value: function render() {
+			var states = this.state.states || {};
+			return _react2['default'].createElement('div', { className: 'states' }, _react2['default'].createElement(_LibPanelBoxPanelBox2['default'], {
+				vector: states,
+				location: this.props.location,
+				top: 'cities',
+				topDescription: 'Cities',
+				bottomDescription: 'State'
+			}));
+		}
+	}]);
+
+	return States;
+})(_react2['default'].Component);
+
+exports['default'] = States;
+module.exports = exports['default'];
+
+},{"../../Flux/States/StatesActions":492,"../../Flux/States/StatesStore":493,"../Lib/PanelBox/PanelBox":482,"lodash":47,"react":476,"react-bootstrap":181,"react-router":295}],479:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+	value: true
+});
+
+var _createClass = (function () {
+	function defineProperties(target, props) {
+		for (var i = 0; i < props.length; i++) {
+			var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ('value' in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
+		}
+	}return function (Constructor, protoProps, staticProps) {
+		if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
+	};
+})();
+
+var _get = function get(_x, _x2, _x3) {
+	var _again = true;_function: while (_again) {
+		var object = _x,
+		    property = _x2,
+		    receiver = _x3;desc = parent = getter = undefined;_again = false;if (object === null) object = Function.prototype;var desc = Object.getOwnPropertyDescriptor(object, property);if (desc === undefined) {
+			var parent = Object.getPrototypeOf(object);if (parent === null) {
+				return undefined;
+			} else {
+				_x = parent;_x2 = property;_x3 = receiver;_again = true;continue _function;
+			}
+		} else if ('value' in desc) {
+			return desc.value;
+		} else {
+			var getter = desc.get;if (getter === undefined) {
+				return undefined;
+			}return getter.call(receiver);
+		}
+	}
+};
+
+function _interopRequireDefault(obj) {
+	return obj && obj.__esModule ? obj : { 'default': obj };
+}
+
+function _classCallCheck(instance, Constructor) {
+	if (!(instance instanceof Constructor)) {
+		throw new TypeError('Cannot call a class as a function');
+	}
+}
+
+function _inherits(subClass, superClass) {
+	if (typeof superClass !== 'function' && superClass !== null) {
+		throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass);
+	}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+}
+
+var _lodash = require('lodash');
+
+var _lodash2 = _interopRequireDefault(_lodash);
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+// components
+
+var _reactRouter = require('react-router');
+
+var _reactBootstrap = require('react-bootstrap');
+
+var _LibPanelBoxPanelBox = require('../Lib/PanelBox/PanelBox');
+
+var _LibPanelBoxPanelBox2 = _interopRequireDefault(_LibPanelBoxPanelBox);
+
+var _LibPanelStatisticsCardPanelStatisticsCard = require('../Lib/PanelStatisticsCard/PanelStatisticsCard');
+
+var _LibPanelStatisticsCardPanelStatisticsCard2 = _interopRequireDefault(_LibPanelStatisticsCardPanelStatisticsCard);
 
 // flux
 
@@ -54659,17 +54798,20 @@ var Cities = (function (_React$Component) {
 	}, {
 		key: '_onStoreChange',
 		value: function _onStoreChange(state) {
-			console.log(state);
 			this.setState(state);
 		}
 	}, {
 		key: 'render',
 		value: function render() {
 			var city = this.state.cities[this.props.params.city] || {};
-			var pathname = this.props.location.pathname;
-			return _react2['default'].createElement('div', { className: 'Cities' }, _react2['default'].createElement(_reactBootstrap.Col, { xs: 12, md: 12, className: 'sub-header' }, _react2['default'].createElement('h2', null, city.name || '')), _react2['default'].createElement(_reactBootstrap.Col, { xs: 12, md: 12 }, _react2['default'].createElement('h3', null, 'Statistics'), city.statistics && _lodash2['default'].map(city.statistics, function (statistic, key) {
-				return _react2['default'].createElement('div', { key: key }, _react2['default'].createElement(_reactBootstrap.Col, { md: 12 }, _react2['default'].createElement('h4', null, statistic.fuelType)), _react2['default'].createElement(_reactBootstrap.Col, { md: 5 }, _react2['default'].createElement('b', null, 'Consumer Price'), _react2['default'].createElement('p', null, 'Average Margin: ', statistic.consumerPrice[0].averageMargin), _react2['default'].createElement('p', null, 'Average Price: ', statistic.consumerPrice[0].averagePrice), _react2['default'].createElement('p', null, 'Max Price: ', statistic.consumerPrice[0].maxPrice), _react2['default'].createElement('p', null, 'Min Price: ', statistic.consumerPrice[0].minPrice)), _react2['default'].createElement(_reactBootstrap.Col, { md: 5 }, _react2['default'].createElement('b', null, 'Distribution Price'), _react2['default'].createElement('p', null, 'Average Margin: ', statistic.distributionPrice[0].averagePrice), _react2['default'].createElement('p', null, 'Standard Deviation: ', statistic.distributionPrice[0].standardDeviation), _react2['default'].createElement('p', null, 'Max Price: ', statistic.distributionPrice[0].maxPrice), _react2['default'].createElement('p', null, 'Min Price: ', statistic.distributionPrice[0].minPrice)));
-			})), _react2['default'].createElement('h3', null, 'Stations'), _react2['default'].createElement(_LibPanelBox2['default'], { vector: city.stations || [], pathname: pathname, top: 'prices', truncate: true }));
+			return _react2['default'].createElement('div', { className: 'Cities' }, _react2['default'].createElement(_reactBootstrap.Col, { xs: 12, md: 12, className: 'sub-header' }, _react2['default'].createElement('h2', null, city.name || '')), _react2['default'].createElement(_reactBootstrap.Col, { xs: 12, md: 12 }, _react2['default'].createElement(_LibPanelStatisticsCardPanelStatisticsCard2['default'], { vector: city.statistics })), _react2['default'].createElement('h3', null, 'Stations'), _react2['default'].createElement(_LibPanelBoxPanelBox2['default'], {
+				vector: city.stations || [],
+				location: this.props.location,
+				top: 'prices',
+				topDescription: 'Fuels',
+				bottomDescription: 'Station',
+				truncate: true
+			}));
 		}
 	}]);
 
@@ -54679,7 +54821,276 @@ var Cities = (function (_React$Component) {
 exports['default'] = Cities;
 module.exports = exports['default'];
 
-},{"../../Flux/Cities/CitiesActions":484,"../../Flux/Cities/CitiesStore":485,"../Lib/PanelBox":479,"lodash":47,"react":476,"react-bootstrap":181,"react-router":295}],479:[function(require,module,exports){
+},{"../../Flux/Cities/CitiesActions":488,"../../Flux/Cities/CitiesStore":489,"../Lib/PanelBox/PanelBox":482,"../Lib/PanelStatisticsCard/PanelStatisticsCard":483,"lodash":47,"react":476,"react-bootstrap":181,"react-router":295}],480:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+	value: true
+});
+
+var _createClass = (function () {
+	function defineProperties(target, props) {
+		for (var i = 0; i < props.length; i++) {
+			var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ('value' in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
+		}
+	}return function (Constructor, protoProps, staticProps) {
+		if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
+	};
+})();
+
+var _get = function get(_x, _x2, _x3) {
+	var _again = true;_function: while (_again) {
+		var object = _x,
+		    property = _x2,
+		    receiver = _x3;desc = parent = getter = undefined;_again = false;if (object === null) object = Function.prototype;var desc = Object.getOwnPropertyDescriptor(object, property);if (desc === undefined) {
+			var parent = Object.getPrototypeOf(object);if (parent === null) {
+				return undefined;
+			} else {
+				_x = parent;_x2 = property;_x3 = receiver;_again = true;continue _function;
+			}
+		} else if ('value' in desc) {
+			return desc.value;
+		} else {
+			var getter = desc.get;if (getter === undefined) {
+				return undefined;
+			}return getter.call(receiver);
+		}
+	}
+};
+
+function _interopRequireDefault(obj) {
+	return obj && obj.__esModule ? obj : { 'default': obj };
+}
+
+function _classCallCheck(instance, Constructor) {
+	if (!(instance instanceof Constructor)) {
+		throw new TypeError('Cannot call a class as a function');
+	}
+}
+
+function _inherits(subClass, superClass) {
+	if (typeof superClass !== 'function' && superClass !== null) {
+		throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass);
+	}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+}
+
+var _lodash = require('lodash');
+
+var _lodash2 = _interopRequireDefault(_lodash);
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+// components
+
+var _reactRouter = require('react-router');
+
+var _reactBootstrap = require('react-bootstrap');
+
+var _LibPanelBoxPanelBox = require('../Lib/PanelBox/PanelBox');
+
+var _LibPanelBoxPanelBox2 = _interopRequireDefault(_LibPanelBoxPanelBox);
+
+// flux
+
+var _FluxStatesStatesStore = require('../../Flux/States/StatesStore');
+
+var _FluxStatesStatesStore2 = _interopRequireDefault(_FluxStatesStatesStore);
+
+var _FluxStatesStatesActions = require('../../Flux/States/StatesActions');
+
+var _FluxStatesStatesActions2 = _interopRequireDefault(_FluxStatesStatesActions);
+
+var States = (function (_React$Component) {
+	_inherits(States, _React$Component);
+
+	function States(props) {
+		_classCallCheck(this, States);
+
+		_get(Object.getPrototypeOf(States.prototype), 'constructor', this).call(this, props);
+		this.displayName = 'States';
+
+		this.state = _FluxStatesStatesStore2['default'].getState();
+		this._onStoreChange = this._onStoreChange.bind(this);
+	}
+
+	_createClass(States, [{
+		key: 'componentWillMount',
+		value: function componentWillMount() {
+			_FluxStatesStatesActions2['default'].loadOne(this.props.params.state);
+		}
+	}, {
+		key: 'componentDidMount',
+		value: function componentDidMount() {
+			_FluxStatesStatesStore2['default'].listen(this._onStoreChange);
+		}
+	}, {
+		key: 'componentWillUnmount',
+		value: function componentWillUnmount() {
+			_FluxStatesStatesStore2['default'].unlisten(this._onStoreChange);
+		}
+	}, {
+		key: '_onStoreChange',
+		value: function _onStoreChange(state) {
+			this.setState(state);
+		}
+	}, {
+		key: 'render',
+		value: function render() {
+			var state = this.state.states[this.props.params.state] || {};
+
+			return _react2['default'].createElement('div', { className: 'states' }, _react2['default'].createElement(_LibPanelBoxPanelBox2['default'], {
+				vector: state.cities || [],
+				location: this.props.location,
+				top: 'stations',
+				topDescription: 'Stations',
+				bottomDescription: 'City',
+				truncate: true
+			}));
+		}
+	}]);
+
+	return States;
+})(_react2['default'].Component);
+
+exports['default'] = States;
+module.exports = exports['default'];
+
+},{"../../Flux/States/StatesActions":492,"../../Flux/States/StatesStore":493,"../Lib/PanelBox/PanelBox":482,"lodash":47,"react":476,"react-bootstrap":181,"react-router":295}],481:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+	value: true
+});
+
+var _createClass = (function () {
+	function defineProperties(target, props) {
+		for (var i = 0; i < props.length; i++) {
+			var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ('value' in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
+		}
+	}return function (Constructor, protoProps, staticProps) {
+		if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
+	};
+})();
+
+var _get = function get(_x, _x2, _x3) {
+	var _again = true;_function: while (_again) {
+		var object = _x,
+		    property = _x2,
+		    receiver = _x3;desc = parent = getter = undefined;_again = false;if (object === null) object = Function.prototype;var desc = Object.getOwnPropertyDescriptor(object, property);if (desc === undefined) {
+			var parent = Object.getPrototypeOf(object);if (parent === null) {
+				return undefined;
+			} else {
+				_x = parent;_x2 = property;_x3 = receiver;_again = true;continue _function;
+			}
+		} else if ('value' in desc) {
+			return desc.value;
+		} else {
+			var getter = desc.get;if (getter === undefined) {
+				return undefined;
+			}return getter.call(receiver);
+		}
+	}
+};
+
+function _interopRequireDefault(obj) {
+	return obj && obj.__esModule ? obj : { 'default': obj };
+}
+
+function _classCallCheck(instance, Constructor) {
+	if (!(instance instanceof Constructor)) {
+		throw new TypeError('Cannot call a class as a function');
+	}
+}
+
+function _inherits(subClass, superClass) {
+	if (typeof superClass !== 'function' && superClass !== null) {
+		throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass);
+	}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+}
+
+var _lodash = require('lodash');
+
+var _lodash2 = _interopRequireDefault(_lodash);
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+// components
+
+var _reactRouter = require('react-router');
+
+var _reactBootstrap = require('react-bootstrap');
+
+var _LibUtilsUtils = require('../Lib/Utils/Utils');
+
+var _LibPricesCardPricesCard = require('../Lib/PricesCard/PricesCard');
+
+var _LibPricesCardPricesCard2 = _interopRequireDefault(_LibPricesCardPricesCard);
+
+// flux
+
+var _FluxStationsStationsStore = require('../../Flux/Stations/StationsStore');
+
+var _FluxStationsStationsStore2 = _interopRequireDefault(_FluxStationsStationsStore);
+
+var _FluxStationsStationsActions = require('../../Flux/Stations/StationsActions');
+
+var _FluxStationsStationsActions2 = _interopRequireDefault(_FluxStationsStationsActions);
+
+var Stations = (function (_React$Component) {
+	_inherits(Stations, _React$Component);
+
+	function Stations(props) {
+		_classCallCheck(this, Stations);
+
+		_get(Object.getPrototypeOf(Stations.prototype), 'constructor', this).call(this, props);
+		this.displayName = 'StationsDetails';
+
+		this.state = _FluxStationsStationsStore2['default'].getState();
+		this._onStoreChange = this._onStoreChange.bind(this);
+	}
+
+	_createClass(Stations, [{
+		key: 'componentWillMount',
+		value: function componentWillMount() {
+			_FluxStationsStationsActions2['default'].loadOne(this.props.params.station);
+		}
+	}, {
+		key: 'componentDidMount',
+		value: function componentDidMount() {
+			_FluxStationsStationsStore2['default'].listen(this._onStoreChange);
+		}
+	}, {
+		key: 'componentWillUnmount',
+		value: function componentWillUnmount() {
+			_FluxStationsStationsStore2['default'].unlisten(this._onStoreChange);
+		}
+	}, {
+		key: '_onStoreChange',
+		value: function _onStoreChange(state) {
+			this.setState(state);
+		}
+	}, {
+		key: 'render',
+		value: function render() {
+			var station = this.state.stations[this.props.params.station] || {};
+			var goBackLink = this.props.location.pathname.split('/');
+			goBackLink = goBackLink.slice(1, goBackLink.length - 1).join('/');
+
+			return _react2['default'].createElement(_LibUtilsUtils.Page, { identifier: 'station' }, _react2['default'].createElement(_LibUtilsUtils.Body, null, _react2['default'].createElement('div', { className: 'sub-header' }, _react2['default'].createElement('h2', null, station.name || ''), _react2['default'].createElement('footer', { className: 'about' }, [station.address, station.area].join('/ '))), _react2['default'].createElement('h3', null, 'Prices'), _react2['default'].createElement(_LibPricesCardPricesCard2['default'], { prices: station.prices || [] })), _react2['default'].createElement(_LibUtilsUtils.Footer, null, _react2['default'].createElement(_LibUtilsUtils.GoBack, { goBackLink: '/' + goBackLink })));
+		}
+	}]);
+
+	return Stations;
+})(_react2['default'].Component);
+
+exports['default'] = Stations;
+module.exports = exports['default'];
+
+},{"../../Flux/Stations/StationsActions":494,"../../Flux/Stations/StationsStore":495,"../Lib/PricesCard/PricesCard":484,"../Lib/Utils/Utils":485,"lodash":47,"react":476,"react-bootstrap":181,"react-router":295}],482:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -54752,21 +55163,50 @@ var PanelBox = (function (_React$Component) {
 
 		_get(Object.getPrototypeOf(PanelBox.prototype), 'constructor', this).call(this, props);
 		this.displayName = 'PanelBox';
+
+		this.handleMouseOver = this.handleMouseOver.bind(this);
+		this.handleMouseOut = this.handleMouseOut.bind(this);
 	}
 
 	_createClass(PanelBox, [{
+		key: 'handleMouseOver',
+		value: function handleMouseOver(e) {
+			var header = _react2['default'].findDOMNode(this.refs.header);
+			var top = header.getElementsByClassName('top')[0];
+			var bottom = header.getElementsByClassName('bottom')[0];
+
+			top.innerHTML = this.props.topDescription;
+			bottom.innerHTML = this.props.bottomDescription;
+		}
+	}, {
+		key: 'handleMouseOut',
+		value: function handleMouseOut(e) {
+			var header = _react2['default'].findDOMNode(this.refs.header);
+			var top = header.getElementsByClassName('top')[0];
+			var bottom = header.getElementsByClassName('bottom')[0];
+
+			top.innerHTML = 'Choose';
+			bottom.innerHTML = 'One ' + this.props.bottomDescription;
+		}
+	}, {
 		key: 'render',
 		value: function render() {
 			var vector = this.props.vector;
-			var pathname = this.props.pathname;
 			var top = this.props.top;
 			var truncate = this.props.truncate || false;
+
+			var pathname = this.props.location.pathname;
+			var rootPathname = pathname.split('/');
+			rootPathname = rootPathname.slice(0, rootPathname.length - 1).join('/'); // remove the last item
 
 			var boxes = _lodash2['default'].map(vector, function (item, key) {
 				return _react2['default'].createElement(_reactRouter.Link, { to: pathname + '/' + item._id, key: key }, _react2['default'].createElement('div', { className: 'panelbox-container' }, _react2['default'].createElement('div', { className: 'top' }, item[top] ? item[top].length : 0), _react2['default'].createElement('div', { className: 'bottom' }, truncate ? _lodash2['default'].trunc(item.name, 16) : item.name)));
 			});
 
-			return _react2['default'].createElement('div', { className: 'cities-list panelbox', ref: 'panelbox' }, _react2['default'].createElement('div', { className: 'panelbox-container header' }, _react2['default'].createElement('div', { className: 'top' }, 'Stations'), _react2['default'].createElement('div', { className: 'bottom' }, 'City')), boxes);
+			return _react2['default'].createElement('div', { className: 'cities-list panelbox', ref: 'panelbox' }, _react2['default'].createElement(_reactRouter.Link, { to: '' + rootPathname }, _react2['default'].createElement('div', { className: 'panelbox-container header', ref: 'header',
+				onMouseOver: this.handleMouseOver,
+				onMouseOut: this.handleMouseOut
+			}, _react2['default'].createElement('div', { className: 'top' }, 'Choose'), _react2['default'].createElement('div', { className: 'bottom' }, 'One ', this.props.bottomDescription))), boxes);
 		}
 	}]);
 
@@ -54775,14 +55215,439 @@ var PanelBox = (function (_React$Component) {
 
 PanelBox.propTypes = {
 	vector: _react2['default'].PropTypes.any.isRequired,
-	pathname: _react2['default'].PropTypes.string.isRequired,
-	top: _react2['default'].PropTypes.string.isRequired
+	location: _react2['default'].PropTypes.object.isRequired,
+	top: _react2['default'].PropTypes.string.isRequired,
+	topDescription: _react2['default'].PropTypes.string.isRequired,
+	bottomDescription: _react2['default'].PropTypes.string.isRequired
 };
 
 exports['default'] = PanelBox;
 module.exports = exports['default'];
 
-},{"lodash":47,"react":476,"react-router":295}],480:[function(require,module,exports){
+},{"lodash":47,"react":476,"react-router":295}],483:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+	value: true
+});
+
+var _createClass = (function () {
+	function defineProperties(target, props) {
+		for (var i = 0; i < props.length; i++) {
+			var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ('value' in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
+		}
+	}return function (Constructor, protoProps, staticProps) {
+		if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
+	};
+})();
+
+var _get = function get(_x, _x2, _x3) {
+	var _again = true;_function: while (_again) {
+		var object = _x,
+		    property = _x2,
+		    receiver = _x3;desc = parent = getter = undefined;_again = false;if (object === null) object = Function.prototype;var desc = Object.getOwnPropertyDescriptor(object, property);if (desc === undefined) {
+			var parent = Object.getPrototypeOf(object);if (parent === null) {
+				return undefined;
+			} else {
+				_x = parent;_x2 = property;_x3 = receiver;_again = true;continue _function;
+			}
+		} else if ('value' in desc) {
+			return desc.value;
+		} else {
+			var getter = desc.get;if (getter === undefined) {
+				return undefined;
+			}return getter.call(receiver);
+		}
+	}
+};
+
+function _interopRequireDefault(obj) {
+	return obj && obj.__esModule ? obj : { 'default': obj };
+}
+
+function _classCallCheck(instance, Constructor) {
+	if (!(instance instanceof Constructor)) {
+		throw new TypeError('Cannot call a class as a function');
+	}
+}
+
+function _inherits(subClass, superClass) {
+	if (typeof superClass !== 'function' && superClass !== null) {
+		throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass);
+	}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+}
+
+var _lodash = require('lodash');
+
+var _lodash2 = _interopRequireDefault(_lodash);
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactBootstrap = require('react-bootstrap');
+
+var PanelStatisticsCard = (function (_React$Component) {
+	_inherits(PanelStatisticsCard, _React$Component);
+
+	function PanelStatisticsCard(props) {
+		_classCallCheck(this, PanelStatisticsCard);
+
+		_get(Object.getPrototypeOf(PanelStatisticsCard.prototype), 'constructor', this).call(this, props);
+		this.displayName = 'PanelStatisticsCard';
+	}
+
+	_createClass(PanelStatisticsCard, [{
+		key: 'render',
+		value: function render() {
+			var vector = this.props.vector;
+			return _react2['default'].createElement('div', { className: 'panelstatisticscard' }, vector && _lodash2['default'].map(vector, function (item, key) {
+				return _react2['default'].createElement('div', { className: 'card', key: key }, _react2['default'].createElement('div', { className: 'header', md: 12 }, _react2['default'].createElement('h4', null, item.fuelType)), _react2['default'].createElement('div', { className: 'body' }, _react2['default'].createElement(_reactBootstrap.Col, { md: 6 }, _react2['default'].createElement('b', null, 'Consumer Price'), _react2['default'].createElement('br', null), _react2['default'].createElement('span', null, 'Average Margin: ', item.consumerPrice[0].averageMargin), _react2['default'].createElement('br', null), _react2['default'].createElement('span', null, 'Average Price: ', item.consumerPrice[0].averagePrice), _react2['default'].createElement('br', null), _react2['default'].createElement('span', null, 'Max Price: ', item.consumerPrice[0].maxPrice), _react2['default'].createElement('br', null), _react2['default'].createElement('span', null, 'Min Price: ', item.consumerPrice[0].minPrice), _react2['default'].createElement('br', null)), _react2['default'].createElement(_reactBootstrap.Col, { md: 6 }, _react2['default'].createElement('b', null, 'Distribution Price'), _react2['default'].createElement('br', null), _react2['default'].createElement('span', null, 'Average Margin: ', item.distributionPrice[0].averagePrice), _react2['default'].createElement('br', null), _react2['default'].createElement('span', null, 'Standard Deviation: ', item.distributionPrice[0].standardDeviation), _react2['default'].createElement('br', null), _react2['default'].createElement('span', null, 'Max Price: ', item.distributionPrice[0].maxPrice), _react2['default'].createElement('br', null), _react2['default'].createElement('span', null, 'Min Price: ', item.distributionPrice[0].minPrice), _react2['default'].createElement('br', null))));
+			}));
+		}
+	}]);
+
+	return PanelStatisticsCard;
+})(_react2['default'].Component);
+
+exports['default'] = PanelStatisticsCard;
+module.exports = exports['default'];
+
+},{"lodash":47,"react":476,"react-bootstrap":181}],484:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+	value: true
+});
+
+var _createClass = (function () {
+	function defineProperties(target, props) {
+		for (var i = 0; i < props.length; i++) {
+			var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ('value' in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
+		}
+	}return function (Constructor, protoProps, staticProps) {
+		if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
+	};
+})();
+
+var _get = function get(_x, _x2, _x3) {
+	var _again = true;_function: while (_again) {
+		var object = _x,
+		    property = _x2,
+		    receiver = _x3;desc = parent = getter = undefined;_again = false;if (object === null) object = Function.prototype;var desc = Object.getOwnPropertyDescriptor(object, property);if (desc === undefined) {
+			var parent = Object.getPrototypeOf(object);if (parent === null) {
+				return undefined;
+			} else {
+				_x = parent;_x2 = property;_x3 = receiver;_again = true;continue _function;
+			}
+		} else if ('value' in desc) {
+			return desc.value;
+		} else {
+			var getter = desc.get;if (getter === undefined) {
+				return undefined;
+			}return getter.call(receiver);
+		}
+	}
+};
+
+function _interopRequireDefault(obj) {
+	return obj && obj.__esModule ? obj : { 'default': obj };
+}
+
+function _classCallCheck(instance, Constructor) {
+	if (!(instance instanceof Constructor)) {
+		throw new TypeError('Cannot call a class as a function');
+	}
+}
+
+function _inherits(subClass, superClass) {
+	if (typeof superClass !== 'function' && superClass !== null) {
+		throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass);
+	}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+}
+
+var _lodash = require('lodash');
+
+var _lodash2 = _interopRequireDefault(_lodash);
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactBootstrap = require('react-bootstrap');
+
+var PricesCard = (function (_React$Component) {
+	_inherits(PricesCard, _React$Component);
+
+	function PricesCard(props) {
+		_classCallCheck(this, PricesCard);
+
+		_get(Object.getPrototypeOf(PricesCard.prototype), 'constructor', this).call(this, props);
+		this.displayName = 'PricesCard';
+	}
+
+	_createClass(PricesCard, [{
+		key: 'render',
+		value: function render() {
+			var prices = this.props.prices || [];
+			return _react2['default'].createElement('div', { className: 'PricesCard' }, _lodash2['default'].map(prices, function (price, key) {
+				return _react2['default'].createElement('div', { className: 'card', key: key }, _react2['default'].createElement('div', { className: 'header', md: 12 }, _react2['default'].createElement('h4', null, price.fuelType)), _react2['default'].createElement('div', { className: 'body' }, _react2['default'].createElement('b', null, price.fuelType), _react2['default'].createElement('br', null), _react2['default'].createElement('span', null, 'Buy Price: ', price.buyPrice), _react2['default'].createElement('br', null), _react2['default'].createElement('span', null, 'Sell Price: ', price.sellPrice), _react2['default'].createElement('br', null), _react2['default'].createElement('span', null, 'Sale Mode: ', price.saleMode), _react2['default'].createElement('br', null), _react2['default'].createElement('span', null, 'Provider: ', price.provider), _react2['default'].createElement('br', null), _react2['default'].createElement('span', null, 'Date: ', price.date), _react2['default'].createElement('br', null)));
+			}));
+		}
+	}]);
+
+	return PricesCard;
+})(_react2['default'].Component);
+
+PricesCard.propTypes = {
+	prices: _react2['default'].PropTypes.array.isRequired
+};
+
+exports['default'] = PricesCard;
+module.exports = exports['default'];
+
+},{"lodash":47,"react":476,"react-bootstrap":181}],485:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+	value: true
+});
+
+var _createClass = (function () {
+	function defineProperties(target, props) {
+		for (var i = 0; i < props.length; i++) {
+			var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ('value' in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
+		}
+	}return function (Constructor, protoProps, staticProps) {
+		if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
+	};
+})();
+
+var _get = function get(_x, _x2, _x3) {
+	var _again = true;_function: while (_again) {
+		var object = _x,
+		    property = _x2,
+		    receiver = _x3;desc = parent = getter = undefined;_again = false;if (object === null) object = Function.prototype;var desc = Object.getOwnPropertyDescriptor(object, property);if (desc === undefined) {
+			var parent = Object.getPrototypeOf(object);if (parent === null) {
+				return undefined;
+			} else {
+				_x = parent;_x2 = property;_x3 = receiver;_again = true;continue _function;
+			}
+		} else if ('value' in desc) {
+			return desc.value;
+		} else {
+			var getter = desc.get;if (getter === undefined) {
+				return undefined;
+			}return getter.call(receiver);
+		}
+	}
+};
+
+function _interopRequireDefault(obj) {
+	return obj && obj.__esModule ? obj : { 'default': obj };
+}
+
+function _classCallCheck(instance, Constructor) {
+	if (!(instance instanceof Constructor)) {
+		throw new TypeError('Cannot call a class as a function');
+	}
+}
+
+function _inherits(subClass, superClass) {
+	if (typeof superClass !== 'function' && superClass !== null) {
+		throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass);
+	}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+}
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouter = require('react-router');
+
+var _reactBootstrap = require('react-bootstrap');
+
+var GoBack = (function (_React$Component) {
+	_inherits(GoBack, _React$Component);
+
+	function GoBack(props) {
+		_classCallCheck(this, GoBack);
+
+		_get(Object.getPrototypeOf(GoBack.prototype), 'constructor', this).call(this, props);
+		this.displayName = 'GoBack';
+	}
+
+	_createClass(GoBack, [{
+		key: 'render',
+		value: function render() {
+			return _react2['default'].createElement('div', { className: 'goBack' }, _react2['default'].createElement(_reactRouter.Link, { to: this.props.goBackLink }, _react2['default'].createElement(_reactBootstrap.Glyphicon, { glyph: 'arrow-left' })));
+		}
+	}]);
+
+	return GoBack;
+})(_react2['default'].Component);
+
+GoBack.propsType = {
+	goBackLink: _react2['default'].PropTypes.string.isRequired
+};
+
+var Page = (function (_React$Component2) {
+	_inherits(Page, _React$Component2);
+
+	function Page(props) {
+		_classCallCheck(this, Page);
+
+		_get(Object.getPrototypeOf(Page.prototype), 'constructor', this).call(this, props);
+		this.displayName = 'Page';
+	}
+
+	_createClass(Page, [{
+		key: 'render',
+		value: function render() {
+			return _react2['default'].createElement('div', { className: this.props.identifier }, this.props.children);
+		}
+	}]);
+
+	return Page;
+})(_react2['default'].Component);
+
+Page.propsType = {
+	identifier: _react2['default'].PropTypes.string.isRequired
+};
+
+var Body = (function (_React$Component3) {
+	_inherits(Body, _React$Component3);
+
+	function Body(props) {
+		_classCallCheck(this, Body);
+
+		_get(Object.getPrototypeOf(Body.prototype), 'constructor', this).call(this, props);
+		this.displayName = 'Body';
+	}
+
+	_createClass(Body, [{
+		key: 'render',
+		value: function render() {
+			return _react2['default'].createElement('div', { className: 'body' }, this.props.children);
+		}
+	}]);
+
+	return Body;
+})(_react2['default'].Component);
+
+var Footer = (function (_React$Component4) {
+	_inherits(Footer, _React$Component4);
+
+	function Footer(props) {
+		_classCallCheck(this, Footer);
+
+		_get(Object.getPrototypeOf(Footer.prototype), 'constructor', this).call(this, props);
+		this.displayName = 'Footer';
+	}
+
+	_createClass(Footer, [{
+		key: 'render',
+		value: function render() {
+			return _react2['default'].createElement('div', { className: 'footer' }, this.props.children);
+		}
+	}]);
+
+	return Footer;
+})(_react2['default'].Component);
+
+exports['default'] = {
+	Page: Page,
+	Body: Body,
+	Footer: Footer,
+	GoBack: GoBack
+};
+module.exports = exports['default'];
+
+},{"react":476,"react-bootstrap":181,"react-router":295}],486:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+	value: true
+});
+
+var _createClass = (function () {
+	function defineProperties(target, props) {
+		for (var i = 0; i < props.length; i++) {
+			var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ('value' in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
+		}
+	}return function (Constructor, protoProps, staticProps) {
+		if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
+	};
+})();
+
+var _get = function get(_x, _x2, _x3) {
+	var _again = true;_function: while (_again) {
+		var object = _x,
+		    property = _x2,
+		    receiver = _x3;desc = parent = getter = undefined;_again = false;if (object === null) object = Function.prototype;var desc = Object.getOwnPropertyDescriptor(object, property);if (desc === undefined) {
+			var parent = Object.getPrototypeOf(object);if (parent === null) {
+				return undefined;
+			} else {
+				_x = parent;_x2 = property;_x3 = receiver;_again = true;continue _function;
+			}
+		} else if ('value' in desc) {
+			return desc.value;
+		} else {
+			var getter = desc.get;if (getter === undefined) {
+				return undefined;
+			}return getter.call(receiver);
+		}
+	}
+};
+
+function _interopRequireDefault(obj) {
+	return obj && obj.__esModule ? obj : { 'default': obj };
+}
+
+function _classCallCheck(instance, Constructor) {
+	if (!(instance instanceof Constructor)) {
+		throw new TypeError('Cannot call a class as a function');
+	}
+}
+
+function _inherits(subClass, superClass) {
+	if (typeof superClass !== 'function' && superClass !== null) {
+		throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass);
+	}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+}
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+// component
+
+var _reactRouter = require('react-router');
+
+var Index = (function (_React$Component) {
+	_inherits(Index, _React$Component);
+
+	function Index(props) {
+		_classCallCheck(this, Index);
+
+		_get(Object.getPrototypeOf(Index.prototype), 'constructor', this).call(this, props);
+		this.displayName = 'Index';
+	}
+
+	_createClass(Index, [{
+		key: 'render',
+		value: function render() {
+			return _react2['default'].createElement('div', { className: 'Index' }, _react2['default'].createElement(_reactRouter.Link, { to: '/box' }, 'Box'));
+		}
+	}]);
+
+	return Index;
+})(_react2['default'].Component);
+
+exports['default'] = Index;
+module.exports = exports['default'];
+
+},{"react":476,"react-router":295}],487:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -54845,19 +55710,19 @@ var _reactBootstrap = require('react-bootstrap');
 
 // flux
 
-var _FluxCrawlInfoCrawlInfoStore = require('../Flux/CrawlInfo/CrawlInfoStore');
+var _FluxCrawlInfoCrawlInfoStore = require('../../Flux/CrawlInfo/CrawlInfoStore');
 
 var _FluxCrawlInfoCrawlInfoStore2 = _interopRequireDefault(_FluxCrawlInfoCrawlInfoStore);
 
-var _FluxCrawlInfoCrawlInfoActions = require('../Flux/CrawlInfo/CrawlInfoActions');
+var _FluxCrawlInfoCrawlInfoActions = require('../../Flux/CrawlInfo/CrawlInfoActions');
 
 var _FluxCrawlInfoCrawlInfoActions2 = _interopRequireDefault(_FluxCrawlInfoCrawlInfoActions);
 
 // lib
 
-var _LibFormatDate = require('../Lib/formatDate');
+var _JSLibFormatDate = require('../../JSLib/formatDate');
 
-var _LibFormatDate2 = _interopRequireDefault(_LibFormatDate);
+var _JSLibFormatDate2 = _interopRequireDefault(_JSLibFormatDate);
 
 var MainComponent = (function (_React$Component) {
 	_inherits(MainComponent, _React$Component);
@@ -54895,7 +55760,7 @@ var MainComponent = (function (_React$Component) {
 	}, {
 		key: 'render',
 		value: function render() {
-			return _react2['default'].createElement('div', { className: 'container-fluid app' }, _react2['default'].createElement(_reactBootstrap.Col, { md: 12, className: 'logo' }, _react2['default'].createElement(_reactRouter.Link, { to: '/' }, _react2['default'].createElement('h1', null, _react2['default'].createElement('span', { className: 'logo-gas' }, 'Gas'), _react2['default'].createElement('span', { className: 'logo-truck' }, 'Truck')), _react2['default'].createElement('footer', { className: 'crawl-dates' }, 'From ', (0, _LibFormatDate2['default'])(this.state.dates.from, '/'), ' To ', (0, _LibFormatDate2['default'])(this.state.dates.to, '/'), ' ', _react2['default'].createElement('br', null), 'Brazilian Gas Stations'))), _react2['default'].createElement(_reactBootstrap.Col, { md: 12, className: 'body' }, this.props.children), _react2['default'].createElement(_reactBootstrap.Col, { md: 12 }));
+			return _react2['default'].createElement('div', { className: 'container-fluid app' }, _react2['default'].createElement(_reactBootstrap.Col, { md: 12, className: 'logo' }, _react2['default'].createElement(_reactRouter.Link, { to: '/' }, _react2['default'].createElement('h1', null, _react2['default'].createElement('span', { className: 'logo-gas' }, 'Gas'), _react2['default'].createElement('span', { className: 'logo-truck' }, 'Truck')), _react2['default'].createElement('footer', { className: 'crawl-dates' }, 'From ', (0, _JSLibFormatDate2['default'])(this.state.dates.from, '/'), ' To ', (0, _JSLibFormatDate2['default'])(this.state.dates.to, '/'), ' ', _react2['default'].createElement('br', null), 'Brazilian Gas Stations'))), _react2['default'].createElement(_reactBootstrap.Col, { md: 12, className: 'body' }, this.props.children), _react2['default'].createElement(_reactBootstrap.Col, { md: 12 }));
 		}
 	}]);
 
@@ -54908,393 +55773,7 @@ exports['default'] = MainComponent;
 module.exports = exports['default'];
 /* this is the important part for react-router */
 
-},{"../Flux/CrawlInfo/CrawlInfoActions":486,"../Flux/CrawlInfo/CrawlInfoStore":487,"../Lib/formatDate":494,"react":476,"react-bootstrap":181,"react-router":295}],481:[function(require,module,exports){
-'use strict';
-
-Object.defineProperty(exports, '__esModule', {
-	value: true
-});
-
-var _createClass = (function () {
-	function defineProperties(target, props) {
-		for (var i = 0; i < props.length; i++) {
-			var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ('value' in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
-		}
-	}return function (Constructor, protoProps, staticProps) {
-		if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
-	};
-})();
-
-var _get = function get(_x, _x2, _x3) {
-	var _again = true;_function: while (_again) {
-		var object = _x,
-		    property = _x2,
-		    receiver = _x3;desc = parent = getter = undefined;_again = false;if (object === null) object = Function.prototype;var desc = Object.getOwnPropertyDescriptor(object, property);if (desc === undefined) {
-			var parent = Object.getPrototypeOf(object);if (parent === null) {
-				return undefined;
-			} else {
-				_x = parent;_x2 = property;_x3 = receiver;_again = true;continue _function;
-			}
-		} else if ('value' in desc) {
-			return desc.value;
-		} else {
-			var getter = desc.get;if (getter === undefined) {
-				return undefined;
-			}return getter.call(receiver);
-		}
-	}
-};
-
-function _interopRequireDefault(obj) {
-	return obj && obj.__esModule ? obj : { 'default': obj };
-}
-
-function _classCallCheck(instance, Constructor) {
-	if (!(instance instanceof Constructor)) {
-		throw new TypeError('Cannot call a class as a function');
-	}
-}
-
-function _inherits(subClass, superClass) {
-	if (typeof superClass !== 'function' && superClass !== null) {
-		throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass);
-	}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
-}
-
-var _lodash = require('lodash');
-
-var _lodash2 = _interopRequireDefault(_lodash);
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-// components
-
-var _reactRouter = require('react-router');
-
-var _reactBootstrap = require('react-bootstrap');
-
-var _LibPanelBox = require('../Lib/PanelBox');
-
-var _LibPanelBox2 = _interopRequireDefault(_LibPanelBox);
-
-// flux
-
-var _FluxStatesStatesStore = require('../../Flux/States/StatesStore');
-
-var _FluxStatesStatesStore2 = _interopRequireDefault(_FluxStatesStatesStore);
-
-var _FluxStatesStatesActions = require('../../Flux/States/StatesActions');
-
-var _FluxStatesStatesActions2 = _interopRequireDefault(_FluxStatesStatesActions);
-
-var States = (function (_React$Component) {
-	_inherits(States, _React$Component);
-
-	function States(props) {
-		_classCallCheck(this, States);
-
-		_get(Object.getPrototypeOf(States.prototype), 'constructor', this).call(this, props);
-		this.displayName = 'States';
-
-		this.state = _FluxStatesStatesStore2['default'].getState();
-		this._onStoreChange = this._onStoreChange.bind(this);
-	}
-
-	_createClass(States, [{
-		key: 'componentWillMount',
-		value: function componentWillMount() {
-			_FluxStatesStatesActions2['default'].loadOne(this.props.params.state);
-		}
-	}, {
-		key: 'componentDidMount',
-		value: function componentDidMount() {
-			_FluxStatesStatesStore2['default'].listen(this._onStoreChange);
-		}
-	}, {
-		key: 'componentWillUnmount',
-		value: function componentWillUnmount() {
-			_FluxStatesStatesStore2['default'].unlisten(this._onStoreChange);
-		}
-	}, {
-		key: '_onStoreChange',
-		value: function _onStoreChange(state) {
-			this.setState(state);
-		}
-	}, {
-		key: 'render',
-		value: function render() {
-			var state = this.state.states[this.props.params.state] || {};
-			var pathname = this.props.location.pathname;
-
-			return _react2['default'].createElement('div', { className: 'states' }, _react2['default'].createElement(_LibPanelBox2['default'], { vector: state.cities || [], pathname: pathname, top: 'stations', truncate: true }));
-		}
-	}]);
-
-	return States;
-})(_react2['default'].Component);
-
-exports['default'] = States;
-module.exports = exports['default'];
-
-},{"../../Flux/States/StatesActions":488,"../../Flux/States/StatesStore":489,"../Lib/PanelBox":479,"lodash":47,"react":476,"react-bootstrap":181,"react-router":295}],482:[function(require,module,exports){
-'use strict';
-
-Object.defineProperty(exports, '__esModule', {
-	value: true
-});
-
-var _createClass = (function () {
-	function defineProperties(target, props) {
-		for (var i = 0; i < props.length; i++) {
-			var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ('value' in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
-		}
-	}return function (Constructor, protoProps, staticProps) {
-		if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
-	};
-})();
-
-var _get = function get(_x, _x2, _x3) {
-	var _again = true;_function: while (_again) {
-		var object = _x,
-		    property = _x2,
-		    receiver = _x3;desc = parent = getter = undefined;_again = false;if (object === null) object = Function.prototype;var desc = Object.getOwnPropertyDescriptor(object, property);if (desc === undefined) {
-			var parent = Object.getPrototypeOf(object);if (parent === null) {
-				return undefined;
-			} else {
-				_x = parent;_x2 = property;_x3 = receiver;_again = true;continue _function;
-			}
-		} else if ('value' in desc) {
-			return desc.value;
-		} else {
-			var getter = desc.get;if (getter === undefined) {
-				return undefined;
-			}return getter.call(receiver);
-		}
-	}
-};
-
-function _interopRequireDefault(obj) {
-	return obj && obj.__esModule ? obj : { 'default': obj };
-}
-
-function _classCallCheck(instance, Constructor) {
-	if (!(instance instanceof Constructor)) {
-		throw new TypeError('Cannot call a class as a function');
-	}
-}
-
-function _inherits(subClass, superClass) {
-	if (typeof superClass !== 'function' && superClass !== null) {
-		throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass);
-	}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
-}
-
-var _lodash = require('lodash');
-
-var _lodash2 = _interopRequireDefault(_lodash);
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-// components
-
-var _reactRouter = require('react-router');
-
-var _reactBootstrap = require('react-bootstrap');
-
-var _LibPanelBox = require('../Lib/PanelBox');
-
-var _LibPanelBox2 = _interopRequireDefault(_LibPanelBox);
-
-// flux
-
-var _FluxStatesStatesStore = require('../../Flux/States/StatesStore');
-
-var _FluxStatesStatesStore2 = _interopRequireDefault(_FluxStatesStatesStore);
-
-var _FluxStatesStatesActions = require('../../Flux/States/StatesActions');
-
-var _FluxStatesStatesActions2 = _interopRequireDefault(_FluxStatesStatesActions);
-
-var States = (function (_React$Component) {
-	_inherits(States, _React$Component);
-
-	function States(props) {
-		_classCallCheck(this, States);
-
-		_get(Object.getPrototypeOf(States.prototype), 'constructor', this).call(this, props);
-		this.displayName = 'States';
-
-		this.state = _FluxStatesStatesStore2['default'].getState();
-		this._onStoreChange = this._onStoreChange.bind(this);
-	}
-
-	_createClass(States, [{
-		key: 'componentWillMount',
-		value: function componentWillMount() {
-			_FluxStatesStatesActions2['default'].load();
-		}
-	}, {
-		key: 'componentDidMount',
-		value: function componentDidMount() {
-			_FluxStatesStatesStore2['default'].listen(this._onStoreChange);
-		}
-	}, {
-		key: 'componentWillUnmount',
-		value: function componentWillUnmount() {
-			_FluxStatesStatesStore2['default'].unlisten(this._onStoreChange);
-		}
-	}, {
-		key: '_onStoreChange',
-		value: function _onStoreChange(state) {
-			//console.log(state.states)
-			this.setState(state);
-		}
-	}, {
-		key: 'render',
-		value: function render() {
-			var states = this.state.states || {};
-			return _react2['default'].createElement('div', { className: 'states' }, _react2['default'].createElement(_LibPanelBox2['default'], { vector: states, pathname: '/', top: 'cities' }));
-		}
-	}]);
-
-	return States;
-})(_react2['default'].Component);
-
-exports['default'] = States;
-module.exports = exports['default'];
-
-},{"../../Flux/States/StatesActions":488,"../../Flux/States/StatesStore":489,"../Lib/PanelBox":479,"lodash":47,"react":476,"react-bootstrap":181,"react-router":295}],483:[function(require,module,exports){
-'use strict';
-
-Object.defineProperty(exports, '__esModule', {
-	value: true
-});
-
-var _createClass = (function () {
-	function defineProperties(target, props) {
-		for (var i = 0; i < props.length; i++) {
-			var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ('value' in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
-		}
-	}return function (Constructor, protoProps, staticProps) {
-		if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
-	};
-})();
-
-var _get = function get(_x, _x2, _x3) {
-	var _again = true;_function: while (_again) {
-		var object = _x,
-		    property = _x2,
-		    receiver = _x3;desc = parent = getter = undefined;_again = false;if (object === null) object = Function.prototype;var desc = Object.getOwnPropertyDescriptor(object, property);if (desc === undefined) {
-			var parent = Object.getPrototypeOf(object);if (parent === null) {
-				return undefined;
-			} else {
-				_x = parent;_x2 = property;_x3 = receiver;_again = true;continue _function;
-			}
-		} else if ('value' in desc) {
-			return desc.value;
-		} else {
-			var getter = desc.get;if (getter === undefined) {
-				return undefined;
-			}return getter.call(receiver);
-		}
-	}
-};
-
-function _interopRequireDefault(obj) {
-	return obj && obj.__esModule ? obj : { 'default': obj };
-}
-
-function _classCallCheck(instance, Constructor) {
-	if (!(instance instanceof Constructor)) {
-		throw new TypeError('Cannot call a class as a function');
-	}
-}
-
-function _inherits(subClass, superClass) {
-	if (typeof superClass !== 'function' && superClass !== null) {
-		throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass);
-	}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
-}
-
-var _lodash = require('lodash');
-
-var _lodash2 = _interopRequireDefault(_lodash);
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-// components
-
-var _reactRouter = require('react-router');
-
-var _reactBootstrap = require('react-bootstrap');
-
-// flux
-
-var _FluxStationsStationsStore = require('../../Flux/Stations/StationsStore');
-
-var _FluxStationsStationsStore2 = _interopRequireDefault(_FluxStationsStationsStore);
-
-var _FluxStationsStationsActions = require('../../Flux/Stations/StationsActions');
-
-var _FluxStationsStationsActions2 = _interopRequireDefault(_FluxStationsStationsActions);
-
-var Stations = (function (_React$Component) {
-	_inherits(Stations, _React$Component);
-
-	function Stations(props) {
-		_classCallCheck(this, Stations);
-
-		_get(Object.getPrototypeOf(Stations.prototype), 'constructor', this).call(this, props);
-		this.displayName = 'StationsDetails';
-
-		this.state = _FluxStationsStationsStore2['default'].getState();
-		this._onStoreChange = this._onStoreChange.bind(this);
-	}
-
-	_createClass(Stations, [{
-		key: 'componentWillMount',
-		value: function componentWillMount() {
-			_FluxStationsStationsActions2['default'].loadOne(this.props.params.station);
-		}
-	}, {
-		key: 'componentDidMount',
-		value: function componentDidMount() {
-			_FluxStationsStationsStore2['default'].listen(this._onStoreChange);
-		}
-	}, {
-		key: 'componentWillUnmount',
-		value: function componentWillUnmount() {
-			_FluxStationsStationsStore2['default'].unlisten(this._onStoreChange);
-		}
-	}, {
-		key: '_onStoreChange',
-		value: function _onStoreChange(state) {
-			console.log(state);
-			this.setState(state);
-		}
-	}, {
-		key: 'render',
-		value: function render() {
-			var station = this.state.stations[this.props.params.station] || {};
-			return _react2['default'].createElement('div', { className: 'station' }, _react2['default'].createElement(_reactBootstrap.Col, { className: 'sub-header' }, _react2['default'].createElement('h2', null, 'Prices of ', station.name || '')), _react2['default'].createElement(_reactBootstrap.Col, { className: 'about' }, 'Address: ', station.address, ',', station.area), _react2['default'].createElement(_reactBootstrap.Col, { className: 'prices' }, station.prices && _lodash2['default'].map(station.prices, function (price, key) {
-				return _react2['default'].createElement('div', { key: key }, _react2['default'].createElement('b', null, price.fuelType), _react2['default'].createElement('p', null, 'Buy Price: ', price.buyPrice), _react2['default'].createElement('p', null, 'Sell Price: ', price.sellPrice), _react2['default'].createElement('p', null, 'Sale Mode: ', price.saleMode), _react2['default'].createElement('p', null, 'Provider: ', price.provider), _react2['default'].createElement('p', null, 'Date: ', price.date));
-			})));
-		}
-	}]);
-
-	return Stations;
-})(_react2['default'].Component);
-
-exports['default'] = Stations;
-module.exports = exports['default'];
-
-},{"../../Flux/Stations/StationsActions":490,"../../Flux/Stations/StationsStore":491,"lodash":47,"react":476,"react-bootstrap":181,"react-router":295}],484:[function(require,module,exports){
+},{"../../Flux/CrawlInfo/CrawlInfoActions":490,"../../Flux/CrawlInfo/CrawlInfoStore":491,"../../JSLib/formatDate":498,"react":476,"react-bootstrap":181,"react-router":295}],488:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -55327,11 +55806,11 @@ var _alt2 = _interopRequireDefault(_alt);
 
 var _config = require('../../../config');
 
-var _LibAPIRequest = require('../../Lib/APIRequest');
+var _JSLibAPIRequest = require('../../JSLib/APIRequest');
 
-var _LibAPIRequest2 = _interopRequireDefault(_LibAPIRequest);
+var _JSLibAPIRequest2 = _interopRequireDefault(_JSLibAPIRequest);
 
-var api = new _LibAPIRequest2['default'](_config.BASE_URL);
+var api = new _JSLibAPIRequest2['default'](_config.BASE_URL);
 
 var CitiesActions = (function () {
 	function CitiesActions() {
@@ -55404,7 +55883,7 @@ var CitiesActions = (function () {
 exports['default'] = _alt2['default'].createActions(CitiesActions);
 module.exports = exports['default'];
 
-},{"../../../config":1,"../../Lib/APIRequest":493,"../alt":492}],485:[function(require,module,exports){
+},{"../../../config":1,"../../JSLib/APIRequest":497,"../alt":496}],489:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -55503,7 +55982,7 @@ var CitiesStore = (function () {
 exports['default'] = _alt2['default'].createStore(CitiesStore, 'CitiesStore');
 module.exports = exports['default'];
 
-},{"../alt":492,"./CitiesActions":484,"lodash":47}],486:[function(require,module,exports){
+},{"../alt":496,"./CitiesActions":488,"lodash":47}],490:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -55536,11 +56015,11 @@ var _alt2 = _interopRequireDefault(_alt);
 
 var _config = require('../../../config');
 
-var _LibAPIRequest = require('../../Lib/APIRequest');
+var _JSLibAPIRequest = require('../../JSLib/APIRequest');
 
-var _LibAPIRequest2 = _interopRequireDefault(_LibAPIRequest);
+var _JSLibAPIRequest2 = _interopRequireDefault(_JSLibAPIRequest);
 
-var api = new _LibAPIRequest2['default'](_config.BASE_URL);
+var api = new _JSLibAPIRequest2['default'](_config.BASE_URL);
 
 var CrawlInfoActions = (function () {
 	function CrawlInfoActions() {
@@ -55592,7 +56071,7 @@ var CrawlInfoActions = (function () {
 exports['default'] = _alt2['default'].createActions(CrawlInfoActions);
 module.exports = exports['default'];
 
-},{"../../../config":1,"../../Lib/APIRequest":493,"../alt":492}],487:[function(require,module,exports){
+},{"../../../config":1,"../../JSLib/APIRequest":497,"../alt":496}],491:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -55678,7 +56157,7 @@ var CrawlInfoStore = (function () {
 exports['default'] = _alt2['default'].createStore(CrawlInfoStore, 'CrawlInfoStore');
 module.exports = exports['default'];
 
-},{"../alt":492,"./CrawlInfoActions":486,"lodash":47}],488:[function(require,module,exports){
+},{"../alt":496,"./CrawlInfoActions":490,"lodash":47}],492:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -55711,11 +56190,11 @@ var _alt2 = _interopRequireDefault(_alt);
 
 var _config = require('../../../config');
 
-var _LibAPIRequest = require('../../Lib/APIRequest');
+var _JSLibAPIRequest = require('../../JSLib/APIRequest');
 
-var _LibAPIRequest2 = _interopRequireDefault(_LibAPIRequest);
+var _JSLibAPIRequest2 = _interopRequireDefault(_JSLibAPIRequest);
 
-var api = new _LibAPIRequest2['default'](_config.BASE_URL);
+var api = new _JSLibAPIRequest2['default'](_config.BASE_URL);
 
 var StateActions = (function () {
 	function StateActions() {
@@ -55788,7 +56267,7 @@ var StateActions = (function () {
 exports['default'] = _alt2['default'].createActions(StateActions);
 module.exports = exports['default'];
 
-},{"../../../config":1,"../../Lib/APIRequest":493,"../alt":492}],489:[function(require,module,exports){
+},{"../../../config":1,"../../JSLib/APIRequest":497,"../alt":496}],493:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -55881,7 +56360,7 @@ var StatesStore = (function () {
 exports['default'] = _alt2['default'].createStore(StatesStore, 'StatesStore');
 module.exports = exports['default'];
 
-},{"../alt":492,"./StatesActions":488,"lodash":47}],490:[function(require,module,exports){
+},{"../alt":496,"./StatesActions":492,"lodash":47}],494:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -55914,11 +56393,11 @@ var _alt2 = _interopRequireDefault(_alt);
 
 var _config = require('../../../config');
 
-var _LibAPIRequest = require('../../Lib/APIRequest');
+var _JSLibAPIRequest = require('../../JSLib/APIRequest');
 
-var _LibAPIRequest2 = _interopRequireDefault(_LibAPIRequest);
+var _JSLibAPIRequest2 = _interopRequireDefault(_JSLibAPIRequest);
 
-var api = new _LibAPIRequest2['default'](_config.BASE_URL);
+var api = new _JSLibAPIRequest2['default'](_config.BASE_URL);
 
 var StationsActions = (function () {
 	function StationsActions() {
@@ -55991,7 +56470,7 @@ var StationsActions = (function () {
 exports['default'] = _alt2['default'].createActions(StationsActions);
 module.exports = exports['default'];
 
-},{"../../../config":1,"../../Lib/APIRequest":493,"../alt":492}],491:[function(require,module,exports){
+},{"../../../config":1,"../../JSLib/APIRequest":497,"../alt":496}],495:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -56084,7 +56563,7 @@ var StationsStore = (function () {
 exports['default'] = _alt2['default'].createStore(StationsStore, 'StationsStore');
 module.exports = exports['default'];
 
-},{"../alt":492,"./StationsActions":490,"lodash":47}],492:[function(require,module,exports){
+},{"../alt":496,"./StationsActions":494,"lodash":47}],496:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -56104,7 +56583,7 @@ var alt = new _alt2['default']();
 exports['default'] = alt;
 module.exports = exports['default'];
 
-},{"alt":3}],493:[function(require,module,exports){
+},{"alt":3}],497:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -56197,7 +56676,7 @@ var APIRequest = (function () {
 exports['default'] = APIRequest;
 module.exports = exports['default'];
 
-},{"lodash":47,"reqwest":477}],494:[function(require,module,exports){
+},{"lodash":47,"reqwest":477}],498:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -56220,7 +56699,7 @@ function formatDate(date, sep, type) {
 
 module.exports = exports['default'];
 
-},{}],495:[function(require,module,exports){
+},{}],499:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) {
@@ -56249,7 +56728,8 @@ var history = (0, _history.createHashHistory)();
 
 _react2['default'].render(_react2['default'].createElement(_reactRouter2['default'], { history: history }, _routesJsx2['default']), document.body);
 
-},{"../config":1,"./routes.jsx":496,"history":29,"react":476,"react-router":295}],496:[function(require,module,exports){
+},{"../config":1,"./routes.jsx":500,"history":29,"react":476,"react-router":295}],500:[function(require,module,exports){
+// Main
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -56260,43 +56740,39 @@ function _interopRequireDefault(obj) {
 	return obj && obj.__esModule ? obj : { 'default': obj };
 }
 
-var _ComponentsMainComponent = require('./Components/MainComponent');
+var _ComponentsMainMainComponent = require('./Components/Main/MainComponent');
 
-var _ComponentsMainComponent2 = _interopRequireDefault(_ComponentsMainComponent);
+var _ComponentsMainMainComponent2 = _interopRequireDefault(_ComponentsMainMainComponent);
 
-// states
+var _ComponentsMainIndex = require('./Components/Main/Index');
 
-var _ComponentsStatesStates = require('./Components/States/States');
+var _ComponentsMainIndex2 = _interopRequireDefault(_ComponentsMainIndex);
 
-var _ComponentsStatesStates2 = _interopRequireDefault(_ComponentsStatesStates);
+// Box
 
-var _ComponentsStatesDetails = require('./Components/States/Details');
+var _ComponentsBoxBrazil = require('./Components/Box/Brazil');
 
-var _ComponentsStatesDetails2 = _interopRequireDefault(_ComponentsStatesDetails);
+var _ComponentsBoxBrazil2 = _interopRequireDefault(_ComponentsBoxBrazil);
 
-// cities
+var _ComponentsBoxState = require('./Components/Box/State');
 
-var _ComponentsCitiesDetails = require('./Components/Cities/Details');
+var _ComponentsBoxState2 = _interopRequireDefault(_ComponentsBoxState);
 
-var _ComponentsCitiesDetails2 = _interopRequireDefault(_ComponentsCitiesDetails);
+var _ComponentsBoxCity = require('./Components/Box/City');
 
-// stations
+var _ComponentsBoxCity2 = _interopRequireDefault(_ComponentsBoxCity);
 
-var _ComponentsStationsDetails = require('./Components/Stations/Details');
+var _ComponentsBoxStation = require('./Components/Box/Station');
 
-var _ComponentsStationsDetails2 = _interopRequireDefault(_ComponentsStationsDetails);
+var _ComponentsBoxStation2 = _interopRequireDefault(_ComponentsBoxStation);
 
 var routes = {
-	component: _ComponentsMainComponent2['default'],
-	childRoutes: [{ path: '/', component: _ComponentsStatesStates2['default'] }, { path: '/:state', component: _ComponentsStatesDetails2['default'] },
-	// { path: '/:state/:city', component: Cities },
-	{ path: '/:state/:city', component: _ComponentsCitiesDetails2['default'] },
-	// // { path: '/stations', component: Stations },
-	{ path: '/:state/:city/:station', component: _ComponentsStationsDetails2['default'] }]
+	component: _ComponentsMainMainComponent2['default'],
+	childRoutes: [{ path: '/', component: _ComponentsMainIndex2['default'] }, { path: 'box', component: _ComponentsBoxBrazil2['default'] }, { path: 'box/:state', component: _ComponentsBoxState2['default'] }, { path: 'box/:state/:city', component: _ComponentsBoxCity2['default'] }, { path: 'box/:state/:city/:station', component: _ComponentsBoxStation2['default'] }]
 };
 
 exports['default'] = routes;
 module.exports = exports['default'];
 
-},{"./Components/Cities/Details":478,"./Components/MainComponent":480,"./Components/States/Details":481,"./Components/States/States":482,"./Components/Stations/Details":483}]},{},[495])
+},{"./Components/Box/Brazil":478,"./Components/Box/City":479,"./Components/Box/State":480,"./Components/Box/Station":481,"./Components/Main/Index":486,"./Components/Main/MainComponent":487}]},{},[499])
 //# sourceMappingURL=build.js.map

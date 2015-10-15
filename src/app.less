@@ -1,3 +1,22 @@
+.transition (@value1,@value2:X,...) { @value: ~`"@{arguments}".replace(/[\[\]]|\,\sX/g, '')`; -webkit-transition: @value; -moz-transition: @value; -ms-transition: @value; -o-transition: @value; transition: @value; }
+.transform (@value1,@value2:X,...) { @value: ~`"@{arguments}".replace(/[\[\]]|\,\sX/g, '')`; transform:@value; -ms-transform:@value; -webkit-transform:@value; -o-transform:@value; -moz-transform:@value; }
+
+// border
+.border-box { box-sizing:border-box; -moz-box-sizing:border-box; box-sizing: border-box;}
+.border-radius(@value) { border-radius: @value;  -webkit-border-radius: @value; -moz-border-radius: @value; }
+
+.vertical-text {
+	// transform: rotate(-90deg);
+	// transform-origin: left bottom 0;
+	float: left;
+}
+
+.full-row {
+	width: 100%;
+	position: relative;
+	float: left;
+}
+
 @green-truck: #00c1a2;
 @blue-truck: #317db2;
 
@@ -43,67 +62,21 @@ body a:hover,a:active {
 	}
 }
 
-@panelbox-unit: 1vmax;
-@panelbox-side: @panelbox-unit*10;
-@panelbox-margin: @panelbox-unit;
-@duration: 1s;
-
-.panelbox {
-	margin: @panelbox-unit*1 @panelbox-unit*0.1;
-	width: 100vw;
-	height: 100%;
-	padding: 0;
-
-	.panelbox-container {
-		float: left;
-		width: @panelbox-side;
-		height: @panelbox-side;
-		margin: @panelbox-margin;
-		
-		background-color: @green-truck;
-		color: white;
-
-		-webkit-transition: width @duration, height @duration; /* Safari */
-		transition: width @duration, height @duration;
-
-		.top {
-			height: @panelbox-unit*8;
-			font-size: @panelbox-unit*4;
-			padding: (@panelbox-unit*8 - @panelbox-unit*4)/2 0;
-			text-align: center;
-		}
-
-		.bottom {
-			height: @panelbox-unit*2;
-			font-size: @panelbox-unit;
-			text-align: center;
-			font-weight: bold;
-		}
-
-		&:hover {
-			background-color: @blue-truck;
-		}
-
-		&.header .top {
-			font-size: @panelbox-unit*2;
-			padding: (@panelbox-unit*8 - @panelbox-unit*2)/2 0;
-		}
-
-		&.header:hover {
-			background-color: @green-truck;
-		}
-	}
-
-	.panelbox-container:hover {
-		width: @panelbox-side*2 + @panelbox-margin*2;
-		height: @panelbox-side*2 + @panelbox-margin*2;
-	}
-}
+@import './Components/Lib/PanelBox/PanelBox';
+@import './Components/Lib/PanelStatisticsCard/PanelStatisticsCard';
+@import './Components/Lib/PricesCard/PricesCard';
 
 .station {
-	.about {
-		font-size: 2rem;
+	.body {
+		.full-row;
+		.about {
+			font-size: 2rem;
+		}
 	}
+	.footer {
+		.full-row;
+	}
+	
 }
 
 .chart div {

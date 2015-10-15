@@ -1,6 +1,6 @@
 import alt from '../alt';
 import {BASE_URL, CITIES} from '../../../config';
-import APIRequest from '../../Lib/APIRequest';
+import APIRequest from '../../JSLib/APIRequest';
 
 var api = new APIRequest(BASE_URL);
 
