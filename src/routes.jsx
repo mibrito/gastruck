@@ -6,11 +6,9 @@ import States from './Components/States/States';
 import StatesDetails from './Components/States/Details';
 
 // cities
-import Cities from './Components/Cities/Cities';
 import CitiesDetails from './Components/Cities/Details';
 
 // stations
-import Stations from './Components/Stations/Stations';
 import StationsDetails from './Components/Stations/Details';
 
 var routes = {

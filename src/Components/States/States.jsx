@@ -3,8 +3,8 @@ import React from 'react';
 
 // components
 import {Link} from 'react-router'; 
-import {Col, Row} from 'react-bootstrap';
-
+import {Col, Row, Panel} from 'react-bootstrap';
+import PanelBox from '../Lib/PanelBox';
 // flux
 import StatesStore from '../../Flux/States/StatesStore';
 import StatesActions from '../../Flux/States/StatesActions';
@@ -31,20 +31,14 @@ class States extends React.Component {
 	}
 
 	_onStoreChange(state){
+		//console.log(state.states)
 		this.setState(state);
 	}
 
 	render() {
+		var states = this.state.states || {};
 		return (<div className="states">
-			<Col md={12} className='sub-header'><h2>States</h2></Col>
-			<Col md={12} className='list-states'>{
-				_.map(this.state.states, function(state, key){
-					return (<div key={key}><Link to={`/${state._id}`} >
-						{state.name}
-					</Link></div>);
-				})
-			}</Col>
-			{/* this is the important part for react-router */}
+			<PanelBox vector={states} pathname="/" top="cities" />
 		</div>);
 	}
 }

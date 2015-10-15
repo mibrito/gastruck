@@ -4,6 +4,7 @@ import React from 'react';
 // components
 import {Link} from 'react-router'; 
 import {Col, Row} from 'react-bootstrap';
+import PanelBox from '../Lib/PanelBox';
 
 // flux
 import StatesStore from '../../Flux/States/StatesStore';
@@ -37,15 +38,9 @@ class States extends React.Component {
 	render() {
 		var state = this.state.states[this.props.params.state] || {};
 		var pathname = this.props.location.pathname;
+
 		return (<div className="states">
-			<h1>Cities of {state.name || ''}</h1>
-			<Col>{
-				state.cities && _.map(state.cities, function(city, key){
-					return (<div key={key}><Link to={`${pathname}/${city._id}`} >
-						{city.name}
-					</Link></div>);
-				})
-			}</Col>
+			<PanelBox vector={state.cities|| []} pathname={pathname} top="stations" truncate />
 		</div>);
 	}
 }

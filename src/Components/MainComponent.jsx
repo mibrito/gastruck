@@ -1,5 +1,6 @@
 import React from 'react';
 
+import {Link} from 'react-router'; 
 import {Row, Col} from 'react-bootstrap';
 
 // flux
@@ -36,16 +37,18 @@ class MainComponent extends React.Component {
 
 	render () {
 		return (
-			<div className="container-fluid app-body">
-				<Col md={12} className="logo"><h1>
-					<span className="logo-gas">Gas</span>
-					<span className="logo-truck">Truck</span>
+			<div className="container-fluid app">
+				<Col md={12} className="logo"><Link to="/">
+					<h1>
+						<span className="logo-gas">Gas</span>
+						<span className="logo-truck">Truck</span>
 					</h1>
 					<footer className="crawl-dates">
 						From {formatDate(this.state.dates.from, '/')}
-						&nbsp;To&nbsp;{formatDate(this.state.dates.to, '/')}
+						&nbsp;To&nbsp;{formatDate(this.state.dates.to, '/')} <br/>
+						Brazilian Gas Stations
 					</footer>
-				</Col>
+				</Link></Col>
 				{/* this is the important part for react-router */}
 				<Col md={12} className="body">
 					{this.props.children}

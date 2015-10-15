@@ -54614,6 +54614,10 @@ var _reactRouter = require('react-router');
 
 var _reactBootstrap = require('react-bootstrap');
 
+var _LibPanelBox = require('../Lib/PanelBox');
+
+var _LibPanelBox2 = _interopRequireDefault(_LibPanelBox);
+
 // flux
 
 var _FluxCitiesCitiesStore = require('../../Flux/Cities/CitiesStore');
@@ -54631,7 +54635,7 @@ var Cities = (function (_React$Component) {
 		_classCallCheck(this, Cities);
 
 		_get(Object.getPrototypeOf(Cities.prototype), 'constructor', this).call(this, props);
-		this.displayName = 'Cities';
+		this.displayName = 'CitiesDetails';
 
 		this.state = _FluxCitiesCitiesStore2['default'].getState();
 		this._onStoreChange = this._onStoreChange.bind(this);
@@ -54640,7 +54644,7 @@ var Cities = (function (_React$Component) {
 	_createClass(Cities, [{
 		key: 'componentWillMount',
 		value: function componentWillMount() {
-			_FluxCitiesCitiesActions2['default'].load();
+			_FluxCitiesCitiesActions2['default'].loadOne(this.props.params.city);
 		}
 	}, {
 		key: 'componentDidMount',
@@ -54655,15 +54659,17 @@ var Cities = (function (_React$Component) {
 	}, {
 		key: '_onStoreChange',
 		value: function _onStoreChange(state) {
-
+			console.log(state);
 			this.setState(state);
 		}
 	}, {
 		key: 'render',
 		value: function render() {
-			return _react2['default'].createElement('div', { className: 'states' }, _react2['default'].createElement('h1', null, 'Cities'), _react2['default'].createElement(_reactBootstrap.Col, null, _lodash2['default'].map(this.state.states, function (state, key) {
-				return _react2['default'].createElement('div', { key: key }, _react2['default'].createElement(_reactRouter.Link, { to: '/cities/' + state._id }, state.name));
-			})));
+			var city = this.state.cities[this.props.params.city] || {};
+			var pathname = this.props.location.pathname;
+			return _react2['default'].createElement('div', { className: 'Cities' }, _react2['default'].createElement(_reactBootstrap.Col, { xs: 12, md: 12, className: 'sub-header' }, _react2['default'].createElement('h2', null, city.name || '')), _react2['default'].createElement(_reactBootstrap.Col, { xs: 12, md: 6 }, _react2['default'].createElement('h3', null, 'Statistics'), city.statistics && _lodash2['default'].map(city.statistics, function (statistic, key) {
+				return _react2['default'].createElement('div', { key: key }, _react2['default'].createElement(_reactBootstrap.Col, { md: 12 }, _react2['default'].createElement('h4', null, statistic.fuelType)), _react2['default'].createElement(_reactBootstrap.Col, { md: 5 }, _react2['default'].createElement('b', null, 'Consumer Price'), _react2['default'].createElement('p', null, 'Average Margin: ', statistic.consumerPrice[0].averageMargin), _react2['default'].createElement('p', null, 'Average Price: ', statistic.consumerPrice[0].averagePrice), _react2['default'].createElement('p', null, 'Max Price: ', statistic.consumerPrice[0].maxPrice), _react2['default'].createElement('p', null, 'Min Price: ', statistic.consumerPrice[0].minPrice)), _react2['default'].createElement(_reactBootstrap.Col, { md: 5 }, _react2['default'].createElement('b', null, 'Distribution Price'), _react2['default'].createElement('p', null, 'Average Margin: ', statistic.distributionPrice[0].averagePrice), _react2['default'].createElement('p', null, 'Standard Deviation: ', statistic.distributionPrice[0].standardDeviation), _react2['default'].createElement('p', null, 'Max Price: ', statistic.distributionPrice[0].maxPrice), _react2['default'].createElement('p', null, 'Min Price: ', statistic.distributionPrice[0].minPrice)));
+			})), _react2['default'].createElement(_reactBootstrap.Col, { xs: 12, md: 6 }, _react2['default'].createElement('h3', null, 'Stations'), _react2['default'].createElement(_LibPanelBox2['default'], { vector: city.stations || [], pathname: pathname, top: 'prices', truncate: true })));
 		}
 	}]);
 
@@ -54673,7 +54679,7 @@ var Cities = (function (_React$Component) {
 exports['default'] = Cities;
 module.exports = exports['default'];
 
-},{"../../Flux/Cities/CitiesActions":485,"../../Flux/Cities/CitiesStore":486,"lodash":47,"react":476,"react-bootstrap":181,"react-router":295}],479:[function(require,module,exports){
+},{"../../Flux/Cities/CitiesActions":484,"../../Flux/Cities/CitiesStore":485,"../Lib/PanelBox":479,"lodash":47,"react":476,"react-bootstrap":181,"react-router":295}],479:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -54738,72 +54744,42 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRouter = require('react-router');
 
-var _reactBootstrap = require('react-bootstrap');
+var PanelBox = (function (_React$Component) {
+	_inherits(PanelBox, _React$Component);
 
-// flux
+	function PanelBox(props) {
+		_classCallCheck(this, PanelBox);
 
-var _FluxCitiesCitiesStore = require('../../Flux/Cities/CitiesStore');
-
-var _FluxCitiesCitiesStore2 = _interopRequireDefault(_FluxCitiesCitiesStore);
-
-var _FluxCitiesCitiesActions = require('../../Flux/Cities/CitiesActions');
-
-var _FluxCitiesCitiesActions2 = _interopRequireDefault(_FluxCitiesCitiesActions);
-
-var Cities = (function (_React$Component) {
-	_inherits(Cities, _React$Component);
-
-	function Cities(props) {
-		_classCallCheck(this, Cities);
-
-		_get(Object.getPrototypeOf(Cities.prototype), 'constructor', this).call(this, props);
-		this.displayName = 'CitiesDetails';
-
-		this.state = _FluxCitiesCitiesStore2['default'].getState();
-		this._onStoreChange = this._onStoreChange.bind(this);
+		_get(Object.getPrototypeOf(PanelBox.prototype), 'constructor', this).call(this, props);
+		this.displayName = 'PanelBox';
 	}
 
-	_createClass(Cities, [{
-		key: 'componentWillMount',
-		value: function componentWillMount() {
-			_FluxCitiesCitiesActions2['default'].loadOne(this.props.params.city);
-		}
-	}, {
-		key: 'componentDidMount',
-		value: function componentDidMount() {
-			_FluxCitiesCitiesStore2['default'].listen(this._onStoreChange);
-		}
-	}, {
-		key: 'componentWillUnmount',
-		value: function componentWillUnmount() {
-			_FluxCitiesCitiesStore2['default'].unlisten(this._onStoreChange);
-		}
-	}, {
-		key: '_onStoreChange',
-		value: function _onStoreChange(state) {
-			console.log(state);
-			this.setState(state);
-		}
-	}, {
+	_createClass(PanelBox, [{
 		key: 'render',
 		value: function render() {
-			var city = this.state.cities[this.props.params.city] || {};
-			var pathname = this.props.location.pathname;
-			return _react2['default'].createElement('div', { className: 'Cities' }, _react2['default'].createElement(_reactBootstrap.Col, { xs: 12, md: 12, className: 'sub-header' }, _react2['default'].createElement('h2', null, city.name || '')), _react2['default'].createElement(_reactBootstrap.Col, { xs: 12, md: 6 }, _react2['default'].createElement('h3', null, 'Statistics'), city.statistics && _lodash2['default'].map(city.statistics, function (statistic, key) {
-				return _react2['default'].createElement('div', { key: key }, _react2['default'].createElement(_reactBootstrap.Col, { md: 12 }, _react2['default'].createElement('h4', null, statistic.fuelType)), _react2['default'].createElement(_reactBootstrap.Col, { md: 5 }, _react2['default'].createElement('b', null, 'Consumer Price'), _react2['default'].createElement('p', null, 'Average Margin: ', statistic.consumerPrice[0].averageMargin), _react2['default'].createElement('p', null, 'Average Price: ', statistic.consumerPrice[0].averagePrice), _react2['default'].createElement('p', null, 'Max Price: ', statistic.consumerPrice[0].maxPrice), _react2['default'].createElement('p', null, 'Min Price: ', statistic.consumerPrice[0].minPrice)), _react2['default'].createElement(_reactBootstrap.Col, { md: 5 }, _react2['default'].createElement('b', null, 'Distribution Price'), _react2['default'].createElement('p', null, 'Average Margin: ', statistic.distributionPrice[0].averagePrice), _react2['default'].createElement('p', null, 'Standard Deviation: ', statistic.distributionPrice[0].standardDeviation), _react2['default'].createElement('p', null, 'Max Price: ', statistic.distributionPrice[0].maxPrice), _react2['default'].createElement('p', null, 'Min Price: ', statistic.distributionPrice[0].minPrice)));
-			})), _react2['default'].createElement(_reactBootstrap.Col, { xs: 12, md: 6 }, _react2['default'].createElement('h3', null, 'Stations'), city.stations && _lodash2['default'].map(city.stations, function (station, key) {
-				return _react2['default'].createElement('div', { key: key }, _react2['default'].createElement(_reactRouter.Link, { to: pathname + '/' + station._id }, station.name));
-			})));
+			var vector = this.props.vector;
+			var pathname = this.props.pathname;
+			var top = this.props.top;
+			var truncate = this.props.truncate || false;
+			return _react2['default'].createElement('div', { className: 'cities-list panelbox' }, _react2['default'].createElement('div', { className: 'panelbox-container header' }, _react2['default'].createElement('div', { className: 'top' }, 'Stations'), _react2['default'].createElement('div', { className: 'bottom' }, 'City')), vector && _lodash2['default'].map(vector, function (item, key) {
+				return _react2['default'].createElement(_reactRouter.Link, { to: pathname + '/' + item._id, key: key }, _react2['default'].createElement('div', { className: 'panelbox-container' }, _react2['default'].createElement('div', { className: 'top' }, item[top] ? item[top].length : 0), _react2['default'].createElement('div', { className: 'bottom' }, truncate ? _lodash2['default'].trunc(item.name, 16) : item.name)));
+			}));
 		}
 	}]);
 
-	return Cities;
+	return PanelBox;
 })(_react2['default'].Component);
 
-exports['default'] = Cities;
+PanelBox.propTypes = {
+	vector: _react2['default'].PropTypes.any.isRequired,
+	pathname: _react2['default'].PropTypes.string.isRequired,
+	top: _react2['default'].PropTypes.string.isRequired
+};
+
+exports['default'] = PanelBox;
 module.exports = exports['default'];
 
-},{"../../Flux/Cities/CitiesActions":485,"../../Flux/Cities/CitiesStore":486,"lodash":47,"react":476,"react-bootstrap":181,"react-router":295}],480:[function(require,module,exports){
+},{"lodash":47,"react":476,"react-router":295}],480:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -54859,6 +54835,8 @@ function _inherits(subClass, superClass) {
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
+
+var _reactRouter = require('react-router');
 
 var _reactBootstrap = require('react-bootstrap');
 
@@ -54914,7 +54892,7 @@ var MainComponent = (function (_React$Component) {
 	}, {
 		key: 'render',
 		value: function render() {
-			return _react2['default'].createElement('div', { className: 'container-fluid app-body' }, _react2['default'].createElement(_reactBootstrap.Col, { md: 12, className: 'logo' }, _react2['default'].createElement('h1', null, _react2['default'].createElement('span', { className: 'logo-gas' }, 'Gas'), _react2['default'].createElement('span', { className: 'logo-truck' }, 'Truck')), _react2['default'].createElement('footer', { className: 'crawl-dates' }, 'From ', (0, _LibFormatDate2['default'])(this.state.dates.from, '/'), ' To ', (0, _LibFormatDate2['default'])(this.state.dates.to, '/'))), _react2['default'].createElement(_reactBootstrap.Col, { md: 12, className: 'body' }, this.props.children), _react2['default'].createElement(_reactBootstrap.Col, { md: 12 }));
+			return _react2['default'].createElement('div', { className: 'container-fluid app' }, _react2['default'].createElement(_reactBootstrap.Col, { md: 12, className: 'logo' }, _react2['default'].createElement(_reactRouter.Link, { to: '/' }, _react2['default'].createElement('h1', null, _react2['default'].createElement('span', { className: 'logo-gas' }, 'Gas'), _react2['default'].createElement('span', { className: 'logo-truck' }, 'Truck')), _react2['default'].createElement('footer', { className: 'crawl-dates' }, 'From ', (0, _LibFormatDate2['default'])(this.state.dates.from, '/'), ' To ', (0, _LibFormatDate2['default'])(this.state.dates.to, '/'), ' ', _react2['default'].createElement('br', null), 'Brazilian Gas Stations'))), _react2['default'].createElement(_reactBootstrap.Col, { md: 12, className: 'body' }, this.props.children), _react2['default'].createElement(_reactBootstrap.Col, { md: 12 }));
 		}
 	}]);
 
@@ -54927,7 +54905,7 @@ exports['default'] = MainComponent;
 module.exports = exports['default'];
 /* this is the important part for react-router */
 
-},{"../Flux/CrawlInfo/CrawlInfoActions":487,"../Flux/CrawlInfo/CrawlInfoStore":488,"../Lib/formatDate":495,"react":476,"react-bootstrap":181}],481:[function(require,module,exports){
+},{"../Flux/CrawlInfo/CrawlInfoActions":486,"../Flux/CrawlInfo/CrawlInfoStore":487,"../Lib/formatDate":494,"react":476,"react-bootstrap":181,"react-router":295}],481:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -54993,6 +54971,10 @@ var _react2 = _interopRequireDefault(_react);
 var _reactRouter = require('react-router');
 
 var _reactBootstrap = require('react-bootstrap');
+
+var _LibPanelBox = require('../Lib/PanelBox');
+
+var _LibPanelBox2 = _interopRequireDefault(_LibPanelBox);
 
 // flux
 
@@ -55042,9 +55024,8 @@ var States = (function (_React$Component) {
 		value: function render() {
 			var state = this.state.states[this.props.params.state] || {};
 			var pathname = this.props.location.pathname;
-			return _react2['default'].createElement('div', { className: 'states' }, _react2['default'].createElement('h1', null, 'Cities of ', state.name || ''), _react2['default'].createElement(_reactBootstrap.Col, null, state.cities && _lodash2['default'].map(state.cities, function (city, key) {
-				return _react2['default'].createElement('div', { key: key }, _react2['default'].createElement(_reactRouter.Link, { to: pathname + '/' + city._id }, city.name));
-			})));
+
+			return _react2['default'].createElement('div', { className: 'states' }, _react2['default'].createElement(_LibPanelBox2['default'], { vector: state.cities || [], pathname: pathname, top: 'stations', truncate: true }));
 		}
 	}]);
 
@@ -55054,7 +55035,7 @@ var States = (function (_React$Component) {
 exports['default'] = States;
 module.exports = exports['default'];
 
-},{"../../Flux/States/StatesActions":489,"../../Flux/States/StatesStore":490,"lodash":47,"react":476,"react-bootstrap":181,"react-router":295}],482:[function(require,module,exports){
+},{"../../Flux/States/StatesActions":488,"../../Flux/States/StatesStore":489,"../Lib/PanelBox":479,"lodash":47,"react":476,"react-bootstrap":181,"react-router":295}],482:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -55121,6 +55102,10 @@ var _reactRouter = require('react-router');
 
 var _reactBootstrap = require('react-bootstrap');
 
+var _LibPanelBox = require('../Lib/PanelBox');
+
+var _LibPanelBox2 = _interopRequireDefault(_LibPanelBox);
+
 // flux
 
 var _FluxStatesStatesStore = require('../../Flux/States/StatesStore');
@@ -55162,14 +55147,14 @@ var States = (function (_React$Component) {
 	}, {
 		key: '_onStoreChange',
 		value: function _onStoreChange(state) {
+			//console.log(state.states)
 			this.setState(state);
 		}
 	}, {
 		key: 'render',
 		value: function render() {
-			return _react2['default'].createElement('div', { className: 'states' }, _react2['default'].createElement(_reactBootstrap.Col, { md: 12, className: 'sub-header' }, _react2['default'].createElement('h2', null, 'States')), _react2['default'].createElement(_reactBootstrap.Col, { md: 12, className: 'list-states' }, _lodash2['default'].map(this.state.states, function (state, key) {
-				return _react2['default'].createElement('div', { key: key }, _react2['default'].createElement(_reactRouter.Link, { to: '/' + state._id }, state.name));
-			})));
+			var states = this.state.states || {};
+			return _react2['default'].createElement('div', { className: 'states' }, _react2['default'].createElement(_LibPanelBox2['default'], { vector: states, pathname: '/', top: 'cities' }));
 		}
 	}]);
 
@@ -55178,9 +55163,8 @@ var States = (function (_React$Component) {
 
 exports['default'] = States;
 module.exports = exports['default'];
-/* this is the important part for react-router */
 
-},{"../../Flux/States/StatesActions":489,"../../Flux/States/StatesStore":490,"lodash":47,"react":476,"react-bootstrap":181,"react-router":295}],483:[function(require,module,exports){
+},{"../../Flux/States/StatesActions":488,"../../Flux/States/StatesStore":489,"../Lib/PanelBox":479,"lodash":47,"react":476,"react-bootstrap":181,"react-router":295}],483:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -55307,121 +55291,7 @@ var Stations = (function (_React$Component) {
 exports['default'] = Stations;
 module.exports = exports['default'];
 
-},{"../../Flux/Stations/StationsActions":491,"../../Flux/Stations/StationsStore":492,"lodash":47,"react":476,"react-bootstrap":181,"react-router":295}],484:[function(require,module,exports){
-'use strict';
-
-Object.defineProperty(exports, '__esModule', {
-	value: true
-});
-
-var _createClass = (function () {
-	function defineProperties(target, props) {
-		for (var i = 0; i < props.length; i++) {
-			var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ('value' in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
-		}
-	}return function (Constructor, protoProps, staticProps) {
-		if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
-	};
-})();
-
-var _get = function get(_x, _x2, _x3) {
-	var _again = true;_function: while (_again) {
-		var object = _x,
-		    property = _x2,
-		    receiver = _x3;desc = parent = getter = undefined;_again = false;if (object === null) object = Function.prototype;var desc = Object.getOwnPropertyDescriptor(object, property);if (desc === undefined) {
-			var parent = Object.getPrototypeOf(object);if (parent === null) {
-				return undefined;
-			} else {
-				_x = parent;_x2 = property;_x3 = receiver;_again = true;continue _function;
-			}
-		} else if ('value' in desc) {
-			return desc.value;
-		} else {
-			var getter = desc.get;if (getter === undefined) {
-				return undefined;
-			}return getter.call(receiver);
-		}
-	}
-};
-
-function _interopRequireDefault(obj) {
-	return obj && obj.__esModule ? obj : { 'default': obj };
-}
-
-function _classCallCheck(instance, Constructor) {
-	if (!(instance instanceof Constructor)) {
-		throw new TypeError('Cannot call a class as a function');
-	}
-}
-
-function _inherits(subClass, superClass) {
-	if (typeof superClass !== 'function' && superClass !== null) {
-		throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass);
-	}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
-}
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactBootstrap = require('react-bootstrap');
-
-var _FluxStationsStationsStore = require('../../Flux/Stations/StationsStore');
-
-var _FluxStationsStationsStore2 = _interopRequireDefault(_FluxStationsStationsStore);
-
-var _FluxStationsStationsActions = require('../../Flux/Stations/StationsActions');
-
-var _FluxStationsStationsActions2 = _interopRequireDefault(_FluxStationsStationsActions);
-
-var Stations = (function (_React$Component) {
-	_inherits(Stations, _React$Component);
-
-	function Stations(props) {
-		_classCallCheck(this, Stations);
-
-		_get(Object.getPrototypeOf(Stations.prototype), 'constructor', this).call(this, props);
-
-		this.state = _FluxStationsStationsStore2['default'].getState();
-		this._onStoreChange = this._onStoreChange.bind(this);
-	}
-
-	_createClass(Stations, [{
-		key: 'componentWillMount',
-		value: function componentWillMount() {
-			_FluxStationsStationsActions2['default'].load();
-		}
-	}, {
-		key: 'componentDidMount',
-		value: function componentDidMount() {
-			_FluxStationsStationsStore2['default'].listen(this._onStoreChange);
-		}
-	}, {
-		key: 'componentWillUnmount',
-		value: function componentWillUnmount() {
-			_FluxStationsStationsStore2['default'].unlisten(this._onStoreChange);
-		}
-	}, {
-		key: '_onStoreChange',
-		value: function _onStoreChange(state) {
-			this.setState(state);
-		}
-	}, {
-		key: 'render',
-		value: function render() {
-			return _react2['default'].createElement('div', null, this.state);
-		}
-	}]);
-
-	return Stations;
-})(_react2['default'].Component);
-
-Stations.displayName = 'Stations';
-
-exports['default'] = Stations;
-module.exports = exports['default'];
-
-},{"../../Flux/Stations/StationsActions":491,"../../Flux/Stations/StationsStore":492,"react":476,"react-bootstrap":181}],485:[function(require,module,exports){
+},{"../../Flux/Stations/StationsActions":490,"../../Flux/Stations/StationsStore":491,"lodash":47,"react":476,"react-bootstrap":181,"react-router":295}],484:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -55531,7 +55401,7 @@ var CitiesActions = (function () {
 exports['default'] = _alt2['default'].createActions(CitiesActions);
 module.exports = exports['default'];
 
-},{"../../../config":1,"../../Lib/APIRequest":494,"../alt":493}],486:[function(require,module,exports){
+},{"../../../config":1,"../../Lib/APIRequest":493,"../alt":492}],485:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -55630,7 +55500,7 @@ var CitiesStore = (function () {
 exports['default'] = _alt2['default'].createStore(CitiesStore, 'CitiesStore');
 module.exports = exports['default'];
 
-},{"../alt":493,"./CitiesActions":485,"lodash":47}],487:[function(require,module,exports){
+},{"../alt":492,"./CitiesActions":484,"lodash":47}],486:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -55719,7 +55589,7 @@ var CrawlInfoActions = (function () {
 exports['default'] = _alt2['default'].createActions(CrawlInfoActions);
 module.exports = exports['default'];
 
-},{"../../../config":1,"../../Lib/APIRequest":494,"../alt":493}],488:[function(require,module,exports){
+},{"../../../config":1,"../../Lib/APIRequest":493,"../alt":492}],487:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -55805,7 +55675,7 @@ var CrawlInfoStore = (function () {
 exports['default'] = _alt2['default'].createStore(CrawlInfoStore, 'CrawlInfoStore');
 module.exports = exports['default'];
 
-},{"../alt":493,"./CrawlInfoActions":487,"lodash":47}],489:[function(require,module,exports){
+},{"../alt":492,"./CrawlInfoActions":486,"lodash":47}],488:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -55915,7 +55785,7 @@ var StateActions = (function () {
 exports['default'] = _alt2['default'].createActions(StateActions);
 module.exports = exports['default'];
 
-},{"../../../config":1,"../../Lib/APIRequest":494,"../alt":493}],490:[function(require,module,exports){
+},{"../../../config":1,"../../Lib/APIRequest":493,"../alt":492}],489:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -56008,7 +55878,7 @@ var StatesStore = (function () {
 exports['default'] = _alt2['default'].createStore(StatesStore, 'StatesStore');
 module.exports = exports['default'];
 
-},{"../alt":493,"./StatesActions":489,"lodash":47}],491:[function(require,module,exports){
+},{"../alt":492,"./StatesActions":488,"lodash":47}],490:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -56118,7 +55988,7 @@ var StationsActions = (function () {
 exports['default'] = _alt2['default'].createActions(StationsActions);
 module.exports = exports['default'];
 
-},{"../../../config":1,"../../Lib/APIRequest":494,"../alt":493}],492:[function(require,module,exports){
+},{"../../../config":1,"../../Lib/APIRequest":493,"../alt":492}],491:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -56211,7 +56081,7 @@ var StationsStore = (function () {
 exports['default'] = _alt2['default'].createStore(StationsStore, 'StationsStore');
 module.exports = exports['default'];
 
-},{"../alt":493,"./StationsActions":491,"lodash":47}],493:[function(require,module,exports){
+},{"../alt":492,"./StationsActions":490,"lodash":47}],492:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -56231,7 +56101,7 @@ var alt = new _alt2['default']();
 exports['default'] = alt;
 module.exports = exports['default'];
 
-},{"alt":3}],494:[function(require,module,exports){
+},{"alt":3}],493:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -56324,7 +56194,7 @@ var APIRequest = (function () {
 exports['default'] = APIRequest;
 module.exports = exports['default'];
 
-},{"lodash":47,"reqwest":477}],495:[function(require,module,exports){
+},{"lodash":47,"reqwest":477}],494:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -56347,7 +56217,7 @@ function formatDate(date, sep, type) {
 
 module.exports = exports['default'];
 
-},{}],496:[function(require,module,exports){
+},{}],495:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) {
@@ -56376,7 +56246,7 @@ var history = (0, _history.createHashHistory)();
 
 _react2['default'].render(_react2['default'].createElement(_reactRouter2['default'], { history: history }, _routesJsx2['default']), document.body);
 
-},{"../config":1,"./routes.jsx":497,"history":29,"react":476,"react-router":295}],497:[function(require,module,exports){
+},{"../config":1,"./routes.jsx":496,"history":29,"react":476,"react-router":295}],496:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -56403,19 +56273,11 @@ var _ComponentsStatesDetails2 = _interopRequireDefault(_ComponentsStatesDetails)
 
 // cities
 
-var _ComponentsCitiesCities = require('./Components/Cities/Cities');
-
-var _ComponentsCitiesCities2 = _interopRequireDefault(_ComponentsCitiesCities);
-
 var _ComponentsCitiesDetails = require('./Components/Cities/Details');
 
 var _ComponentsCitiesDetails2 = _interopRequireDefault(_ComponentsCitiesDetails);
 
 // stations
-
-var _ComponentsStationsStations = require('./Components/Stations/Stations');
-
-var _ComponentsStationsStations2 = _interopRequireDefault(_ComponentsStationsStations);
 
 var _ComponentsStationsDetails = require('./Components/Stations/Details');
 
@@ -56433,5 +56295,5 @@ var routes = {
 exports['default'] = routes;
 module.exports = exports['default'];
 
-},{"./Components/Cities/Cities":478,"./Components/Cities/Details":479,"./Components/MainComponent":480,"./Components/States/Details":481,"./Components/States/States":482,"./Components/Stations/Details":483,"./Components/Stations/Stations":484}]},{},[496])
+},{"./Components/Cities/Details":478,"./Components/MainComponent":480,"./Components/States/Details":481,"./Components/States/States":482,"./Components/Stations/Details":483}]},{},[495])
 //# sourceMappingURL=build.js.map

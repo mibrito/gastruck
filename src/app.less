@@ -8,7 +8,11 @@ body{
 	color: @gray;
 }
 
-a {
+body a:hover,a:active {
+	text-decoration: none;
+}
+
+.body a {
 	color: @green-truck;
 	&:hover, &:active {
 		color: @blue-truck;
@@ -17,16 +21,71 @@ a {
 }
 
 .logo {
+	text-align: center;
+	font-size: 4vmax;
+
 	h1 {
 		margin-bottom: 0;
 	}
+
+	a, a:hover, a:active {
+		color: @gray;
+		text-decoration: none;
+	}
+
 	.logo-truck {
 		color: @green-truck;
 	}
+
 	footer.crawl-dates {
 		font-size: 1.2rem;
-		text-align: left;
 		font-weight: bold;
+	}
+}
+
+@panelbox-unit: 1vmax;
+
+.panelbox {
+	margin: @panelbox-unit*1 @panelbox-unit*0.1;
+	width: 100vw;
+	height: 100%;
+	padding: 0;
+
+	.panelbox-container {
+		float: left;
+		width: @panelbox-unit*10;
+		height: @panelbox-unit*10;
+		margin: @panelbox-unit;
+		
+		background-color: @green-truck;
+		color: white;
+
+		.top {
+			height: @panelbox-unit*8;
+			font-size: @panelbox-unit*4;
+			padding: (@panelbox-unit*8 - @panelbox-unit*4)/2 0;
+			text-align: center;
+		}
+
+		.bottom {
+			height: @panelbox-unit*2;
+			font-size: @panelbox-unit;
+			text-align: center;
+			font-weight: bold;
+		}
+
+		&:hover {
+			background-color: @blue-truck;
+		}
+
+		&.header .top {
+			font-size: @panelbox-unit*2;
+			padding: (@panelbox-unit*8 - @panelbox-unit*2)/2 0;
+		}
+
+		&.header:hover {
+			background-color: @green-truck;
+		}
 	}
 }
 
@@ -34,4 +93,23 @@ a {
 	.about {
 		font-size: 2rem;
 	}
+}
+
+.chart div {
+	font: 10px sans-serif;
+	background-color: @green-truck;
+	text-align: right;
+	padding: 3px;
+	margin: 1px;
+	color: white;
+}
+
+.chart rect {
+  fill: steelblue;
+}
+
+.chart text {
+  fill: white;
+  font: 10px sans-serif;
+  text-anchor: end;
 }

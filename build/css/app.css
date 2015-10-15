@@ -2,25 +2,90 @@ body {
   background: white;
   color: #666;
 }
-a {
+body a:hover,
+a:active {
+  text-decoration: none;
+}
+.body a {
   color: #00c1a2;
 }
-a:hover,
-a:active {
+.body a:hover,
+.body a:active {
   color: #317db2;
   text-decoration: none;
 }
+.logo {
+  text-align: center;
+  font-size: 4vmax;
+}
 .logo h1 {
   margin-bottom: 0;
+}
+.logo a,
+.logo a:hover,
+.logo a:active {
+  color: #666;
+  text-decoration: none;
 }
 .logo .logo-truck {
   color: #00c1a2;
 }
 .logo footer.crawl-dates {
   font-size: 1.2rem;
-  text-align: left;
   font-weight: bold;
+}
+.panelbox {
+  margin: 1vmax 0.1vmax;
+  width: 100vw;
+  height: 100%;
+  padding: 0;
+}
+.panelbox .panelbox-container {
+  float: left;
+  width: 10vmax;
+  height: 10vmax;
+  margin: 1vmax;
+  background-color: #00c1a2;
+  color: white;
+}
+.panelbox .panelbox-container .top {
+  height: 8vmax;
+  font-size: 4vmax;
+  padding: 2vmax 0;
+  text-align: center;
+}
+.panelbox .panelbox-container .bottom {
+  height: 2vmax;
+  font-size: 1vmax;
+  text-align: center;
+  font-weight: bold;
+}
+.panelbox .panelbox-container:hover {
+  background-color: #317db2;
+}
+.panelbox .panelbox-container.header .top {
+  font-size: 2vmax;
+  padding: 3vmax 0;
+}
+.panelbox .panelbox-container.header:hover {
+  background-color: #00c1a2;
 }
 .station .about {
   font-size: 2rem;
+}
+.chart div {
+  font: 10px sans-serif;
+  background-color: #00c1a2;
+  text-align: right;
+  padding: 3px;
+  margin: 1px;
+  color: white;
+}
+.chart rect {
+  fill: steelblue;
+}
+.chart text {
+  fill: white;
+  font: 10px sans-serif;
+  text-anchor: end;
 }
