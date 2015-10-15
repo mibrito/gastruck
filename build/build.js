@@ -54667,9 +54667,9 @@ var Cities = (function (_React$Component) {
 		value: function render() {
 			var city = this.state.cities[this.props.params.city] || {};
 			var pathname = this.props.location.pathname;
-			return _react2['default'].createElement('div', { className: 'Cities' }, _react2['default'].createElement(_reactBootstrap.Col, { xs: 12, md: 12, className: 'sub-header' }, _react2['default'].createElement('h2', null, city.name || '')), _react2['default'].createElement(_reactBootstrap.Col, { xs: 12, md: 6 }, _react2['default'].createElement('h3', null, 'Statistics'), city.statistics && _lodash2['default'].map(city.statistics, function (statistic, key) {
+			return _react2['default'].createElement('div', { className: 'Cities' }, _react2['default'].createElement(_reactBootstrap.Col, { xs: 12, md: 12, className: 'sub-header' }, _react2['default'].createElement('h2', null, city.name || '')), _react2['default'].createElement(_reactBootstrap.Col, { xs: 12, md: 12 }, _react2['default'].createElement('h3', null, 'Statistics'), city.statistics && _lodash2['default'].map(city.statistics, function (statistic, key) {
 				return _react2['default'].createElement('div', { key: key }, _react2['default'].createElement(_reactBootstrap.Col, { md: 12 }, _react2['default'].createElement('h4', null, statistic.fuelType)), _react2['default'].createElement(_reactBootstrap.Col, { md: 5 }, _react2['default'].createElement('b', null, 'Consumer Price'), _react2['default'].createElement('p', null, 'Average Margin: ', statistic.consumerPrice[0].averageMargin), _react2['default'].createElement('p', null, 'Average Price: ', statistic.consumerPrice[0].averagePrice), _react2['default'].createElement('p', null, 'Max Price: ', statistic.consumerPrice[0].maxPrice), _react2['default'].createElement('p', null, 'Min Price: ', statistic.consumerPrice[0].minPrice)), _react2['default'].createElement(_reactBootstrap.Col, { md: 5 }, _react2['default'].createElement('b', null, 'Distribution Price'), _react2['default'].createElement('p', null, 'Average Margin: ', statistic.distributionPrice[0].averagePrice), _react2['default'].createElement('p', null, 'Standard Deviation: ', statistic.distributionPrice[0].standardDeviation), _react2['default'].createElement('p', null, 'Max Price: ', statistic.distributionPrice[0].maxPrice), _react2['default'].createElement('p', null, 'Min Price: ', statistic.distributionPrice[0].minPrice)));
-			})), _react2['default'].createElement(_reactBootstrap.Col, { xs: 12, md: 6 }, _react2['default'].createElement('h3', null, 'Stations'), _react2['default'].createElement(_LibPanelBox2['default'], { vector: city.stations || [], pathname: pathname, top: 'prices', truncate: true })));
+			})), _react2['default'].createElement('h3', null, 'Stations'), _react2['default'].createElement(_LibPanelBox2['default'], { vector: city.stations || [], pathname: pathname, top: 'prices', truncate: true }));
 		}
 	}]);
 
@@ -54761,9 +54761,12 @@ var PanelBox = (function (_React$Component) {
 			var pathname = this.props.pathname;
 			var top = this.props.top;
 			var truncate = this.props.truncate || false;
-			return _react2['default'].createElement('div', { className: 'cities-list panelbox' }, _react2['default'].createElement('div', { className: 'panelbox-container header' }, _react2['default'].createElement('div', { className: 'top' }, 'Stations'), _react2['default'].createElement('div', { className: 'bottom' }, 'City')), vector && _lodash2['default'].map(vector, function (item, key) {
+
+			var boxes = _lodash2['default'].map(vector, function (item, key) {
 				return _react2['default'].createElement(_reactRouter.Link, { to: pathname + '/' + item._id, key: key }, _react2['default'].createElement('div', { className: 'panelbox-container' }, _react2['default'].createElement('div', { className: 'top' }, item[top] ? item[top].length : 0), _react2['default'].createElement('div', { className: 'bottom' }, truncate ? _lodash2['default'].trunc(item.name, 16) : item.name)));
-			}));
+			});
+
+			return _react2['default'].createElement('div', { className: 'cities-list panelbox', ref: 'panelbox' }, _react2['default'].createElement('div', { className: 'panelbox-container header' }, _react2['default'].createElement('div', { className: 'top' }, 'Stations'), _react2['default'].createElement('div', { className: 'bottom' }, 'City')), boxes);
 		}
 	}]);
 

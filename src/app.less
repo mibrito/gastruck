@@ -44,6 +44,9 @@ body a:hover,a:active {
 }
 
 @panelbox-unit: 1vmax;
+@panelbox-side: @panelbox-unit*10;
+@panelbox-margin: @panelbox-unit;
+@duration: 1s;
 
 .panelbox {
 	margin: @panelbox-unit*1 @panelbox-unit*0.1;
@@ -53,12 +56,15 @@ body a:hover,a:active {
 
 	.panelbox-container {
 		float: left;
-		width: @panelbox-unit*10;
-		height: @panelbox-unit*10;
-		margin: @panelbox-unit;
+		width: @panelbox-side;
+		height: @panelbox-side;
+		margin: @panelbox-margin;
 		
 		background-color: @green-truck;
 		color: white;
+
+		-webkit-transition: width @duration, height @duration; /* Safari */
+		transition: width @duration, height @duration;
 
 		.top {
 			height: @panelbox-unit*8;
@@ -87,6 +93,11 @@ body a:hover,a:active {
 			background-color: @green-truck;
 		}
 	}
+
+	.panelbox-container:hover {
+		width: @panelbox-side*2 + @panelbox-margin*2;
+		height: @panelbox-side*2 + @panelbox-margin*2;
+	}
 }
 
 .station {
@@ -113,3 +124,4 @@ body a:hover,a:active {
   font: 10px sans-serif;
   text-anchor: end;
 }
+

@@ -41,7 +41,7 @@ class Cities extends React.Component {
 		var pathname = this.props.location.pathname;
 		return (<div className="Cities">
 			<Col xs={12} md={12} className="sub-header"><h2>{city.name || ''}</h2></Col>
-			<Col xs={12} md={6}>
+			<Col xs={12} md={12}>
 			<h3>Statistics</h3>
 			{
 				city.statistics && _.map(city.statistics, function(statistic, key){
@@ -64,11 +64,8 @@ class Cities extends React.Component {
 					</div>);
 				})
 			}</Col>
-			<Col xs={12} md={6}>
-				<h3>Stations</h3>
-
-				<PanelBox vector={city.stations || []} pathname={pathname} top="prices" truncate />
-			</Col>
+			<h3>Stations</h3>
+			<PanelBox vector={city.stations || []} pathname={pathname} top="prices" truncate />
 		</div>);
 	}
 }

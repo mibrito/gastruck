@@ -47,6 +47,9 @@ a:active {
   margin: 1vmax;
   background-color: #00c1a2;
   color: white;
+  -webkit-transition: width 1s, height 1s;
+  /* Safari */
+  transition: width 1s, height 1s;
 }
 .panelbox .panelbox-container .top {
   height: 8vmax;
@@ -69,6 +72,10 @@ a:active {
 }
 .panelbox .panelbox-container.header:hover {
   background-color: #00c1a2;
+}
+.panelbox .panelbox-container:hover {
+  width: 22vmax;
+  height: 22vmax;
 }
 .station .about {
   font-size: 2rem;
