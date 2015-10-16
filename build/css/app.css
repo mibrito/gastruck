@@ -18,6 +18,10 @@ body a:hover,
 a:active {
   text-decoration: none;
 }
+.app {
+  padding-left: 0px;
+  padding-right: 0px;
+}
 .body a {
   color: #00c1a2;
 }
@@ -46,32 +50,23 @@ a:active {
   font-size: 1.2rem;
   font-weight: bold;
 }
-.panelbox {
-  margin: 1vmax 0.1vmax;
-  width: 100vw;
-  height: 100%;
-  padding: 0;
-}
 .panelbox .panelbox-container {
-  float: left;
-  width: 10vmax;
-  height: 10vmax;
-  margin: 1vmax;
+  height: 20rem;
   background-color: #00c1a2;
   color: white;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  border: 1px solid #efefef;
+  border: 1rem solid white;
 }
 .panelbox .panelbox-container .top {
-  height: 8vmax;
-  font-size: 4vmax;
-  padding: 2vmax 0;
+  height: 12rem;
+  font-size: 6rem;
+  padding: 3rem 0;
   text-align: center;
 }
 .panelbox .panelbox-container .bottom {
-  height: 2vmax;
-  font-size: 1vmax;
+  height: 4rem;
+  font-size: 1.8rem;
   text-align: center;
   font-weight: bold;
 }
@@ -82,56 +77,64 @@ a:active {
   background-color: #317db2;
 }
 .panelbox .panelbox-container.header .top {
-  font-size: 2vmax;
-  padding: 3vmax 0;
+  font-size: 4rem;
+  padding: 6rem 0;
 }
 .panelstatisticscard .card {
+  padding: 2.25rem;
+}
+.panelstatisticscard .card .card-container {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   border-radius: 4px;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border: 1px solid #eee;
-  float: left;
-  width: 33vmax;
-  margin: 1.1vmax;
-  padding: 1.1vmax;
+  padding: 1.5rem;
 }
-.panelstatisticscard .card .header {
-  color: #00c1a2;
+.panelstatisticscard .card .card-container .header {
+  color: #317db2;
   border-bottom: 1px solid #00c1a2;
 }
-.panelstatisticscard .card .body {
-  padding-top: 1.1vmax;
-  font-size: 1.1vmax;
+.panelstatisticscard .card .card-container .header h4 {
+  font-size: 3rem;
 }
-.panelstatisticscard .card .body b {
-  color: #00c1a2;
-  font-size: 1.2vmax;
+.panelstatisticscard .card .card-container .body {
+  font-size: 1.5rem;
+}
+.panelstatisticscard .card .card-container .body div {
+  padding: 1.5rem 0.15rem;
+}
+.panelstatisticscard .card .card-container .body b {
+  font-size: 1.8rem;
 }
 .PricesCard .card {
+  padding: 2.25rem;
+}
+.PricesCard .card .card-container {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   border-radius: 4px;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border: 1px solid #eee;
-  float: left;
-  width: 33vmax;
-  margin: 1.1vmax;
-  padding: 1.1vmax;
+  padding: 1.5rem;
 }
-.PricesCard .card .header {
-  color: #00c1a2;
+.PricesCard .card .card-container .header {
+  color: #317db2;
   border-bottom: 1px solid #00c1a2;
 }
-.PricesCard .card .body {
-  padding-top: 1.1vmax;
-  font-size: 1.1vmax;
+.PricesCard .card .card-container .header h4 {
+  font-size: 3rem;
 }
-.PricesCard .card .body b {
-  color: #00c1a2;
-  font-size: 1.2vmax;
+.PricesCard .card .card-container .body {
+  font-size: 1.5rem;
+}
+.PricesCard .card .card-container .body div {
+  padding: 1.5rem 0.15rem;
+}
+.PricesCard .card .card-container .body b {
+  font-size: 1.8rem;
 }
 .station .body {
   width: 100%;

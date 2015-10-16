@@ -4,8 +4,8 @@ import {Link} from 'react-router';
 import {Row, Col} from 'react-bootstrap';
 
 // flux
-import CrawlInfoStore from '../../Flux/CrawlInfo/CrawlInfoStore';
-import CrawlInfoActions from '../../Flux/CrawlInfo/CrawlInfoActions';
+import MetadataStore from '../../Flux/Metadata/MetadataStore';
+import MetadataActions from '../../Flux/Metadata/MetadataActions';
 
 // lib
 import formatDate from '../../JSLib/formatDate';
@@ -15,20 +15,20 @@ class MainComponent extends React.Component {
 		super(props);
 		this.displayName = 'MainComponent';
 
-		this.state = CrawlInfoStore.getState();
+		this.state = MetadataStore.getState();
 		this._onStoreChange = this._onStoreChange.bind(this);
 	}
 
 	componentWillMount() {
-		CrawlInfoActions.loadDates();
+		MetadataActions.loadDates();
 	}
 
 	componentDidMount() {
-		CrawlInfoStore.listen(this._onStoreChange);
+		MetadataStore.listen(this._onStoreChange);
 	}
 
 	componentWillUnmount() {
-		CrawlInfoStore.unlisten(this._onStoreChange);
+		MetadataStore.unlisten(this._onStoreChange);
 	}
 
 	_onStoreChange(state){

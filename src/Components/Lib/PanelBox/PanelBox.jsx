@@ -3,6 +3,7 @@ import React from 'react';
 
 // components
 import {Link} from 'react-router';
+import {Col} from 'react-bootstrap';
 
 class PanelBox extends React.Component {
 	constructor(props) {
@@ -42,10 +43,10 @@ class PanelBox extends React.Component {
 		
 		var boxes = _.map(vector, function(item, key){
 			return (<Link to={`${pathname}/${item._id}`} key={key}>
-				<div className="panelbox-container">
+				<Col xs={6} md={2} className="panelbox-container">
 					<div className="top">{item[top] ? item[top].length : 0 }</div>
 					<div className="bottom">{truncate ? _.trunc(item.name, 16): item.name }</div>
-				</div>
+				</Col>
 			</Link>);
 		});
 		
@@ -53,13 +54,13 @@ class PanelBox extends React.Component {
 		return (
 			<div className="cities-list panelbox" ref="panelbox">
 				<Link to={`${rootPathname}`}>
-					<div className="panelbox-container header" ref="header"
+					<Col md={12} className="panelbox-container header" ref="header"
 						onMouseOver={this.handleMouseOver}
 						onMouseOut={this.handleMouseOut}
 					>
 						<div className="top">Choose</div>
 						<div className="bottom">One {this.props.bottomDescription}</div>
-					</div>
+					</Col>
 				</Link>
 				{boxes}
 			</div>

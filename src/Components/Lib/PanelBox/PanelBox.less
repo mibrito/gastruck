@@ -1,25 +1,18 @@
-@panelbox-unit: 1vmax;
+@panelbox-unit: 2rem;
 @panelbox-side: @panelbox-unit*10;
-@panelbox-margin: @panelbox-unit;
+@panelbox-margin: @panelbox-unit/6;
 @duration: 1s;
 
 .panelbox {
-	margin: @panelbox-unit*1 @panelbox-unit*0.1;
-	width: 100vw;
-	height: 100%;
-	padding: 0;
 
 	.panelbox-container {
-		float: left;
-		width: @panelbox-side;
 		height: @panelbox-side;
-		margin: @panelbox-margin;
 		
 		background-color: @green-truck;
 		color: white;
 
 		.border-box;
-		border: 1px solid #efefef;
+		border: @panelbox-unit/2 solid white;
 
 		@transition: width @duration, height @duration, padding @duration;
 
@@ -28,15 +21,15 @@
 		// transition: @transition;
 
 		.top {
-			height: @panelbox-unit*8;
-			font-size: @panelbox-unit*4;
-			padding: (@panelbox-unit*8 - @panelbox-unit*4)/2 0;
+			height: @panelbox-unit*6;
+			font-size: @panelbox-unit*3;
+			padding: (@panelbox-unit*6 - @panelbox-unit*3)/2 0;
 			text-align: center;
 		}
 
 		.bottom {
 			height: @panelbox-unit*2;
-			font-size: @panelbox-unit;
+			font-size: @panelbox-unit*0.9;
 			text-align: center;
 			font-weight: bold;
 		}
@@ -54,10 +47,4 @@
 			padding: (@panelbox-unit*8 - @panelbox-unit*2)/2 0;
 		}
 	}
-
-	// .panelbox-container:hover {
-	// 	width: @panelbox-side*2 + @panelbox-margin*2;
-	// 	height: @panelbox-side*2 + @panelbox-margin*2;
-	// 	padding: @panelbox-side/2;
-	// }
 }

@@ -16,7 +16,6 @@ export const STATIONS = {
 	GETBYID: ['stations', 'id'].join('/')
 };
 
-export const CRAWL = {
-	DATES: ['crawl', 'dates'].join('/'),
-	GETBYID: ['crawl', 'id'].join('/')
+export const META = {
+	DATES: ['meta', 'dates'].join('/')
 };

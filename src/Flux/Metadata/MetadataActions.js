@@ -1,10 +1,10 @@
 import alt from '../alt';
-import {BASE_URL, CRAWL} from '../../../config';
+import {BASE_URL, META} from '../../../config';
 import APIRequest from '../../JSLib/APIRequest';
 
 var api = new APIRequest(BASE_URL);
 
-class CrawlInfoActions {
+class MetadataActions {
 	
 	/**
 	 * [load load ]
@@ -13,7 +13,7 @@ class CrawlInfoActions {
 	loadDates(){
 		this.dispatch('dates');
 		return api.get({
-			endpoint: CRAWL.DATES
+			endpoint: META.DATES
 		}).then( dates => {
 			this.actions.update({dates});
 			return dates;
@@ -37,4 +37,4 @@ class CrawlInfoActions {
 	}
 }
 
-export default alt.createActions(CrawlInfoActions);
+export default alt.createActions(MetadataActions);

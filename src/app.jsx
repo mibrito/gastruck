@@ -2,12 +2,13 @@ import React from 'react';
 import Router from 'react-router';
 import {createHistory, createHashHistory, useQueries} from 'history';
 
-import Routes from './routes.jsx';
-
 import { APPNAME } from '../config';
 
-document.title = APPNAME;
+import Routes from './routes.js';
 
-let history = createHashHistory();
 
-React.render(<Router history={history}>{Routes}</Router>,document.body);
+document.title = APPNAME;	// set page title
+
+let history = createHashHistory();	// create a history
+
+React.render(<Router history={history}>{Routes}</Router>,document.body);	// render everything on body

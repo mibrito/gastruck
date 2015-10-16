@@ -1,21 +1,21 @@
 import _ from 'lodash';
 import alt from '../alt';
 
-import CrawlInfoActions from './CrawlInfoActions';
+import MetadataActions from './MetadataActions';
 
 var clean = {
 	errorMessage: null,
 	dates: {}
 };
 
-class CrawlInfoStore {
+class MetadataStore {
 	constructor(){
 		_.assign(this, clean);
 
 		this.bindListeners({
-			cleanDates: CrawlInfoActions.LOAD_DATES,
-			update: CrawlInfoActions.UPDATE,
-			requestFailed: CrawlInfoActions.REQUEST_FAILED,
+			cleanDates: MetadataActions.LOAD_DATES,
+			update: MetadataActions.UPDATE,
+			requestFailed: MetadataActions.REQUEST_FAILED,
 		});
 	}
 
@@ -37,4 +37,4 @@ class CrawlInfoStore {
 	}
 }
 
-export default alt.createStore(CrawlInfoStore, 'CrawlInfoStore');
+export default alt.createStore(MetadataStore, 'MetadataStore');

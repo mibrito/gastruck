@@ -27,11 +27,10 @@ var STATIONS = {
 };
 
 exports.STATIONS = STATIONS;
-var CRAWL = {
-	DATES: ['crawl', 'dates'].join('/'),
-	GETBYID: ['crawl', 'id'].join('/')
+var META = {
+	DATES: ['meta', 'dates'].join('/')
 };
-exports.CRAWL = CRAWL;
+exports.META = META;
 
 },{}],2:[function(require,module,exports){
 'use strict';
@@ -55155,6 +55154,8 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRouter = require('react-router');
 
+var _reactBootstrap = require('react-bootstrap');
+
 var PanelBox = (function (_React$Component) {
 	_inherits(PanelBox, _React$Component);
 
@@ -55200,10 +55201,10 @@ var PanelBox = (function (_React$Component) {
 			rootPathname = rootPathname.slice(0, rootPathname.length - 1).join('/'); // remove the last item
 
 			var boxes = _lodash2['default'].map(vector, function (item, key) {
-				return _react2['default'].createElement(_reactRouter.Link, { to: pathname + '/' + item._id, key: key }, _react2['default'].createElement('div', { className: 'panelbox-container' }, _react2['default'].createElement('div', { className: 'top' }, item[top] ? item[top].length : 0), _react2['default'].createElement('div', { className: 'bottom' }, truncate ? _lodash2['default'].trunc(item.name, 16) : item.name)));
+				return _react2['default'].createElement(_reactRouter.Link, { to: pathname + '/' + item._id, key: key }, _react2['default'].createElement(_reactBootstrap.Col, { xs: 6, md: 2, className: 'panelbox-container' }, _react2['default'].createElement('div', { className: 'top' }, item[top] ? item[top].length : 0), _react2['default'].createElement('div', { className: 'bottom' }, truncate ? _lodash2['default'].trunc(item.name, 16) : item.name)));
 			});
 
-			return _react2['default'].createElement('div', { className: 'cities-list panelbox', ref: 'panelbox' }, _react2['default'].createElement(_reactRouter.Link, { to: '' + rootPathname }, _react2['default'].createElement('div', { className: 'panelbox-container header', ref: 'header',
+			return _react2['default'].createElement('div', { className: 'cities-list panelbox', ref: 'panelbox' }, _react2['default'].createElement(_reactRouter.Link, { to: '' + rootPathname }, _react2['default'].createElement(_reactBootstrap.Col, { md: 12, className: 'panelbox-container header', ref: 'header',
 				onMouseOver: this.handleMouseOver,
 				onMouseOut: this.handleMouseOut
 			}, _react2['default'].createElement('div', { className: 'top' }, 'Choose'), _react2['default'].createElement('div', { className: 'bottom' }, 'One ', this.props.bottomDescription))), boxes);
@@ -55224,7 +55225,7 @@ PanelBox.propTypes = {
 exports['default'] = PanelBox;
 module.exports = exports['default'];
 
-},{"lodash":47,"react":476,"react-router":295}],483:[function(require,module,exports){
+},{"lodash":47,"react":476,"react-bootstrap":181,"react-router":295}],483:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -55302,7 +55303,7 @@ var PanelStatisticsCard = (function (_React$Component) {
 		value: function render() {
 			var vector = this.props.vector;
 			return _react2['default'].createElement('div', { className: 'panelstatisticscard' }, vector && _lodash2['default'].map(vector, function (item, key) {
-				return _react2['default'].createElement('div', { className: 'card', key: key }, _react2['default'].createElement('div', { className: 'header', md: 12 }, _react2['default'].createElement('h4', null, item.fuelType)), _react2['default'].createElement('div', { className: 'body' }, _react2['default'].createElement(_reactBootstrap.Col, { md: 6 }, _react2['default'].createElement('b', null, 'Consumer Price'), _react2['default'].createElement('br', null), _react2['default'].createElement('span', null, 'Average Margin: ', item.consumerPrice[0].averageMargin), _react2['default'].createElement('br', null), _react2['default'].createElement('span', null, 'Average Price: ', item.consumerPrice[0].averagePrice), _react2['default'].createElement('br', null), _react2['default'].createElement('span', null, 'Max Price: ', item.consumerPrice[0].maxPrice), _react2['default'].createElement('br', null), _react2['default'].createElement('span', null, 'Min Price: ', item.consumerPrice[0].minPrice), _react2['default'].createElement('br', null)), _react2['default'].createElement(_reactBootstrap.Col, { md: 6 }, _react2['default'].createElement('b', null, 'Distribution Price'), _react2['default'].createElement('br', null), _react2['default'].createElement('span', null, 'Average Margin: ', item.distributionPrice[0].averagePrice), _react2['default'].createElement('br', null), _react2['default'].createElement('span', null, 'Standard Deviation: ', item.distributionPrice[0].standardDeviation), _react2['default'].createElement('br', null), _react2['default'].createElement('span', null, 'Max Price: ', item.distributionPrice[0].maxPrice), _react2['default'].createElement('br', null), _react2['default'].createElement('span', null, 'Min Price: ', item.distributionPrice[0].minPrice), _react2['default'].createElement('br', null))));
+				return _react2['default'].createElement(_reactBootstrap.Col, { md: 6, className: 'card', key: key }, _react2['default'].createElement(_reactBootstrap.Row, { className: 'card-container' }, _react2['default'].createElement(_reactBootstrap.Col, { md: 12, className: 'header' }, _react2['default'].createElement('h4', null, item.fuelType)), _react2['default'].createElement(_reactBootstrap.Col, { md: 12, className: 'body' }, _react2['default'].createElement(_reactBootstrap.Col, { md: 6 }, _react2['default'].createElement('b', null, 'Consumer Price'), _react2['default'].createElement('br', null), _react2['default'].createElement('span', null, 'Average Margin: ', item.consumerPrice[0].averageMargin), _react2['default'].createElement('br', null), _react2['default'].createElement('span', null, 'Average Price: ', item.consumerPrice[0].averagePrice), _react2['default'].createElement('br', null), _react2['default'].createElement('span', null, 'Max Price: ', item.consumerPrice[0].maxPrice), _react2['default'].createElement('br', null), _react2['default'].createElement('span', null, 'Min Price: ', item.consumerPrice[0].minPrice), _react2['default'].createElement('br', null)), _react2['default'].createElement(_reactBootstrap.Col, { md: 6 }, _react2['default'].createElement('b', null, 'Distribution Price'), _react2['default'].createElement('br', null), _react2['default'].createElement('span', null, 'Average Margin: ', item.distributionPrice[0].averagePrice), _react2['default'].createElement('br', null), _react2['default'].createElement('span', null, 'Standard Deviation: ', item.distributionPrice[0].standardDeviation), _react2['default'].createElement('br', null), _react2['default'].createElement('span', null, 'Max Price: ', item.distributionPrice[0].maxPrice), _react2['default'].createElement('br', null), _react2['default'].createElement('span', null, 'Min Price: ', item.distributionPrice[0].minPrice), _react2['default'].createElement('br', null)))));
 			}));
 		}
 	}]);
@@ -55391,7 +55392,7 @@ var PricesCard = (function (_React$Component) {
 		value: function render() {
 			var prices = this.props.prices || [];
 			return _react2['default'].createElement('div', { className: 'PricesCard' }, _lodash2['default'].map(prices, function (price, key) {
-				return _react2['default'].createElement('div', { className: 'card', key: key }, _react2['default'].createElement('div', { className: 'header', md: 12 }, _react2['default'].createElement('h4', null, price.fuelType)), _react2['default'].createElement('div', { className: 'body' }, _react2['default'].createElement('b', null, price.fuelType), _react2['default'].createElement('br', null), _react2['default'].createElement('span', null, 'Buy Price: ', price.buyPrice), _react2['default'].createElement('br', null), _react2['default'].createElement('span', null, 'Sell Price: ', price.sellPrice), _react2['default'].createElement('br', null), _react2['default'].createElement('span', null, 'Sale Mode: ', price.saleMode), _react2['default'].createElement('br', null), _react2['default'].createElement('span', null, 'Provider: ', price.provider), _react2['default'].createElement('br', null), _react2['default'].createElement('span', null, 'Date: ', price.date), _react2['default'].createElement('br', null)));
+				return _react2['default'].createElement(_reactBootstrap.Col, { xs: 12, md: 6, className: 'card', key: key }, _react2['default'].createElement(_reactBootstrap.Row, { className: 'card-container' }, _react2['default'].createElement(_reactBootstrap.Col, { xs: 12, md: 12, className: 'header' }, _react2['default'].createElement('h4', null, price.fuelType)), _react2['default'].createElement(_reactBootstrap.Col, { xs: 12, md: 12, className: 'body' }, _react2['default'].createElement('label', null, 'Buy Price:'), ' ', _react2['default'].createElement('span', null, price.buyPrice), _react2['default'].createElement('br', null), _react2['default'].createElement('label', null, 'Sell Price:'), ' ', _react2['default'].createElement('span', null, price.sellPrice), _react2['default'].createElement('br', null), _react2['default'].createElement('label', null, 'Sale Mode:'), ' ', _react2['default'].createElement('span', null, price.saleMode), _react2['default'].createElement('br', null), _react2['default'].createElement('label', null, 'Provider:'), ' ', _react2['default'].createElement('span', null, price.provider), _react2['default'].createElement('br', null), _react2['default'].createElement('label', null, 'Date:'), ' ', _react2['default'].createElement('span', null, price.date), _react2['default'].createElement('br', null))));
 			}));
 		}
 	}]);
@@ -55710,13 +55711,13 @@ var _reactBootstrap = require('react-bootstrap');
 
 // flux
 
-var _FluxCrawlInfoCrawlInfoStore = require('../../Flux/CrawlInfo/CrawlInfoStore');
+var _FluxMetadataMetadataStore = require('../../Flux/Metadata/MetadataStore');
 
-var _FluxCrawlInfoCrawlInfoStore2 = _interopRequireDefault(_FluxCrawlInfoCrawlInfoStore);
+var _FluxMetadataMetadataStore2 = _interopRequireDefault(_FluxMetadataMetadataStore);
 
-var _FluxCrawlInfoCrawlInfoActions = require('../../Flux/CrawlInfo/CrawlInfoActions');
+var _FluxMetadataMetadataActions = require('../../Flux/Metadata/MetadataActions');
 
-var _FluxCrawlInfoCrawlInfoActions2 = _interopRequireDefault(_FluxCrawlInfoCrawlInfoActions);
+var _FluxMetadataMetadataActions2 = _interopRequireDefault(_FluxMetadataMetadataActions);
 
 // lib
 
@@ -55733,24 +55734,24 @@ var MainComponent = (function (_React$Component) {
 		_get(Object.getPrototypeOf(MainComponent.prototype), 'constructor', this).call(this, props);
 		this.displayName = 'MainComponent';
 
-		this.state = _FluxCrawlInfoCrawlInfoStore2['default'].getState();
+		this.state = _FluxMetadataMetadataStore2['default'].getState();
 		this._onStoreChange = this._onStoreChange.bind(this);
 	}
 
 	_createClass(MainComponent, [{
 		key: 'componentWillMount',
 		value: function componentWillMount() {
-			_FluxCrawlInfoCrawlInfoActions2['default'].loadDates();
+			_FluxMetadataMetadataActions2['default'].loadDates();
 		}
 	}, {
 		key: 'componentDidMount',
 		value: function componentDidMount() {
-			_FluxCrawlInfoCrawlInfoStore2['default'].listen(this._onStoreChange);
+			_FluxMetadataMetadataStore2['default'].listen(this._onStoreChange);
 		}
 	}, {
 		key: 'componentWillUnmount',
 		value: function componentWillUnmount() {
-			_FluxCrawlInfoCrawlInfoStore2['default'].unlisten(this._onStoreChange);
+			_FluxMetadataMetadataStore2['default'].unlisten(this._onStoreChange);
 		}
 	}, {
 		key: '_onStoreChange',
@@ -55773,7 +55774,7 @@ exports['default'] = MainComponent;
 module.exports = exports['default'];
 /* this is the important part for react-router */
 
-},{"../../Flux/CrawlInfo/CrawlInfoActions":490,"../../Flux/CrawlInfo/CrawlInfoStore":491,"../../JSLib/formatDate":498,"react":476,"react-bootstrap":181,"react-router":295}],488:[function(require,module,exports){
+},{"../../Flux/Metadata/MetadataActions":490,"../../Flux/Metadata/MetadataStore":491,"../../JSLib/formatDate":498,"react":476,"react-bootstrap":181,"react-router":295}],488:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -56021,12 +56022,12 @@ var _JSLibAPIRequest2 = _interopRequireDefault(_JSLibAPIRequest);
 
 var api = new _JSLibAPIRequest2['default'](_config.BASE_URL);
 
-var CrawlInfoActions = (function () {
-	function CrawlInfoActions() {
-		_classCallCheck(this, CrawlInfoActions);
+var MetadataActions = (function () {
+	function MetadataActions() {
+		_classCallCheck(this, MetadataActions);
 	}
 
-	_createClass(CrawlInfoActions, [{
+	_createClass(MetadataActions, [{
 		key: 'loadDates',
 
 		/**
@@ -56038,7 +56039,7 @@ var CrawlInfoActions = (function () {
 
 			this.dispatch('dates');
 			return api.get({
-				endpoint: _config.CRAWL.DATES
+				endpoint: _config.META.DATES
 			}).then((function (dates) {
 				_this.actions.update({ dates: dates });
 				return dates;
@@ -56065,10 +56066,10 @@ var CrawlInfoActions = (function () {
 		}
 	}]);
 
-	return CrawlInfoActions;
+	return MetadataActions;
 })();
 
-exports['default'] = _alt2['default'].createActions(CrawlInfoActions);
+exports['default'] = _alt2['default'].createActions(MetadataActions);
 module.exports = exports['default'];
 
 },{"../../../config":1,"../../JSLib/APIRequest":497,"../alt":496}],491:[function(require,module,exports){
@@ -56106,29 +56107,29 @@ var _alt = require('../alt');
 
 var _alt2 = _interopRequireDefault(_alt);
 
-var _CrawlInfoActions = require('./CrawlInfoActions');
+var _MetadataActions = require('./MetadataActions');
 
-var _CrawlInfoActions2 = _interopRequireDefault(_CrawlInfoActions);
+var _MetadataActions2 = _interopRequireDefault(_MetadataActions);
 
 var clean = {
 	errorMessage: null,
 	dates: {}
 };
 
-var CrawlInfoStore = (function () {
-	function CrawlInfoStore() {
-		_classCallCheck(this, CrawlInfoStore);
+var MetadataStore = (function () {
+	function MetadataStore() {
+		_classCallCheck(this, MetadataStore);
 
 		_lodash2['default'].assign(this, clean);
 
 		this.bindListeners({
-			cleanDates: _CrawlInfoActions2['default'].LOAD_DATES,
-			update: _CrawlInfoActions2['default'].UPDATE,
-			requestFailed: _CrawlInfoActions2['default'].REQUEST_FAILED
+			cleanDates: _MetadataActions2['default'].LOAD_DATES,
+			update: _MetadataActions2['default'].UPDATE,
+			requestFailed: _MetadataActions2['default'].REQUEST_FAILED
 		});
 	}
 
-	_createClass(CrawlInfoStore, [{
+	_createClass(MetadataStore, [{
 		key: 'cleanDates',
 		value: function cleanDates(objName) {
 			this.dates = _lodash2['default'].clone(clean.dates);
@@ -56151,13 +56152,13 @@ var CrawlInfoStore = (function () {
 		}
 	}]);
 
-	return CrawlInfoStore;
+	return MetadataStore;
 })();
 
-exports['default'] = _alt2['default'].createStore(CrawlInfoStore, 'CrawlInfoStore');
+exports['default'] = _alt2['default'].createStore(MetadataStore, 'MetadataStore');
 module.exports = exports['default'];
 
-},{"../alt":496,"./CrawlInfoActions":490,"lodash":47}],492:[function(require,module,exports){
+},{"../alt":496,"./MetadataActions":490,"lodash":47}],492:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -56716,19 +56717,19 @@ var _reactRouter2 = _interopRequireDefault(_reactRouter);
 
 var _history = require('history');
 
-var _routesJsx = require('./routes.jsx');
-
-var _routesJsx2 = _interopRequireDefault(_routesJsx);
-
 var _config = require('../config');
 
-document.title = _config.APPNAME;
+var _routesJs = require('./routes.js');
 
-var history = (0, _history.createHashHistory)();
+var _routesJs2 = _interopRequireDefault(_routesJs);
 
-_react2['default'].render(_react2['default'].createElement(_reactRouter2['default'], { history: history }, _routesJsx2['default']), document.body);
+document.title = _config.APPNAME; // set page title
 
-},{"../config":1,"./routes.jsx":500,"history":29,"react":476,"react-router":295}],500:[function(require,module,exports){
+var history = (0, _history.createHashHistory)(); // create a history
+
+_react2['default'].render(_react2['default'].createElement(_reactRouter2['default'], { history: history }, _routesJs2['default']), document.body); // render everything on body
+
+},{"../config":1,"./routes.js":500,"history":29,"react":476,"react-router":295}],500:[function(require,module,exports){
 // Main
 'use strict';
 

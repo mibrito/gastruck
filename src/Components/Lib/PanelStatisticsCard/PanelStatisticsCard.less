@@ -1,29 +1,37 @@
-@panelstatisticscard-unit: 1.1vmax;
+@statisticscard-unit: 1.5rem;
 @duration: 1s;
 
 .panelstatisticscard {
 	.card {
-		.border-box;
-		.border-radius(4px);
+		
 
-		border: 1px solid #eee;
+		// width: @panelstatisticscard-unit*30;
+		// margin: @statisticscard-unit;
+		padding: @statisticscard-unit*1.5;
+		.card-container {
+			.border-box;
+			.border-radius(4px);
 
-		float: left;
-		width: @panelstatisticscard-unit*30;
-		margin: @panelstatisticscard-unit;
-		padding: @panelstatisticscard-unit;
+			border: 1px solid #eee;
+			padding: @statisticscard-unit;
+			.header {
+				color: @blue-truck;
+				border-bottom: 1px solid @green-truck;
 
-		.header {
-			color: @green-truck;
-			border-bottom: 1px solid @green-truck;
-		}
+				h4 {
+					font-size: @statisticscard-unit*2.0;
+				}
+			}
 
-		.body {
-			padding-top: @panelstatisticscard-unit;
-			font-size: 1.1vmax;
-			b {
-				color: @green-truck;
-				font-size: 1.2vmax;
+			.body {
+				font-size: @statisticscard-unit;
+				div {
+					padding: @statisticscard-unit @statisticscard-unit*0.1;
+				}
+				b {
+					// color: @green-truck;
+					font-size: @statisticscard-unit*1.2;
+				}
 			}
 		}
 	}

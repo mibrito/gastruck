@@ -1,5 +1,5 @@
 {
-  "name": "gastruckClient",
+  "name": "gastruck",
   "version": "1.0.0",
   "description": "VGI client for VGIFramework",
   "main": "src/app.jsx",
