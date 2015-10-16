@@ -55,7 +55,7 @@ class MainComponent extends React.Component {
 							<span className="logo-gas">Gas</span>
 							<span className="logo-truck">Truck</span>
 						</h1>
-						<p>data about Brazilian's fuel prices</p></Link>
+						<p>Data about gas stations prices of Brazil</p></Link>
 					</Col>
 				</div>}
 				{!isCoverPage && <div className="app-box">
