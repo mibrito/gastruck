@@ -9,6 +9,8 @@ and the to gas stations, which . It also presents statistics about the cities fu
 gas station prices. However if you prefere navegating by searching a name of a place: state/city/station
 you can perform a search on the API and choose the place you would like.
 
+It was developed using ReactJs with es6, Bootstrap, Less and Gulp.
+
 ## Usage
 
 Before going deep in the app, there are some steps to be followed before.
