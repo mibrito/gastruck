@@ -4,6 +4,13 @@ GasTruck an app created in a demo project for [Softruck](http://www.softruck.com
 It consists in collect, store and display data about fuel prices of a Brazilian agency called
 [ANP](http://www.anp.gov.br/preco/index.asp).
 
+The application contains a cover page, and a series of pages to go deeper from states to cities
+and the to gas stations, which . It also presents statistics about the cities fuel prices an the individual
+gas station prices. However if you prefere navegating by searching a name of a place: state/city/station
+you can perform a search on the API and choose the place you would like.
+
+## Usage
+
 Before going deep in the app, there are some steps to be followed before.
 
 First, you will need to get the data from ANP. To do so, you can use 

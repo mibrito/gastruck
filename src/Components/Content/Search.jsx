@@ -63,7 +63,7 @@ class Search extends React.Component {
 		let menssage = this.state.menssage;
 		return (<div className="Search" onKeyDown={this.handleKeyDown}>
 			<Col md={12} className="header">
-				<Col md={12}><h2>Find</h2></Col>
+				<Col md={12}><h3>Find a state, city or station with the same name</h3></Col>
 				<Col md={11}><Input onChange={this.handleInput} type="text" /></Col>
 				<Col md={1}><Button onClick={this.handleGo} className="btn-truck" type="button">Go</Button></Col>
 				<Col md={12}><footer>{menssage}</footer></Col>
