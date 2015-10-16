@@ -1,0 +1,25 @@
+.btn(@color, @dark-color, @font-color:#fefefe){
+	background: @color;
+	border-color: @color;
+	color: #fefefe;
+	&:focus, &:hover {
+		background: @dark-color;
+		border-color: @dark-color;
+		color:  @font-color;
+		cursor: pointer;
+	}
+	&[disabled], &[disabled]:focus, &[disabled]:hover{
+		background: #fefefe;
+		border-color: black;
+		color:  black;
+		cursor: not-allowed;
+	}
+}
+
+.btn-truck {
+	.btn(@green-truck,@blue-truck);
+}
+
+.btn-truck-reverse {
+	.btn(@blue-truck,@green-truck);
+}

@@ -1,9 +1,12 @@
+/*
+ * Reusable component, used to create the box selector
+ */
 import _ from 'lodash'
 import React from 'react';
 
 // components
 import {Link} from 'react-router';
-import {Col} from 'react-bootstrap';
+import {Col, Glyphicon} from 'react-bootstrap';
 
 class PanelBox extends React.Component {
 	constructor(props) {
@@ -38,14 +41,18 @@ class PanelBox extends React.Component {
 		var truncate = this.props.truncate || false;
 
 		var pathname = this.props.location.pathname;
+		// pathname = pathname === '/i/' ? '' : pathname;
+
+		console.log(pathname);
+
 		var rootPathname = pathname.split('/');
 		rootPathname = rootPathname.slice(0,rootPathname.length-1).join('/'); // remove the last item
-		
+
 		var boxes = _.map(vector, function(item, key){
 			return (<Link to={`${pathname}/${item._id}`} key={key}>
 				<Col xs={6} md={2} className="panelbox-container">
 					<div className="top">{item[top] ? item[top].length : 0 }</div>
-					<div className="bottom">{truncate ? _.trunc(item.name, 16): item.name }</div>
+					<div className="bottom">{truncate ? _.trunc(item.name, 20): item.name }</div>
 				</Col>
 			</Link>);
 		});
@@ -63,6 +70,12 @@ class PanelBox extends React.Component {
 					</Col>
 				</Link>
 				{boxes}
+				<Link to="/search">
+					<Col xs={6} md={2} className="panelbox-container search" ref="search" >
+						<div className="top"><Glyphicon glyph="search"/></div>
+						<div className="bottom">Search</div>
+					</Col>
+				</Link>
 			</div>
 		);
 	}

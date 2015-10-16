@@ -4,7 +4,7 @@
   "description": "VGI client for VGIFramework",
   "main": "src/app.jsx",
   "scripts": {
-    "lint": "eslint src"
+    "start": "node index"
   },
   "browserify": {
     "transform": [
@@ -23,8 +23,10 @@
     "bootstrap": "^3.3.5",
     "browser-sync": "^2.9.8",
     "browserify": "^11.2.0",
+    "connect": "^3.4.0",
     "d3": "^3.5.6",
     "exorcist": "^0.4.0",
+    "finalhandler": "^0.4.0",
     "gulp": "^3.9.0",
     "gulp-less": "^3.0.3",
     "gulp-util": "^3.0.6",
@@ -40,6 +42,7 @@
     "react-remarkable": "^1.1.1",
     "react-router": "^1.0.0-rc1",
     "reqwest": "^2.0.4",
+    "serve-static": "^1.10.0",
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.4.0",
     "xhr2": "^0.1.3"

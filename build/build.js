@@ -30,7 +30,12 @@ exports.STATIONS = STATIONS;
 var META = {
 	DATES: ['meta', 'dates'].join('/')
 };
+
 exports.META = META;
+var FIND = {
+	FIND: 'find'
+};
+exports.FIND = FIND;
 
 },{}],2:[function(require,module,exports){
 'use strict';
@@ -54547,6 +54552,9 @@ module.exports = require('./lib/React');
 });
 
 },{}],478:[function(require,module,exports){
+/*
+ * component that renders brazilians states
+ */
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -54627,20 +54635,20 @@ var _FluxStatesStatesActions = require('../../Flux/States/StatesActions');
 
 var _FluxStatesStatesActions2 = _interopRequireDefault(_FluxStatesStatesActions);
 
-var States = (function (_React$Component) {
-	_inherits(States, _React$Component);
+var Brazil = (function (_React$Component) {
+	_inherits(Brazil, _React$Component);
 
-	function States(props) {
-		_classCallCheck(this, States);
+	function Brazil(props) {
+		_classCallCheck(this, Brazil);
 
-		_get(Object.getPrototypeOf(States.prototype), 'constructor', this).call(this, props);
-		this.displayName = 'States';
+		_get(Object.getPrototypeOf(Brazil.prototype), 'constructor', this).call(this, props);
+		this.displayName = 'Brazil';
 
 		this.state = _FluxStatesStatesStore2['default'].getState();
 		this._onStoreChange = this._onStoreChange.bind(this);
 	}
 
-	_createClass(States, [{
+	_createClass(Brazil, [{
 		key: 'componentWillMount',
 		value: function componentWillMount() {
 			_FluxStatesStatesActions2['default'].load();
@@ -54675,13 +54683,16 @@ var States = (function (_React$Component) {
 		}
 	}]);
 
-	return States;
+	return Brazil;
 })(_react2['default'].Component);
 
-exports['default'] = States;
+exports['default'] = Brazil;
 module.exports = exports['default'];
 
-},{"../../Flux/States/StatesActions":492,"../../Flux/States/StatesStore":493,"../Lib/PanelBox/PanelBox":482,"lodash":47,"react":476,"react-bootstrap":181,"react-router":295}],479:[function(require,module,exports){
+},{"../../Flux/States/StatesActions":493,"../../Flux/States/StatesStore":494,"../Lib/PanelBox/PanelBox":483,"lodash":47,"react":476,"react-bootstrap":181,"react-router":295}],479:[function(require,module,exports){
+/*
+ * City component, used to render the info about cities
+ */
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -54766,20 +54777,20 @@ var _FluxCitiesCitiesActions = require('../../Flux/Cities/CitiesActions');
 
 var _FluxCitiesCitiesActions2 = _interopRequireDefault(_FluxCitiesCitiesActions);
 
-var Cities = (function (_React$Component) {
-	_inherits(Cities, _React$Component);
+var City = (function (_React$Component) {
+	_inherits(City, _React$Component);
 
-	function Cities(props) {
-		_classCallCheck(this, Cities);
+	function City(props) {
+		_classCallCheck(this, City);
 
-		_get(Object.getPrototypeOf(Cities.prototype), 'constructor', this).call(this, props);
-		this.displayName = 'CitiesDetails';
+		_get(Object.getPrototypeOf(City.prototype), 'constructor', this).call(this, props);
+		this.displayName = 'City';
 
 		this.state = _FluxCitiesCitiesStore2['default'].getState();
 		this._onStoreChange = this._onStoreChange.bind(this);
 	}
 
-	_createClass(Cities, [{
+	_createClass(City, [{
 		key: 'componentWillMount',
 		value: function componentWillMount() {
 			_FluxCitiesCitiesActions2['default'].loadOne(this.props.params.city);
@@ -54803,7 +54814,7 @@ var Cities = (function (_React$Component) {
 		key: 'render',
 		value: function render() {
 			var city = this.state.cities[this.props.params.city] || {};
-			return _react2['default'].createElement('div', { className: 'Cities' }, _react2['default'].createElement(_reactBootstrap.Col, { xs: 12, md: 12, className: 'sub-header' }, _react2['default'].createElement('h2', null, city.name || '')), _react2['default'].createElement(_reactBootstrap.Col, { xs: 12, md: 12 }, _react2['default'].createElement(_LibPanelStatisticsCardPanelStatisticsCard2['default'], { vector: city.statistics })), _react2['default'].createElement('h3', null, 'Stations'), _react2['default'].createElement(_LibPanelBoxPanelBox2['default'], {
+			return _react2['default'].createElement('div', { className: 'City' }, _react2['default'].createElement(_reactBootstrap.Col, { xs: 12, md: 12, className: 'sub-header' }, _react2['default'].createElement('h2', null, city.name || '')), _react2['default'].createElement(_reactBootstrap.Col, { xs: 12, md: 12 }, _react2['default'].createElement(_LibPanelStatisticsCardPanelStatisticsCard2['default'], { vector: city.statistics })), _react2['default'].createElement('h3', null, 'Stations'), _react2['default'].createElement(_LibPanelBoxPanelBox2['default'], {
 				vector: city.stations || [],
 				location: this.props.location,
 				top: 'prices',
@@ -54814,13 +54825,175 @@ var Cities = (function (_React$Component) {
 		}
 	}]);
 
-	return Cities;
+	return City;
 })(_react2['default'].Component);
 
-exports['default'] = Cities;
+exports['default'] = City;
 module.exports = exports['default'];
 
-},{"../../Flux/Cities/CitiesActions":488,"../../Flux/Cities/CitiesStore":489,"../Lib/PanelBox/PanelBox":482,"../Lib/PanelStatisticsCard/PanelStatisticsCard":483,"lodash":47,"react":476,"react-bootstrap":181,"react-router":295}],480:[function(require,module,exports){
+},{"../../Flux/Cities/CitiesActions":487,"../../Flux/Cities/CitiesStore":488,"../Lib/PanelBox/PanelBox":483,"../Lib/PanelStatisticsCard/PanelStatisticsCard":484,"lodash":47,"react":476,"react-bootstrap":181,"react-router":295}],480:[function(require,module,exports){
+/*
+ * Component to search page
+ */
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+	value: true
+});
+
+var _createClass = (function () {
+	function defineProperties(target, props) {
+		for (var i = 0; i < props.length; i++) {
+			var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ('value' in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
+		}
+	}return function (Constructor, protoProps, staticProps) {
+		if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
+	};
+})();
+
+var _get = function get(_x, _x2, _x3) {
+	var _again = true;_function: while (_again) {
+		var object = _x,
+		    property = _x2,
+		    receiver = _x3;desc = parent = getter = undefined;_again = false;if (object === null) object = Function.prototype;var desc = Object.getOwnPropertyDescriptor(object, property);if (desc === undefined) {
+			var parent = Object.getPrototypeOf(object);if (parent === null) {
+				return undefined;
+			} else {
+				_x = parent;_x2 = property;_x3 = receiver;_again = true;continue _function;
+			}
+		} else if ('value' in desc) {
+			return desc.value;
+		} else {
+			var getter = desc.get;if (getter === undefined) {
+				return undefined;
+			}return getter.call(receiver);
+		}
+	}
+};
+
+function _interopRequireDefault(obj) {
+	return obj && obj.__esModule ? obj : { 'default': obj };
+}
+
+function _classCallCheck(instance, Constructor) {
+	if (!(instance instanceof Constructor)) {
+		throw new TypeError('Cannot call a class as a function');
+	}
+}
+
+function _inherits(subClass, superClass) {
+	if (typeof superClass !== 'function' && superClass !== null) {
+		throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass);
+	}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+}
+
+var _lodash = require('lodash');
+
+var _lodash2 = _interopRequireDefault(_lodash);
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouter = require('react-router');
+
+var _reactBootstrap = require('react-bootstrap');
+
+// flux
+
+var _FluxFindFindStore = require('../../Flux/Find/FindStore');
+
+var _FluxFindFindStore2 = _interopRequireDefault(_FluxFindFindStore);
+
+var _FluxFindFindActions = require('../../Flux/Find/FindActions');
+
+var _FluxFindFindActions2 = _interopRequireDefault(_FluxFindFindActions);
+
+var minchar = 'min 3 characters to seach';
+
+var Search = (function (_React$Component) {
+	_inherits(Search, _React$Component);
+
+	function Search(props) {
+		_classCallCheck(this, Search);
+
+		_get(Object.getPrototypeOf(Search.prototype), 'constructor', this).call(this, props);
+		this.displayName = 'Search';
+
+		this.state = _lodash2['default'].merge({ search: '', menssage: minchar }, _FluxFindFindStore2['default'].getState());
+		this._onStoreChange = this._onStoreChange.bind(this);
+		this.handleInput = this.handleInput.bind(this);
+		this.handleGo = this.handleGo.bind(this);
+		this.handleKeyDown = this.handleKeyDown.bind(this);
+	}
+
+	_createClass(Search, [{
+		key: 'componentDidMount',
+		value: function componentDidMount() {
+			_FluxFindFindStore2['default'].listen(this._onStoreChange);
+		}
+	}, {
+		key: 'componentWillUnmount',
+		value: function componentWillUnmount() {
+			_FluxFindFindActions2['default'].cleanAll();
+			_FluxFindFindStore2['default'].unlisten(this._onStoreChange);
+		}
+	}, {
+		key: '_onStoreChange',
+		value: function _onStoreChange(state) {
+			console.log(state);
+			this.setState(state);
+		}
+	}, {
+		key: 'handleKeyDown',
+		value: function handleKeyDown(e) {
+			var ENTER = 13;
+			if (e.keyCode == ENTER && this.state.search.length >= 3) {
+				this.handleGo();
+			}
+		}
+	}, {
+		key: 'handleInput',
+		value: function handleInput(e) {
+			var menssage = this.state.menssage;
+			if (e.target.value.length >= 3) menssage = '';else menssage = 'min 3 characters to seach';
+
+			this.setState({ search: e.target.value, menssage: menssage });
+		}
+	}, {
+		key: 'handleGo',
+		value: function handleGo() {
+			_FluxFindFindActions2['default'].find(this.state.search);
+		}
+	}, {
+		key: 'render',
+		value: function render() {
+			var _state$objs = this.state.objs;
+			var cities = _state$objs.cities;
+			var states = _state$objs.states;
+			var stations = _state$objs.stations;
+
+			var menssage = this.state.menssage;
+			return _react2['default'].createElement('div', { className: 'Search', onKeyDown: this.handleKeyDown }, _react2['default'].createElement(_reactBootstrap.Col, { md: 12, className: 'header' }, _react2['default'].createElement(_reactBootstrap.Col, { md: 12 }, _react2['default'].createElement('h2', null, 'Find')), _react2['default'].createElement(_reactBootstrap.Col, { md: 11 }, _react2['default'].createElement(_reactBootstrap.Input, { onChange: this.handleInput, type: 'text' })), _react2['default'].createElement(_reactBootstrap.Col, { md: 1 }, _react2['default'].createElement(_reactBootstrap.Button, { onClick: this.handleGo, className: 'btn-truck', type: 'button' }, 'Go')), _react2['default'].createElement(_reactBootstrap.Col, { md: 12 }, _react2['default'].createElement('footer', null, menssage))), _react2['default'].createElement(_reactBootstrap.Col, { md: 12, className: 'body' }, _react2['default'].createElement(_reactBootstrap.Col, { md: 12, className: 'states' }, _react2['default'].createElement(_reactBootstrap.Col, { md: 12 }, _react2['default'].createElement('h3', null, !_lodash2['default'].isEmpty(states) && 'States')), _react2['default'].createElement(_reactBootstrap.Col, { md: 12 }, _lodash2['default'].map(states, function (state, key) {
+				return _react2['default'].createElement('div', { className: 'state', key: key }, _react2['default'].createElement('b', null, state.name), ' ', _react2['default'].createElement(_reactRouter.Link, { to: '/id/' + state._id }, 'Go'), _react2['default'].createElement('br', null), _react2['default'].createElement('label', null, 'Id:'), ' ', _react2['default'].createElement('span', null, state._id), _react2['default'].createElement('br', null), _react2['default'].createElement('label', null, '#Cities:'), ' ', _react2['default'].createElement('span', null, state.cities.length), _react2['default'].createElement('br', null));
+			}))), _react2['default'].createElement(_reactBootstrap.Col, { md: 12, className: 'cities' }, _react2['default'].createElement(_reactBootstrap.Col, { md: 12 }, _react2['default'].createElement('h3', null, !_lodash2['default'].isEmpty(cities) && 'Cities')), _react2['default'].createElement(_reactBootstrap.Col, { md: 12 }, _lodash2['default'].map(cities, function (city, key) {
+				return _react2['default'].createElement('div', { className: 'city', key: key }, _react2['default'].createElement('b', null, city.name), ' ', _react2['default'].createElement(_reactRouter.Link, { to: '/id/' + city.state._id + '/id/' + city._id }, 'Go'), _react2['default'].createElement('br', null), _react2['default'].createElement('label', null, 'Id:'), ' ', _react2['default'].createElement('span', null, city._id), _react2['default'].createElement('br', null), _react2['default'].createElement('label', null, 'State:'), ' ', _react2['default'].createElement('span', null, city.state.name), ' ', _react2['default'].createElement(_reactRouter.Link, { to: '/id/' + city.state._id }, 'Go'), _react2['default'].createElement('br', null), _react2['default'].createElement('label', null, '#Stations:'), ' ', _react2['default'].createElement('span', null, city.stations.length), _react2['default'].createElement('br', null), _react2['default'].createElement('label', null, '#Fuels:'), ' ', _react2['default'].createElement('span', null, city.statistics.length), _react2['default'].createElement('br', null));
+			}))), _react2['default'].createElement(_reactBootstrap.Col, { md: 12, className: 'stations' }, _react2['default'].createElement(_reactBootstrap.Col, { md: 12 }, _react2['default'].createElement('h3', null, !_lodash2['default'].isEmpty(stations) && 'Stations')), _react2['default'].createElement(_reactBootstrap.Col, { md: 12 }, _lodash2['default'].map(stations, function (station, key) {
+				return _react2['default'].createElement('div', { className: 'station', key: key }, _react2['default'].createElement('b', null, station.name), ' ', _react2['default'].createElement(_reactRouter.Link, { to: '/id/' + station.city.state + '/id/' + station.city._id + '/id/' + station._id }, 'Go'), _react2['default'].createElement('br', null), _react2['default'].createElement('label', null, 'Id:'), ' ', _react2['default'].createElement('span', null, station._id), _react2['default'].createElement('br', null), _react2['default'].createElement('label', null, 'City:'), ' ', _react2['default'].createElement('span', null, station.city.name), ' ', _react2['default'].createElement(_reactRouter.Link, { to: '/id/' + station.city.state + '/id/' + station.city._id }, 'Go'), ' ', _react2['default'].createElement('br', null), _react2['default'].createElement('label', null, '#Fuels:'), ' ', _react2['default'].createElement('span', null, station.prices.length), _react2['default'].createElement('br', null));
+			})))));
+		}
+	}]);
+
+	return Search;
+})(_react2['default'].Component);
+
+exports['default'] = Search;
+module.exports = exports['default'];
+
+},{"../../Flux/Find/FindActions":489,"../../Flux/Find/FindStore":490,"lodash":47,"react":476,"react-bootstrap":181,"react-router":295}],481:[function(require,module,exports){
+/* 
+ * Render page with the details of each state
+ */
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -54901,20 +55074,20 @@ var _FluxStatesStatesActions = require('../../Flux/States/StatesActions');
 
 var _FluxStatesStatesActions2 = _interopRequireDefault(_FluxStatesStatesActions);
 
-var States = (function (_React$Component) {
-	_inherits(States, _React$Component);
+var State = (function (_React$Component) {
+	_inherits(State, _React$Component);
 
-	function States(props) {
-		_classCallCheck(this, States);
+	function State(props) {
+		_classCallCheck(this, State);
 
-		_get(Object.getPrototypeOf(States.prototype), 'constructor', this).call(this, props);
-		this.displayName = 'States';
+		_get(Object.getPrototypeOf(State.prototype), 'constructor', this).call(this, props);
+		this.displayName = 'State';
 
 		this.state = _FluxStatesStatesStore2['default'].getState();
 		this._onStoreChange = this._onStoreChange.bind(this);
 	}
 
-	_createClass(States, [{
+	_createClass(State, [{
 		key: 'componentWillMount',
 		value: function componentWillMount() {
 			_FluxStatesStatesActions2['default'].loadOne(this.props.params.state);
@@ -54939,7 +55112,7 @@ var States = (function (_React$Component) {
 		value: function render() {
 			var state = this.state.states[this.props.params.state] || {};
 
-			return _react2['default'].createElement('div', { className: 'states' }, _react2['default'].createElement(_LibPanelBoxPanelBox2['default'], {
+			return _react2['default'].createElement('div', { className: 'State' }, _react2['default'].createElement(_LibPanelBoxPanelBox2['default'], {
 				vector: state.cities || [],
 				location: this.props.location,
 				top: 'stations',
@@ -54950,13 +55123,17 @@ var States = (function (_React$Component) {
 		}
 	}]);
 
-	return States;
+	return State;
 })(_react2['default'].Component);
 
-exports['default'] = States;
+exports['default'] = State;
 module.exports = exports['default'];
 
-},{"../../Flux/States/StatesActions":492,"../../Flux/States/StatesStore":493,"../Lib/PanelBox/PanelBox":482,"lodash":47,"react":476,"react-bootstrap":181,"react-router":295}],481:[function(require,module,exports){
+},{"../../Flux/States/StatesActions":493,"../../Flux/States/StatesStore":494,"../Lib/PanelBox/PanelBox":483,"lodash":47,"react":476,"react-bootstrap":181,"react-router":295}],482:[function(require,module,exports){
+/*
+ * renders info about stations prices and address
+ */
+
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -55023,8 +55200,6 @@ var _reactRouter = require('react-router');
 
 var _reactBootstrap = require('react-bootstrap');
 
-var _LibUtilsUtils = require('../Lib/Utils/Utils');
-
 var _LibPricesCardPricesCard = require('../Lib/PricesCard/PricesCard');
 
 var _LibPricesCardPricesCard2 = _interopRequireDefault(_LibPricesCardPricesCard);
@@ -55077,9 +55252,9 @@ var Stations = (function (_React$Component) {
 		value: function render() {
 			var station = this.state.stations[this.props.params.station] || {};
 			var goBackLink = this.props.location.pathname.split('/');
-			goBackLink = goBackLink.slice(1, goBackLink.length - 1).join('/');
+			goBackLink = goBackLink.slice(1, goBackLink.length - 2).join('/');
 
-			return _react2['default'].createElement(_LibUtilsUtils.Page, { identifier: 'station' }, _react2['default'].createElement(_LibUtilsUtils.Body, null, _react2['default'].createElement('div', { className: 'sub-header' }, _react2['default'].createElement('h2', null, station.name || ''), _react2['default'].createElement('footer', { className: 'about' }, [station.address, station.area].join('/ '))), _react2['default'].createElement('h3', null, 'Prices'), _react2['default'].createElement(_LibPricesCardPricesCard2['default'], { prices: station.prices || [] })), _react2['default'].createElement(_LibUtilsUtils.Footer, null, _react2['default'].createElement(_LibUtilsUtils.GoBack, { goBackLink: '/' + goBackLink })));
+			return _react2['default'].createElement('div', { identifier: 'station' }, _react2['default'].createElement(_reactBootstrap.Col, { md: 12 }, _react2['default'].createElement('div', { className: 'sub-header' }, _react2['default'].createElement('h2', null, station.name || ''), _react2['default'].createElement('footer', { className: 'about' }, [station.address, station.area].join('/ '))), _react2['default'].createElement('h3', null, 'Prices'), _react2['default'].createElement(_LibPricesCardPricesCard2['default'], { prices: station.prices || [] })), _react2['default'].createElement(_reactBootstrap.Col, { md: 12, className: 'footer' }, _react2['default'].createElement('div', { className: 'goBack' }, _react2['default'].createElement(_reactRouter.Link, { to: '/' + goBackLink }, _react2['default'].createElement(_reactBootstrap.Button, { type: 'button' }, _react2['default'].createElement(_reactBootstrap.Glyphicon, { glyph: 'arrow-left' }))))));
 		}
 	}]);
 
@@ -55089,7 +55264,10 @@ var Stations = (function (_React$Component) {
 exports['default'] = Stations;
 module.exports = exports['default'];
 
-},{"../../Flux/Stations/StationsActions":494,"../../Flux/Stations/StationsStore":495,"../Lib/PricesCard/PricesCard":484,"../Lib/Utils/Utils":485,"lodash":47,"react":476,"react-bootstrap":181,"react-router":295}],482:[function(require,module,exports){
+},{"../../Flux/Stations/StationsActions":495,"../../Flux/Stations/StationsStore":496,"../Lib/PricesCard/PricesCard":485,"lodash":47,"react":476,"react-bootstrap":181,"react-router":295}],483:[function(require,module,exports){
+/*
+ * Reusable component, used to create the box selector
+ */
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -55197,17 +55375,21 @@ var PanelBox = (function (_React$Component) {
 			var truncate = this.props.truncate || false;
 
 			var pathname = this.props.location.pathname;
+			// pathname = pathname === '/i/' ? '' : pathname;
+
+			console.log(pathname);
+
 			var rootPathname = pathname.split('/');
 			rootPathname = rootPathname.slice(0, rootPathname.length - 1).join('/'); // remove the last item
 
 			var boxes = _lodash2['default'].map(vector, function (item, key) {
-				return _react2['default'].createElement(_reactRouter.Link, { to: pathname + '/' + item._id, key: key }, _react2['default'].createElement(_reactBootstrap.Col, { xs: 6, md: 2, className: 'panelbox-container' }, _react2['default'].createElement('div', { className: 'top' }, item[top] ? item[top].length : 0), _react2['default'].createElement('div', { className: 'bottom' }, truncate ? _lodash2['default'].trunc(item.name, 16) : item.name)));
+				return _react2['default'].createElement(_reactRouter.Link, { to: pathname + '/' + item._id, key: key }, _react2['default'].createElement(_reactBootstrap.Col, { xs: 6, md: 2, className: 'panelbox-container' }, _react2['default'].createElement('div', { className: 'top' }, item[top] ? item[top].length : 0), _react2['default'].createElement('div', { className: 'bottom' }, truncate ? _lodash2['default'].trunc(item.name, 20) : item.name)));
 			});
 
 			return _react2['default'].createElement('div', { className: 'cities-list panelbox', ref: 'panelbox' }, _react2['default'].createElement(_reactRouter.Link, { to: '' + rootPathname }, _react2['default'].createElement(_reactBootstrap.Col, { md: 12, className: 'panelbox-container header', ref: 'header',
 				onMouseOver: this.handleMouseOver,
 				onMouseOut: this.handleMouseOut
-			}, _react2['default'].createElement('div', { className: 'top' }, 'Choose'), _react2['default'].createElement('div', { className: 'bottom' }, 'One ', this.props.bottomDescription))), boxes);
+			}, _react2['default'].createElement('div', { className: 'top' }, 'Choose'), _react2['default'].createElement('div', { className: 'bottom' }, 'One ', this.props.bottomDescription))), boxes, _react2['default'].createElement(_reactRouter.Link, { to: '/search' }, _react2['default'].createElement(_reactBootstrap.Col, { xs: 6, md: 2, className: 'panelbox-container search', ref: 'search' }, _react2['default'].createElement('div', { className: 'top' }, _react2['default'].createElement(_reactBootstrap.Glyphicon, { glyph: 'search' })), _react2['default'].createElement('div', { className: 'bottom' }, 'Search'))));
 		}
 	}]);
 
@@ -55225,7 +55407,10 @@ PanelBox.propTypes = {
 exports['default'] = PanelBox;
 module.exports = exports['default'];
 
-},{"lodash":47,"react":476,"react-bootstrap":181,"react-router":295}],483:[function(require,module,exports){
+},{"lodash":47,"react":476,"react-bootstrap":181,"react-router":295}],484:[function(require,module,exports){
+/*
+ * Reusable component to render a card on cities statistics
+ */
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -55314,7 +55499,7 @@ var PanelStatisticsCard = (function (_React$Component) {
 exports['default'] = PanelStatisticsCard;
 module.exports = exports['default'];
 
-},{"lodash":47,"react":476,"react-bootstrap":181}],484:[function(require,module,exports){
+},{"lodash":47,"react":476,"react-bootstrap":181}],485:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -55377,6 +55562,10 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactBootstrap = require('react-bootstrap');
 
+var _JSLibFormatDate = require('../../../JSLib/formatDate');
+
+var _JSLibFormatDate2 = _interopRequireDefault(_JSLibFormatDate);
+
 var PricesCard = (function (_React$Component) {
 	_inherits(PricesCard, _React$Component);
 
@@ -55392,7 +55581,7 @@ var PricesCard = (function (_React$Component) {
 		value: function render() {
 			var prices = this.props.prices || [];
 			return _react2['default'].createElement('div', { className: 'PricesCard' }, _lodash2['default'].map(prices, function (price, key) {
-				return _react2['default'].createElement(_reactBootstrap.Col, { xs: 12, md: 6, className: 'card', key: key }, _react2['default'].createElement(_reactBootstrap.Row, { className: 'card-container' }, _react2['default'].createElement(_reactBootstrap.Col, { xs: 12, md: 12, className: 'header' }, _react2['default'].createElement('h4', null, price.fuelType)), _react2['default'].createElement(_reactBootstrap.Col, { xs: 12, md: 12, className: 'body' }, _react2['default'].createElement('label', null, 'Buy Price:'), ' ', _react2['default'].createElement('span', null, price.buyPrice), _react2['default'].createElement('br', null), _react2['default'].createElement('label', null, 'Sell Price:'), ' ', _react2['default'].createElement('span', null, price.sellPrice), _react2['default'].createElement('br', null), _react2['default'].createElement('label', null, 'Sale Mode:'), ' ', _react2['default'].createElement('span', null, price.saleMode), _react2['default'].createElement('br', null), _react2['default'].createElement('label', null, 'Provider:'), ' ', _react2['default'].createElement('span', null, price.provider), _react2['default'].createElement('br', null), _react2['default'].createElement('label', null, 'Date:'), ' ', _react2['default'].createElement('span', null, price.date), _react2['default'].createElement('br', null))));
+				return _react2['default'].createElement(_reactBootstrap.Col, { xs: 12, md: 6, className: 'card', key: key }, _react2['default'].createElement(_reactBootstrap.Row, { className: 'card-container' }, _react2['default'].createElement(_reactBootstrap.Col, { xs: 12, md: 12, className: 'header' }, _react2['default'].createElement('h4', null, price.fuelType)), _react2['default'].createElement(_reactBootstrap.Col, { xs: 12, md: 12, className: 'body' }, _react2['default'].createElement('label', null, 'Buy Price:'), ' ', _react2['default'].createElement('span', null, price.buyPrice), _react2['default'].createElement('br', null), _react2['default'].createElement('label', null, 'Sell Price:'), ' ', _react2['default'].createElement('span', null, price.sellPrice), _react2['default'].createElement('br', null), _react2['default'].createElement('label', null, 'Sale Mode:'), ' ', _react2['default'].createElement('span', null, price.saleMode), _react2['default'].createElement('br', null), _react2['default'].createElement('label', null, 'Provider:'), ' ', _react2['default'].createElement('span', null, (0, _JSLibFormatDate2['default'])(price.provider, '/')), _react2['default'].createElement('br', null), _react2['default'].createElement('label', null, 'Date:'), ' ', _react2['default'].createElement('span', null, (0, _JSLibFormatDate2['default'])(price.date, '/')), _react2['default'].createElement('br', null))));
 			}));
 		}
 	}]);
@@ -55407,248 +55596,11 @@ PricesCard.propTypes = {
 exports['default'] = PricesCard;
 module.exports = exports['default'];
 
-},{"lodash":47,"react":476,"react-bootstrap":181}],485:[function(require,module,exports){
-'use strict';
+},{"../../../JSLib/formatDate":499,"lodash":47,"react":476,"react-bootstrap":181}],486:[function(require,module,exports){
+/*
+	Main component responsible for loading all the child routes
+ */
 
-Object.defineProperty(exports, '__esModule', {
-	value: true
-});
-
-var _createClass = (function () {
-	function defineProperties(target, props) {
-		for (var i = 0; i < props.length; i++) {
-			var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ('value' in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
-		}
-	}return function (Constructor, protoProps, staticProps) {
-		if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
-	};
-})();
-
-var _get = function get(_x, _x2, _x3) {
-	var _again = true;_function: while (_again) {
-		var object = _x,
-		    property = _x2,
-		    receiver = _x3;desc = parent = getter = undefined;_again = false;if (object === null) object = Function.prototype;var desc = Object.getOwnPropertyDescriptor(object, property);if (desc === undefined) {
-			var parent = Object.getPrototypeOf(object);if (parent === null) {
-				return undefined;
-			} else {
-				_x = parent;_x2 = property;_x3 = receiver;_again = true;continue _function;
-			}
-		} else if ('value' in desc) {
-			return desc.value;
-		} else {
-			var getter = desc.get;if (getter === undefined) {
-				return undefined;
-			}return getter.call(receiver);
-		}
-	}
-};
-
-function _interopRequireDefault(obj) {
-	return obj && obj.__esModule ? obj : { 'default': obj };
-}
-
-function _classCallCheck(instance, Constructor) {
-	if (!(instance instanceof Constructor)) {
-		throw new TypeError('Cannot call a class as a function');
-	}
-}
-
-function _inherits(subClass, superClass) {
-	if (typeof superClass !== 'function' && superClass !== null) {
-		throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass);
-	}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
-}
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactRouter = require('react-router');
-
-var _reactBootstrap = require('react-bootstrap');
-
-var GoBack = (function (_React$Component) {
-	_inherits(GoBack, _React$Component);
-
-	function GoBack(props) {
-		_classCallCheck(this, GoBack);
-
-		_get(Object.getPrototypeOf(GoBack.prototype), 'constructor', this).call(this, props);
-		this.displayName = 'GoBack';
-	}
-
-	_createClass(GoBack, [{
-		key: 'render',
-		value: function render() {
-			return _react2['default'].createElement('div', { className: 'goBack' }, _react2['default'].createElement(_reactRouter.Link, { to: this.props.goBackLink }, _react2['default'].createElement(_reactBootstrap.Glyphicon, { glyph: 'arrow-left' })));
-		}
-	}]);
-
-	return GoBack;
-})(_react2['default'].Component);
-
-GoBack.propsType = {
-	goBackLink: _react2['default'].PropTypes.string.isRequired
-};
-
-var Page = (function (_React$Component2) {
-	_inherits(Page, _React$Component2);
-
-	function Page(props) {
-		_classCallCheck(this, Page);
-
-		_get(Object.getPrototypeOf(Page.prototype), 'constructor', this).call(this, props);
-		this.displayName = 'Page';
-	}
-
-	_createClass(Page, [{
-		key: 'render',
-		value: function render() {
-			return _react2['default'].createElement('div', { className: this.props.identifier }, this.props.children);
-		}
-	}]);
-
-	return Page;
-})(_react2['default'].Component);
-
-Page.propsType = {
-	identifier: _react2['default'].PropTypes.string.isRequired
-};
-
-var Body = (function (_React$Component3) {
-	_inherits(Body, _React$Component3);
-
-	function Body(props) {
-		_classCallCheck(this, Body);
-
-		_get(Object.getPrototypeOf(Body.prototype), 'constructor', this).call(this, props);
-		this.displayName = 'Body';
-	}
-
-	_createClass(Body, [{
-		key: 'render',
-		value: function render() {
-			return _react2['default'].createElement('div', { className: 'body' }, this.props.children);
-		}
-	}]);
-
-	return Body;
-})(_react2['default'].Component);
-
-var Footer = (function (_React$Component4) {
-	_inherits(Footer, _React$Component4);
-
-	function Footer(props) {
-		_classCallCheck(this, Footer);
-
-		_get(Object.getPrototypeOf(Footer.prototype), 'constructor', this).call(this, props);
-		this.displayName = 'Footer';
-	}
-
-	_createClass(Footer, [{
-		key: 'render',
-		value: function render() {
-			return _react2['default'].createElement('div', { className: 'footer' }, this.props.children);
-		}
-	}]);
-
-	return Footer;
-})(_react2['default'].Component);
-
-exports['default'] = {
-	Page: Page,
-	Body: Body,
-	Footer: Footer,
-	GoBack: GoBack
-};
-module.exports = exports['default'];
-
-},{"react":476,"react-bootstrap":181,"react-router":295}],486:[function(require,module,exports){
-'use strict';
-
-Object.defineProperty(exports, '__esModule', {
-	value: true
-});
-
-var _createClass = (function () {
-	function defineProperties(target, props) {
-		for (var i = 0; i < props.length; i++) {
-			var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ('value' in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
-		}
-	}return function (Constructor, protoProps, staticProps) {
-		if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
-	};
-})();
-
-var _get = function get(_x, _x2, _x3) {
-	var _again = true;_function: while (_again) {
-		var object = _x,
-		    property = _x2,
-		    receiver = _x3;desc = parent = getter = undefined;_again = false;if (object === null) object = Function.prototype;var desc = Object.getOwnPropertyDescriptor(object, property);if (desc === undefined) {
-			var parent = Object.getPrototypeOf(object);if (parent === null) {
-				return undefined;
-			} else {
-				_x = parent;_x2 = property;_x3 = receiver;_again = true;continue _function;
-			}
-		} else if ('value' in desc) {
-			return desc.value;
-		} else {
-			var getter = desc.get;if (getter === undefined) {
-				return undefined;
-			}return getter.call(receiver);
-		}
-	}
-};
-
-function _interopRequireDefault(obj) {
-	return obj && obj.__esModule ? obj : { 'default': obj };
-}
-
-function _classCallCheck(instance, Constructor) {
-	if (!(instance instanceof Constructor)) {
-		throw new TypeError('Cannot call a class as a function');
-	}
-}
-
-function _inherits(subClass, superClass) {
-	if (typeof superClass !== 'function' && superClass !== null) {
-		throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass);
-	}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
-}
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-// component
-
-var _reactRouter = require('react-router');
-
-var Index = (function (_React$Component) {
-	_inherits(Index, _React$Component);
-
-	function Index(props) {
-		_classCallCheck(this, Index);
-
-		_get(Object.getPrototypeOf(Index.prototype), 'constructor', this).call(this, props);
-		this.displayName = 'Index';
-	}
-
-	_createClass(Index, [{
-		key: 'render',
-		value: function render() {
-			return _react2['default'].createElement('div', { className: 'Index' }, _react2['default'].createElement(_reactRouter.Link, { to: '/box' }, 'Box'));
-		}
-	}]);
-
-	return Index;
-})(_react2['default'].Component);
-
-exports['default'] = Index;
-module.exports = exports['default'];
-
-},{"react":476,"react-router":295}],487:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -55749,6 +55701,12 @@ var MainComponent = (function (_React$Component) {
 			_FluxMetadataMetadataStore2['default'].listen(this._onStoreChange);
 		}
 	}, {
+		key: 'componentWillUpdate',
+		value: function componentWillUpdate(nextProps, nextState) {
+			var isCoverPage = nextProps.location.pathname.length === 1;
+			document.body.className = isCoverPage ? 'cover' : '';
+		}
+	}, {
 		key: 'componentWillUnmount',
 		value: function componentWillUnmount() {
 			_FluxMetadataMetadataStore2['default'].unlisten(this._onStoreChange);
@@ -55761,7 +55719,9 @@ var MainComponent = (function (_React$Component) {
 	}, {
 		key: 'render',
 		value: function render() {
-			return _react2['default'].createElement('div', { className: 'container-fluid app' }, _react2['default'].createElement(_reactBootstrap.Col, { md: 12, className: 'logo' }, _react2['default'].createElement(_reactRouter.Link, { to: '/' }, _react2['default'].createElement('h1', null, _react2['default'].createElement('span', { className: 'logo-gas' }, 'Gas'), _react2['default'].createElement('span', { className: 'logo-truck' }, 'Truck')), _react2['default'].createElement('footer', { className: 'crawl-dates' }, 'From ', (0, _JSLibFormatDate2['default'])(this.state.dates.from, '/'), ' To ', (0, _JSLibFormatDate2['default'])(this.state.dates.to, '/'), ' ', _react2['default'].createElement('br', null), 'Brazilian Gas Stations'))), _react2['default'].createElement(_reactBootstrap.Col, { md: 12, className: 'body' }, this.props.children), _react2['default'].createElement(_reactBootstrap.Col, { md: 12 }));
+			var isCoverPage = this.props.location.pathname.length === 1;
+
+			return _react2['default'].createElement('div', { className: 'container-fluid app' }, isCoverPage && _react2['default'].createElement('div', { className: 'app-cover' }, _react2['default'].createElement(_reactBootstrap.Col, { md: 12, className: 'logo-cover' }, _react2['default'].createElement(_reactRouter.Link, { to: '/i' }, _react2['default'].createElement('h1', null, _react2['default'].createElement('span', { className: 'logo-gas' }, 'Gas'), _react2['default'].createElement('span', { className: 'logo-truck' }, 'Truck')), _react2['default'].createElement('p', null, 'data about Brazilian\'s fuel prices')))), !isCoverPage && _react2['default'].createElement('div', { className: 'app-box' }, _react2['default'].createElement(_reactBootstrap.Col, { md: 12, className: 'logo' }, _react2['default'].createElement(_reactRouter.Link, { to: '/' }, _react2['default'].createElement('h1', null, _react2['default'].createElement('span', { className: 'logo-gas' }, 'Gas'), _react2['default'].createElement('span', { className: 'logo-truck' }, 'Truck'))), _react2['default'].createElement('footer', { className: 'crawl-dates' }, 'From ', (0, _JSLibFormatDate2['default'])(this.state.dates.from, '/'), ' To ', (0, _JSLibFormatDate2['default'])(this.state.dates.to, '/'), ' ', _react2['default'].createElement('br', null), 'Brazilian Gas Stations')), _react2['default'].createElement(_reactBootstrap.Col, { md: 12, className: 'body' }, this.props.children)));
 		}
 	}]);
 
@@ -55772,9 +55732,8 @@ MainComponent.displayName = 'MainComponent';
 
 exports['default'] = MainComponent;
 module.exports = exports['default'];
-/* this is the important part for react-router */
 
-},{"../../Flux/Metadata/MetadataActions":490,"../../Flux/Metadata/MetadataStore":491,"../../JSLib/formatDate":498,"react":476,"react-bootstrap":181,"react-router":295}],488:[function(require,module,exports){
+},{"../../Flux/Metadata/MetadataActions":491,"../../Flux/Metadata/MetadataStore":492,"../../JSLib/formatDate":499,"react":476,"react-bootstrap":181,"react-router":295}],487:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -55884,7 +55843,7 @@ var CitiesActions = (function () {
 exports['default'] = _alt2['default'].createActions(CitiesActions);
 module.exports = exports['default'];
 
-},{"../../../config":1,"../../JSLib/APIRequest":497,"../alt":496}],489:[function(require,module,exports){
+},{"../../../config":1,"../../JSLib/APIRequest":498,"../alt":497}],488:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -55983,7 +55942,191 @@ var CitiesStore = (function () {
 exports['default'] = _alt2['default'].createStore(CitiesStore, 'CitiesStore');
 module.exports = exports['default'];
 
-},{"../alt":496,"./CitiesActions":488,"lodash":47}],490:[function(require,module,exports){
+},{"../alt":497,"./CitiesActions":487,"lodash":47}],489:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+	value: true
+});
+
+var _createClass = (function () {
+	function defineProperties(target, props) {
+		for (var i = 0; i < props.length; i++) {
+			var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ('value' in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
+		}
+	}return function (Constructor, protoProps, staticProps) {
+		if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
+	};
+})();
+
+function _interopRequireDefault(obj) {
+	return obj && obj.__esModule ? obj : { 'default': obj };
+}
+
+function _classCallCheck(instance, Constructor) {
+	if (!(instance instanceof Constructor)) {
+		throw new TypeError('Cannot call a class as a function');
+	}
+}
+
+var _alt = require('../alt');
+
+var _alt2 = _interopRequireDefault(_alt);
+
+var _config = require('../../../config');
+
+var _JSLibAPIRequest = require('../../JSLib/APIRequest');
+
+var _JSLibAPIRequest2 = _interopRequireDefault(_JSLibAPIRequest);
+
+var api = new _JSLibAPIRequest2['default'](_config.BASE_URL);
+
+var FindActions = (function () {
+	function FindActions() {
+		_classCallCheck(this, FindActions);
+	}
+
+	_createClass(FindActions, [{
+		key: 'find',
+
+		/**
+   * [load load ]
+   * @return {[type]} [description]
+   */
+		value: function find(name) {
+			var _this = this;
+
+			this.dispatch();
+			return api.get({
+				endpoint: _config.FIND.FIND + '/' + name
+			}).then((function (objs) {
+				_this.actions.update(objs);
+				return objs;
+			}).bind(this))['catch']((function (error) {
+				_this.actions.requestFailed(error);
+				return error;
+			}).bind(this));
+		}
+	}, {
+		key: 'update',
+		value: function update(objs) {
+			this.dispatch(objs);
+		}
+	}, {
+		key: 'cleanAll',
+		value: function cleanAll() {
+			this.dispatch();
+		}
+
+		/**
+   * requestFailed: propagate error generated on requests
+   * @param  {Error}	error	Error rised by a request
+   * @return {void}
+   */
+	}, {
+		key: 'requestFailed',
+		value: function requestFailed(error) {
+			this.dispatch(error);
+		}
+	}]);
+
+	return FindActions;
+})();
+
+exports['default'] = _alt2['default'].createActions(FindActions);
+module.exports = exports['default'];
+
+},{"../../../config":1,"../../JSLib/APIRequest":498,"../alt":497}],490:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+	value: true
+});
+
+var _createClass = (function () {
+	function defineProperties(target, props) {
+		for (var i = 0; i < props.length; i++) {
+			var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ('value' in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
+		}
+	}return function (Constructor, protoProps, staticProps) {
+		if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
+	};
+})();
+
+function _interopRequireDefault(obj) {
+	return obj && obj.__esModule ? obj : { 'default': obj };
+}
+
+function _classCallCheck(instance, Constructor) {
+	if (!(instance instanceof Constructor)) {
+		throw new TypeError('Cannot call a class as a function');
+	}
+}
+
+var _lodash = require('lodash');
+
+var _lodash2 = _interopRequireDefault(_lodash);
+
+var _alt = require('../alt');
+
+var _alt2 = _interopRequireDefault(_alt);
+
+var _FindActions = require('./FindActions');
+
+var _FindActions2 = _interopRequireDefault(_FindActions);
+
+var FindStore = (function () {
+	function FindStore() {
+		_classCallCheck(this, FindStore);
+
+		this.objs = {};
+		this.errorMessage = null;
+
+		this.bindListeners({
+			clean: _FindActions2['default'].FIND,
+			cleanAll: _FindActions2['default'].CLEAN_ALL,
+			update: _FindActions2['default'].UPDATE,
+			requestFailed: _FindActions2['default'].REQUEST_FAILED
+		});
+	}
+
+	_createClass(FindStore, [{
+		key: 'clean',
+		value: function clean() {
+			this.objs = {};
+			this.errorMessage = null;
+		}
+	}, {
+		key: 'cleanAll',
+		value: function cleanAll() {
+			this.objs = {};
+			this.errorMessage = null;
+		}
+	}, {
+		key: 'update',
+		value: function update(objs) {
+			this.objs = objs;
+			this.errorMessage = null;
+		}
+
+		/**
+   * requestFailed: save status of errors
+   * @return {void}
+   */
+	}, {
+		key: 'requestFailed',
+		value: function requestFailed(errorMessage) {
+			this.errorMessage = errorMessage;
+		}
+	}]);
+
+	return FindStore;
+})();
+
+exports['default'] = _alt2['default'].createStore(FindStore, 'FindStore');
+module.exports = exports['default'];
+
+},{"../alt":497,"./FindActions":489,"lodash":47}],491:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -56072,7 +56215,7 @@ var MetadataActions = (function () {
 exports['default'] = _alt2['default'].createActions(MetadataActions);
 module.exports = exports['default'];
 
-},{"../../../config":1,"../../JSLib/APIRequest":497,"../alt":496}],491:[function(require,module,exports){
+},{"../../../config":1,"../../JSLib/APIRequest":498,"../alt":497}],492:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -56158,7 +56301,7 @@ var MetadataStore = (function () {
 exports['default'] = _alt2['default'].createStore(MetadataStore, 'MetadataStore');
 module.exports = exports['default'];
 
-},{"../alt":496,"./MetadataActions":490,"lodash":47}],492:[function(require,module,exports){
+},{"../alt":497,"./MetadataActions":491,"lodash":47}],493:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -56268,7 +56411,7 @@ var StateActions = (function () {
 exports['default'] = _alt2['default'].createActions(StateActions);
 module.exports = exports['default'];
 
-},{"../../../config":1,"../../JSLib/APIRequest":497,"../alt":496}],493:[function(require,module,exports){
+},{"../../../config":1,"../../JSLib/APIRequest":498,"../alt":497}],494:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -56361,7 +56504,7 @@ var StatesStore = (function () {
 exports['default'] = _alt2['default'].createStore(StatesStore, 'StatesStore');
 module.exports = exports['default'];
 
-},{"../alt":496,"./StatesActions":492,"lodash":47}],494:[function(require,module,exports){
+},{"../alt":497,"./StatesActions":493,"lodash":47}],495:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -56471,7 +56614,7 @@ var StationsActions = (function () {
 exports['default'] = _alt2['default'].createActions(StationsActions);
 module.exports = exports['default'];
 
-},{"../../../config":1,"../../JSLib/APIRequest":497,"../alt":496}],495:[function(require,module,exports){
+},{"../../../config":1,"../../JSLib/APIRequest":498,"../alt":497}],496:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -56564,7 +56707,7 @@ var StationsStore = (function () {
 exports['default'] = _alt2['default'].createStore(StationsStore, 'StationsStore');
 module.exports = exports['default'];
 
-},{"../alt":496,"./StationsActions":494,"lodash":47}],496:[function(require,module,exports){
+},{"../alt":497,"./StationsActions":495,"lodash":47}],497:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -56584,7 +56727,7 @@ var alt = new _alt2['default']();
 exports['default'] = alt;
 module.exports = exports['default'];
 
-},{"alt":3}],497:[function(require,module,exports){
+},{"alt":3}],498:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -56677,7 +56820,7 @@ var APIRequest = (function () {
 exports['default'] = APIRequest;
 module.exports = exports['default'];
 
-},{"lodash":47,"reqwest":477}],498:[function(require,module,exports){
+},{"lodash":47,"reqwest":477}],499:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -56700,7 +56843,10 @@ function formatDate(date, sep, type) {
 
 module.exports = exports['default'];
 
-},{}],499:[function(require,module,exports){
+},{}],500:[function(require,module,exports){
+/*
+ * App.jsx, responsible for rendering the components on body
+ */
 'use strict';
 
 function _interopRequireDefault(obj) {
@@ -56729,7 +56875,11 @@ var history = (0, _history.createHashHistory)(); // create a history
 
 _react2['default'].render(_react2['default'].createElement(_reactRouter2['default'], { history: history }, _routesJs2['default']), document.body); // render everything on body
 
-},{"../config":1,"./routes.js":500,"history":29,"react":476,"react-router":295}],500:[function(require,module,exports){
+},{"../config":1,"./routes.js":501,"history":29,"react":476,"react-router":295}],501:[function(require,module,exports){
+/*
+ * Describe all routes of the application used by react-router
+ */
+
 // Main
 'use strict';
 
@@ -56745,35 +56895,36 @@ var _ComponentsMainMainComponent = require('./Components/Main/MainComponent');
 
 var _ComponentsMainMainComponent2 = _interopRequireDefault(_ComponentsMainMainComponent);
 
-var _ComponentsMainIndex = require('./Components/Main/Index');
-
-var _ComponentsMainIndex2 = _interopRequireDefault(_ComponentsMainIndex);
-
 // Box
 
-var _ComponentsBoxBrazil = require('./Components/Box/Brazil');
+var _ComponentsContentBrazil = require('./Components/Content/Brazil');
 
-var _ComponentsBoxBrazil2 = _interopRequireDefault(_ComponentsBoxBrazil);
+var _ComponentsContentBrazil2 = _interopRequireDefault(_ComponentsContentBrazil);
 
-var _ComponentsBoxState = require('./Components/Box/State');
+var _ComponentsContentState = require('./Components/Content/State');
 
-var _ComponentsBoxState2 = _interopRequireDefault(_ComponentsBoxState);
+var _ComponentsContentState2 = _interopRequireDefault(_ComponentsContentState);
 
-var _ComponentsBoxCity = require('./Components/Box/City');
+var _ComponentsContentCity = require('./Components/Content/City');
 
-var _ComponentsBoxCity2 = _interopRequireDefault(_ComponentsBoxCity);
+var _ComponentsContentCity2 = _interopRequireDefault(_ComponentsContentCity);
 
-var _ComponentsBoxStation = require('./Components/Box/Station');
+var _ComponentsContentStation = require('./Components/Content/Station');
 
-var _ComponentsBoxStation2 = _interopRequireDefault(_ComponentsBoxStation);
+var _ComponentsContentStation2 = _interopRequireDefault(_ComponentsContentStation);
+
+var _ComponentsContentSearch = require('./Components/Content/Search');
+
+var _ComponentsContentSearch2 = _interopRequireDefault(_ComponentsContentSearch);
 
 var routes = {
 	component: _ComponentsMainMainComponent2['default'],
-	childRoutes: [{ path: '/', component: _ComponentsMainIndex2['default'] }, { path: 'box', component: _ComponentsBoxBrazil2['default'] }, { path: 'box/:state', component: _ComponentsBoxState2['default'] }, { path: 'box/:state/:city', component: _ComponentsBoxCity2['default'] }, { path: 'box/:state/:city/:station', component: _ComponentsBoxStation2['default'] }]
+	path: '/',
+	childRoutes: [{ path: '/i', component: _ComponentsContentBrazil2['default'] }, { path: '/i/:state', component: _ComponentsContentState2['default'] }, { path: '/i/:state/:city', component: _ComponentsContentCity2['default'] }, { path: '/i/:state/:city/:station', component: _ComponentsContentStation2['default'] }, { path: '/search', component: _ComponentsContentSearch2['default'] }]
 };
 
 exports['default'] = routes;
 module.exports = exports['default'];
 
-},{"./Components/Box/Brazil":478,"./Components/Box/City":479,"./Components/Box/State":480,"./Components/Box/Station":481,"./Components/Main/Index":486,"./Components/Main/MainComponent":487}]},{},[499])
+},{"./Components/Content/Brazil":478,"./Components/Content/City":479,"./Components/Content/Search":480,"./Components/Content/State":481,"./Components/Content/Station":482,"./Components/Main/MainComponent":486}]},{},[500])
 //# sourceMappingURL=build.js.map

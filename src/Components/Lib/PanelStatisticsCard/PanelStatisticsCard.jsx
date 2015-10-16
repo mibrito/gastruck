@@ -1,3 +1,6 @@
+/*
+ * Reusable component to render a card on cities statistics
+ */
 import _ from 'lodash';
 import React from 'react';
 

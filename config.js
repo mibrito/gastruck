@@ -19,3 +19,7 @@ export const STATIONS = {
 export const META = {
 	DATES: ['meta', 'dates'].join('/')
 };
+
+export const FIND = {
+	FIND: 'find'
+};

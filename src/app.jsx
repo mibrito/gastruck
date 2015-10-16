@@ -1,3 +1,6 @@
+/*
+ * App.jsx, responsible for rendering the components on body
+ */
 import React from 'react';
 import Router from 'react-router';
 import {createHistory, createHashHistory, useQueries} from 'history';

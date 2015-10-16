@@ -1,3 +1,7 @@
+/*
+	Main component responsible for loading all the child routes
+ */
+
 import React from 'react';
 
 import {Link} from 'react-router'; 
@@ -27,6 +31,11 @@ class MainComponent extends React.Component {
 		MetadataStore.listen(this._onStoreChange);
 	}
 
+	componentWillUpdate(nextProps, nextState) {
+		var isCoverPage = (nextProps.location.pathname.length === 1);
+		document.body.className = isCoverPage ? 'cover' : '';
+	}
+
 	componentWillUnmount() {
 		MetadataStore.unlisten(this._onStoreChange);
 	}
@@ -36,24 +45,38 @@ class MainComponent extends React.Component {
 	}
 
 	render () {
+		var isCoverPage = (this.props.location.pathname.length === 1);
+
 		return (
-			<div className="container-fluid app">
-				<Col md={12} className="logo"><Link to="/">
-					<h1>
-						<span className="logo-gas">Gas</span>
-						<span className="logo-truck">Truck</span>
-					</h1>
-					<footer className="crawl-dates">
-						From {formatDate(this.state.dates.from, '/')}
-						&nbsp;To&nbsp;{formatDate(this.state.dates.to, '/')} <br/>
-						Brazilian Gas Stations
-					</footer>
-				</Link></Col>
-				{/* this is the important part for react-router */}
-				<Col md={12} className="body">
-					{this.props.children}
-				</Col>
-				<Col md={12}></Col>
+			<div className={'container-fluid app'}>
+				{isCoverPage && <div className="app-cover">
+					<Col md={12} className="logo-cover">
+						<Link to="/i"><h1>
+							<span className="logo-gas">Gas</span>
+							<span className="logo-truck">Truck</span>
+						</h1>
+						<p>data about Brazilian's fuel prices</p></Link>
+					</Col>
+				</div>}
+				{!isCoverPage && <div className="app-box">
+					<Col md={12} className="logo">
+						<Link to="/"><h1>
+							<span className="logo-gas">Gas</span>
+							<span className="logo-truck">Truck</span>
+						</h1></Link>
+						<footer className="crawl-dates">
+							From {formatDate(this.state.dates.from, '/')}
+							&nbsp;To&nbsp;{formatDate(this.state.dates.to, '/')} <br/>
+							Brazilian Gas Stations
+						</footer>
+					</Col>
+
+				
+					<Col md={12} className="body">
+						{this.props.children}
+					</Col>
+				</div>}
+
 			</div>
 		);
 	}

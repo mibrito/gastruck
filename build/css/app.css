@@ -2,21 +2,8 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-.vertical-text {
-  float: left;
-}
-.full-row {
-  width: 100%;
-  position: relative;
-  float: left;
-}
 body {
-  background: white;
   color: #666;
-}
-body a:hover,
-a:active {
-  text-decoration: none;
 }
 .app {
   padding-left: 0px;
@@ -30,6 +17,48 @@ a:active {
   color: #317db2;
   text-decoration: none;
 }
+.cover {
+  position: relative;
+  background: #5C97FF;
+  overflow: hidden;
+}
+.cover {
+  background: linear-gradient(rgba(255, 255, 255, 0.45), rgba(255, 255, 255, 0.45)), url(../../images/pump.jpg) no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  /* Preserve aspet ratio */
+  min-width: 100%;
+  min-height: 100%;
+}
+.logo-cover {
+  text-align: center;
+  font-size: 3vh;
+  margin-top: 30vh;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border-bottom: 1px solid #eee;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+.logo-cover h1 {
+  margin-bottom: 0;
+  font-size: 9vh;
+}
+.logo-cover a,
+.logo-cover a:hover,
+.logo-cover a:active {
+  color: #317db2;
+  text-decoration: none;
+}
+.logo-cover .logo-truck {
+  color: #00c1a2;
+}
 .logo {
   text-align: center;
   font-size: 4vmax;
@@ -40,7 +69,7 @@ a:active {
 .logo a,
 .logo a:hover,
 .logo a:active {
-  color: #666;
+  color: #317db2;
   text-decoration: none;
 }
 .logo .logo-truck {
@@ -49,6 +78,57 @@ a:active {
 .logo footer.crawl-dates {
   font-size: 1.2rem;
   font-weight: bold;
+}
+.search {
+  background: #317db2;
+  color: white;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+.search a,
+.search a:hover a:active {
+  color: white;
+  text-decoration: none;
+}
+.btn-truck {
+  background: #00c1a2;
+  border-color: #00c1a2;
+  color: #fefefe;
+}
+.btn-truck:focus,
+.btn-truck:hover {
+  background: #317db2;
+  border-color: #317db2;
+  color: #fefefe;
+  cursor: pointer;
+}
+.btn-truck[disabled],
+.btn-truck[disabled]:focus,
+.btn-truck[disabled]:hover {
+  background: #fefefe;
+  border-color: black;
+  color: black;
+  cursor: not-allowed;
+}
+.btn-truck-reverse {
+  background: #317db2;
+  border-color: #317db2;
+  color: #fefefe;
+}
+.btn-truck-reverse:focus,
+.btn-truck-reverse:hover {
+  background: #00c1a2;
+  border-color: #00c1a2;
+  color: #fefefe;
+  cursor: pointer;
+}
+.btn-truck-reverse[disabled],
+.btn-truck-reverse[disabled]:focus,
+.btn-truck-reverse[disabled]:hover {
+  background: #fefefe;
+  border-color: black;
+  color: black;
+  cursor: not-allowed;
 }
 .panelbox .panelbox-container {
   height: 20rem;
@@ -77,6 +157,13 @@ a:active {
   background-color: #317db2;
 }
 .panelbox .panelbox-container.header .top {
+  font-size: 4rem;
+  padding: 6rem 0;
+}
+.panelbox .panelbox-container.search {
+  background-color: #317db2;
+}
+.panelbox .panelbox-container.search .top {
   font-size: 4rem;
   padding: 6rem 0;
 }
@@ -135,33 +222,4 @@ a:active {
 }
 .PricesCard .card .card-container .body b {
   font-size: 1.8rem;
-}
-.station .body {
-  width: 100%;
-  position: relative;
-  float: left;
-}
-.station .body .about {
-  font-size: 2rem;
-}
-.station .footer {
-  width: 100%;
-  position: relative;
-  float: left;
-}
-.chart div {
-  font: 10px sans-serif;
-  background-color: #00c1a2;
-  text-align: right;
-  padding: 3px;
-  margin: 1px;
-  color: white;
-}
-.chart rect {
-  fill: steelblue;
-}
-.chart text {
-  fill: white;
-  font: 10px sans-serif;
-  text-anchor: end;
 }

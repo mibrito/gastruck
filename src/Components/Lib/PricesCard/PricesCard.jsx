@@ -2,6 +2,7 @@ import _ from 'lodash';
 import React from 'react';
 
 import {Col, Row} from 'react-bootstrap';
+import formatDate from '../../../JSLib/formatDate';
 
 class PricesCard extends React.Component {
     constructor(props) {
@@ -20,8 +21,8 @@ class PricesCard extends React.Component {
 							<label>Buy Price:</label> <span>{price.buyPrice}</span><br />
 							<label>Sell Price:</label> <span>{price.sellPrice}</span><br />
 							<label>Sale Mode:</label> <span>{price.saleMode}</span><br />
-							<label>Provider:</label> <span>{price.provider}</span><br />
-							<label>Date:</label> <span>{price.date}</span><br />
+							<label>Provider:</label> <span>{formatDate(price.provider,'/')}</span><br />
+							<label>Date:</label> <span>{formatDate(price.date,'/')}</span><br />
 						</Col>
 						</Row>
 					</Col>);

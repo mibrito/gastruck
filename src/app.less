@@ -5,17 +5,6 @@
 .border-box { box-sizing:border-box; -moz-box-sizing:border-box; box-sizing: border-box;}
 .border-radius(@value) { border-radius: @value;  -webkit-border-radius: @value; -moz-border-radius: @value; }
 
-.vertical-text {
-	// transform: rotate(-90deg);
-	// transform-origin: left bottom 0;
-	float: left;
-}
-
-.full-row {
-	width: 100%;
-	position: relative;
-	float: left;
-}
 
 @green-truck: #00c1a2;
 @blue-truck: #317db2;
@@ -23,12 +12,9 @@
 @gray: #666;
 
 body{
-	background: white;
+	
+	
 	color: @gray;
-}
-
-body a:hover,a:active {
-	text-decoration: none;
 }
 
 .app {
@@ -44,6 +30,61 @@ body a:hover,a:active {
 	}
 }
 
+.cover {
+	position: relative;
+    background: #5C97FF;
+    overflow: hidden;
+}
+
+.cover{
+	background: linear-gradient(
+      rgba(255, 255, 255, 0.45), 
+      rgba(255, 255, 255, 0.45)
+    ), url(../../images/pump.jpg) no-repeat;
+
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+.bg {
+	position: fixed; 
+	top: 0; 
+	left: 0; 
+
+	/* Preserve aspet ratio */
+	min-width: 100%;
+	min-height: 100%;
+}
+
+
+.logo-cover {
+	text-align: center;
+	font-size: 3vh;	
+	margin-top: 30vh;
+
+	.border-box;
+
+	border-bottom: 1px solid #eee;
+	background-color: rgba(255,255,255,0.8);
+
+	h1 {
+		margin-bottom: 0;
+		font-size: 9vh;
+	}
+
+	a, a:hover, a:active {
+		color: @blue-truck;
+		text-decoration: none;
+	}
+	
+
+	.logo-truck {
+		color: @green-truck;
+	}
+}
+
 .logo {
 	text-align: center;
 	font-size: 4vmax;
@@ -53,7 +94,7 @@ body a:hover,a:active {
 	}
 
 	a, a:hover, a:active {
-		color: @gray;
+		color: @blue-truck;
 		text-decoration: none;
 	}
 
@@ -67,39 +108,20 @@ body a:hover,a:active {
 	}
 }
 
+.search {
+	background: @blue-truck;
+	color: white;
+	font-size: 1.5rem;
+	// padding: 1rem 0;
+	margin-bottom: 1rem;
+
+	a, a:hover a:active {
+		color: white;
+		text-decoration: none;
+	}
+}
+
+@import './buttons';
 @import './Components/Lib/PanelBox/PanelBox';
 @import './Components/Lib/PanelStatisticsCard/PanelStatisticsCard';
 @import './Components/Lib/PricesCard/PricesCard';
-
-.station {
-	.body {
-		.full-row;
-		.about {
-			font-size: 2rem;
-		}
-	}
-	.footer {
-		.full-row;
-	}
-	
-}
-
-.chart div {
-	font: 10px sans-serif;
-	background-color: @green-truck;
-	text-align: right;
-	padding: 3px;
-	margin: 1px;
-	color: white;
-}
-
-.chart rect {
-  fill: steelblue;
-}
-
-.chart text {
-  fill: white;
-  font: 10px sans-serif;
-  text-anchor: end;
-}
-
