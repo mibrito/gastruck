@@ -73,7 +73,7 @@ class Search extends React.Component {
 					<Col md={12}><h3>{!_.isEmpty(states) && 'States'}</h3></Col>
 					<Col md={12}>{_.map(states, function(state, key){
 						return (<div className="state" key={key}>
-							<b>{state.name}</b> <Link to={`/id/${state._id}`}>Go</Link><br/>
+							<b>{state.name}</b> <Link to={`/i/${state._id}`}>Go</Link><br/>
 							<label>Id:</label> <span>{state._id}</span><br/>
 							<label>#Cities:</label> <span>{state.cities.length}</span><br/>
 						</div>);
@@ -83,9 +83,9 @@ class Search extends React.Component {
 					<Col md={12}><h3>{!_.isEmpty(cities) && 'Cities'}</h3></Col>
 					<Col md={12}>{_.map(cities, function(city, key){
 						return (<div className="city" key={key}>
-							<b>{city.name}</b> <Link to={`/id/${city.state._id}/id/${city._id}`}>Go</Link><br/>
+							<b>{city.name}</b> <Link to={`/i/${city.state._id}/${city._id}`}>Go</Link><br/>
 							<label>Id:</label> <span>{city._id}</span><br/>
-							<label>State:</label> <span>{city.state.name}</span> <Link to={`/id/${city.state._id}`}>Go</Link><br/>
+							<label>State:</label> <span>{city.state.name}</span> <Link to={`/i/${city.state._id}`}>Go</Link><br/>
 							<label>#Stations:</label> <span>{city.stations.length}</span><br/>
 							<label>#Fuels:</label> <span>{city.statistics.length}</span><br/>
 						</div>);
@@ -95,9 +95,9 @@ class Search extends React.Component {
 					<Col md={12}><h3>{!_.isEmpty(stations) && 'Stations'}</h3></Col>
 					<Col md={12}>{_.map(stations, function(station, key){
 						return (<div className="station" key={key}>
-							<b>{station.name}</b> <Link to={`/id/${station.city.state}/id/${station.city._id}/id/${station._id}`}>Go</Link><br/>
+							<b>{station.name}</b> <Link to={`/i/${station.city.state}/${station.city._id}/${station._id}`}>Go</Link><br/>
 							<label>Id:</label> <span>{station._id}</span><br/>
-							<label>City:</label> <span>{station.city.name}</span> <Link to={`/id/${station.city.state}/id/${station.city._id}`}>Go</Link> <br/>
+							<label>City:</label> <span>{station.city.name}</span> <Link to={`/i/${station.city.state}/${station.city._id}`}>Go</Link> <br/>
 							<label>#Fuels:</label> <span>{station.prices.length}</span><br/>
 						</div>);
 					})}</Col>

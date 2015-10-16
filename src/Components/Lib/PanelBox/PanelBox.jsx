@@ -43,7 +43,7 @@ class PanelBox extends React.Component {
 		var pathname = this.props.location.pathname;
 		// pathname = pathname === '/i/' ? '' : pathname;
 
-		console.log(pathname);
+		// console.log(pathname);
 
 		var rootPathname = pathname.split('/');
 		rootPathname = rootPathname.slice(0,rootPathname.length-1).join('/'); // remove the last item
